@@ -17,5 +17,14 @@ nav{
 }
 
 .logo{
- font-size: clamp(16px, 2vw, 20px);
+ height: clamp(14px, 1.8vw, 18px);
+ width: auto;
+ cursor: pointer;
+
+ img{
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
+ }
 }

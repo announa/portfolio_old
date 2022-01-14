@@ -3,6 +3,7 @@
   width: 100%;
   height: 100vh;
   background-color: black;
+  overflow: hidden;
 
   @media (max-width: 600px) {
     flex-direction: column-reverse;
@@ -21,45 +22,47 @@
   }
 }
 
-h1 {
+.headings {
   position: relative;
-  z-index: 1;
+}
 
-  &::after {
-    content: "Hi ,I am";
-    position: absolute;
-    inset: 0;
-    transform-origin: 100% 100%;
-    z-index: -1;
-    opacity: 0;
-    transition: all 225ms ease-in-out;
+.h1-layer {
+  position: absolute;
+  left: -130%;
+  width: 230%;
+  top: 0;
+  height: 50%;
+  background: linear-gradient(
+    to right,
+    black 30%,
+    transparent 40%,
+    transparent 50%,
+    black 60%
+  );
 
-  }
-
-  span {
-    position: relative;
-
-    &::after {
-      content: "Anna";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: 100% 100%;
-      z-index: -1;
-      opacity: 0;
-      transition: all 225ms ease-in-out;
-
+  @keyframes layer-animation {
+    to {
+      left: 0%;
     }
   }
+}
 
-  &:hover::after {
-   transform: rotateX(60deg) skewX(-50deg) translate(-7.5%, -21%);
-    opacity: 0.15;
+.main-heading {
+  position: relative;
+  z-index: 1;
+  &:hover ~ .h1-layer {
+    animation: layer-animation 1s linear forwards;
+    animation-iteration-count: 1;
   }
+}
 
-  &:hover > span::after {
-   transform: rotateX(60deg) skew(-50deg) translate(-21%, -20%);
-    opacity: 0.15;
+.highlighted {
+  position: absolute;
+  top: 0;
+  text-shadow: 0 0 7px rgba(255, 255, 255, 1);
+
+  span {
+    text-shadow: 0 0 7px var(--text-colored);
   }
 }
 
@@ -69,6 +72,7 @@ h1 {
 
 .picture-container {
   border-radius: 50%;
+  border: none;
   width: 30vw;
   height: 30vw;
   position: relative;
@@ -86,14 +90,7 @@ h1 {
   width: 30vw;
   height: 30vw;
   object-fit: cover;
-}
-
-.profile-img--green {
-  position: absolute;
-  inset: 0;
-  width: 30vw;
-  height: 30vw;
-  opacity: 0;
+  border: none;
   transition: all 225ms ease-in-out;
 }
 
@@ -106,10 +103,10 @@ h1 {
   height: 31vw;
   border-radius: 50%;
   background: radial-gradient(
-    at 50% 45%,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.4) 30%,
-    rgba(0, 0, 0, 1) 70%
+    at 50% 48%,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 1) 65%
   );
   transition: all 225ms ease-in-out;
 }
