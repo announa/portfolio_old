@@ -1,12 +1,12 @@
 <nav class="pd-15 flex">
-  <a href="#head" class="logo flex">
+  <a routerLink="/#head" (click)="navigation.forceNavigation('head')" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a>
   <div class="nav-links">
-    <a href="#head">Home</a>
+    <a routerLink="/#head" (click)="navigation.forceNavigation('head')">Home</a>
     <a href="#">About</a>
     <a href="#">Skills</a>
-    <a href="#mywork">My Work</a>
+    <a routerLink="/#mywork" (click)="navigation.forceNavigation('mywork')">My Work</a>
     <a href="#">Contact</a>
   </div>
 </nav>

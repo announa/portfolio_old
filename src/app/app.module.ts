@@ -8,6 +8,12 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { SkillsComponent } from './skills/skills.component';
 import { WorkComponent } from './work/work.component';
 import { HeadComponent } from './head/head.component';
+import { Router, RouterModule, Scroll } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+import { NavigationService } from './navigation.service';
+import { filter } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +26,34 @@ import { HeadComponent } from './head/head.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [NavigationService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router, viewportScroller: ViewportScroller) {
+    viewportScroller.setOffset([0, 0]);
+    router.events
+      .pipe(filter((e) => e instanceof Scroll))
+      .subscribe((e: Scroll) => {
+        //a good solve but it still does not scroll to anchor element after second click on the same anchor
+        //one fix should be to set routing config option onSameUrlNavigation: 'reload',
+        if (e.anchor) {
+          // anchor navigation
+          /* setTimeout is the core line to solve the solution */
+          setTimeout(() => {
+            viewportScroller.scrollToAnchor(e.anchor);
+          });
+        } else if (e.position) {
+          // backward navigation
+          viewportScroller.scrollToPosition(e.position);
+        } else {
+          // forward navigation
+          viewportScroller.scrollToPosition([0, 0]);
+        }
+      });
+  }
+}
