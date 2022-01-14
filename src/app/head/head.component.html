@@ -1,0 +1,25 @@
+<div class="component-container pd-15 flex">
+ <div class="headings">
+   <h1 class="main-heading" (mouseenter)="animation = true; resetAnimation()">
+     <span
+       *ngFor="let letter of heading_1; let i = index"
+       [class.letter-animation]="animation"
+       [ngStyle]="{ 'animation-delay.ms': 50 * i }"
+       >{{ letter }}</span
+     >
+     <span
+       *ngFor="let letter of heading_2; let j = index"
+       class="text-colored"
+       [class.letter-animation]="animation"
+       [ngStyle]="{ 'animation-delay.ms': 450 + 50 * j }"
+       >{{ letter }}</span
+     >
+   </h1>
+
+   <h2>Front End Developer</h2>
+ </div>
+ <div class="picture-container">
+   <img class="profile-img" src="assets/img/profile_picture.jpg" />
+   <div class="picture-layer"></div>
+ </div>
+</div>

@@ -1,8 +1,9 @@
 nav{
- position: absolute;
+ position: fixed;
  justify-content: space-between;
  width: 100%;
  height: 75px;
+ padding: 0 13vw;
  background-color: rgba($color: #000000, $alpha: .8);
  z-index: 2;
 
@@ -17,14 +18,19 @@ nav{
 }
 
 .logo{
- height: clamp(14px, 1.8vw, 18px);
+ height: clamp(14px, 1.8vw, 16px);
  width: auto;
  cursor: pointer;
+
+ &:hover > img{
+  filter: invert(100%);
+ }
 
  img{
   height: 100%;
   width: auto;
   object-fit: contain;
   display: inline-block;
+  transition: all 225ms ease-in-out;
  }
 }
