@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+body{
+ --text-colored: #11d1ae;
+}
+
+h1 {
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 700;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    font-size: clamp(32px, 10vw, 60px);
+  }
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 60px);
+  @media (max-width: 600px) {
+    font-size: clamp(22px, 8vw, 50px);
+  }
+}
+
+a {
+  font-size: clamp(16px, 2vw, 20px);
+  color: white;
+  text-decoration: none;
+
+  &:hover{
+   color: #bbb;
+  }
+}
+
+.pd-15{
+ padding: 0 13vw;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

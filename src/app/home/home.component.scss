@@ -1,0 +1,115 @@
+.home-container {
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+
+    .picture-container,
+    .profile-img {
+      width: 50vw;
+      height: 50vw;
+    }
+
+    .picture-layer {
+      width: 51vw;
+      height: 51vw;
+    }
+  }
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: "Hi ,I am";
+    position: absolute;
+    inset: 0;
+    transform-origin: 100% 100%;
+    z-index: -1;
+    opacity: 0;
+    transition: all 225ms ease-in-out;
+
+  }
+
+  span {
+    position: relative;
+
+    &::after {
+      content: "Anna";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 100% 100%;
+      z-index: -1;
+      opacity: 0;
+      transition: all 225ms ease-in-out;
+
+    }
+  }
+
+  &:hover::after {
+   transform: rotateX(60deg) skewX(-50deg) translate(-7.5%, -21%);
+    opacity: 0.15;
+  }
+
+  &:hover > span::after {
+   transform: rotateX(60deg) skew(-50deg) translate(-21%, -20%);
+    opacity: 0.15;
+  }
+}
+
+.text-colored {
+  color: var(--text-colored);
+}
+
+.picture-container {
+  border-radius: 50%;
+  width: 30vw;
+  height: 30vw;
+  position: relative;
+  transition: all 225ms ease-in-out;
+  &:hover > .profile-img--green {
+    opacity: 1;
+  }
+  &:hover > .picture-layer {
+    opacity: 0;
+  }
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+}
+
+.profile-img--green {
+  position: absolute;
+  inset: 0;
+  width: 30vw;
+  height: 30vw;
+  opacity: 0;
+  transition: all 225ms ease-in-out;
+}
+
+.picture-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31vw;
+  height: 31vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    at 50% 45%,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4) 30%,
+    rgba(0, 0, 0, 1) 70%
+  );
+  transition: all 225ms ease-in-out;
+}
