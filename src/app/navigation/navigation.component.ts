@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavigationService } from '../navigation.service';
 
 
@@ -7,11 +7,17 @@ import { NavigationService } from '../navigation.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
+  hideElement = true;
 
   constructor(public navigation: NavigationService) { }
 
   ngOnInit(): void {
+    
+    
+  }
+  ngAfterViewInit(){
+    this.hideElement = false;
   }
 
 }

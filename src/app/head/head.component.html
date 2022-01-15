@@ -1,24 +1,28 @@
 <div id="head" class="component-container pd-15 flex">
  <div class="headings">
-   <h1 class="main-heading" (mouseenter)="animation = true; resetAnimation()">
+   <h1 class="main-heading" >
+    <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
      <span
        *ngFor="let letter of heading_1; let i = index"
-       [class.letter-animation]="animation"
-       [ngStyle]="{ 'animation-delay.ms': 50 * i }"
+       #letter
+       class="invisible"
+       [class.hover-animation]="hoverAnimation"
+       [style.animationDelay.ms]="hoverAnimation?  50 * i: 0"
        >{{ letter }}</span
      >
      <span
+      #letter
        *ngFor="let letter of heading_2; let j = index"
-       class="text-colored"
-       [class.letter-animation]="animation"
-       [ngStyle]="{ 'animation-delay.ms': 450 + 50 * j }"
+       class="invisible text-colored"
+       [class.hover-animation-blue]="hoverAnimation"
+       [style.animationDelay.ms]="hoverAnimation?  450 + 50 * j: 0"
        >{{ letter }}</span
      >
    </h1>
 
-   <h2>Front End Developer</h2>
+   <h2 class="subheading" [class.invisible]="hideElement">Front End Developer</h2>
  </div>
- <div class="picture-container">
+ <div class="picture-container" [class.invisible]="hideElement">
    <img class="profile-img" src="assets/img/profile_picture.jpg" />
    <div class="picture-layer"></div>
  </div>

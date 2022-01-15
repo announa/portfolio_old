@@ -5,6 +5,10 @@
   color: white;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
  --text-colored: #11d1ae;
 }
@@ -13,8 +17,15 @@ body{
   width: 100%;
   min-height: 100vh;
   background-color: black;
-  padding: 0 13vw;
+  padding: 75px 13vw;
+}
 
+.invisible{
+  opacity: 0;
+}
+
+.scroll-over{
+  z-index: 5;
 }
 
 h1 {

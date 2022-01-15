@@ -1,104 +1,164 @@
 .component-container {
- justify-content: space-between;
- overflow: hidden;
+  justify-content: space-between;
+  overflow: hidden;
+  /* position: sticky; */
+  top: 0;
 
- @media (max-width: 600px) {
-   flex-direction: column-reverse;
-   justify-content: space-evenly;
+  @media (max-width: 600px) {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
 
-   .picture-container,
-   .profile-img {
-     width: 50vw;
-     height: 50vw;
-   }
+    .picture-container,
+    .profile-img {
+      width: 50vw;
+      height: 50vw;
+    }
 
-   .picture-layer {
-     width: 51vw;
-     height: 51vw;
-   }
- }
+    .picture-layer {
+      width: 51vw;
+      height: 51vw;
+    }
+  }
 }
 
 .headings {
- position: relative;
+  position: relative;
 }
 
 .main-heading {
- position: relative;
- z-index: 1;
- span{
-   position: relative;
-   top: 0;
- }
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  span {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    white-space: pre;
+/*     &:hover{
+      animation: hover-animation 500ms linear;
+    } */
+  }
+}
+
+.subheading{
+  transition: all 1s ease-in-out;
 }
 
 .text-colored {
- color: var(--text-colored);
- transform: scaleY(150%);
+  color: var(--text-colored);
 }
 
 .picture-container {
- border-radius: 50%;
- border: none;
- width: 30vw;
- height: 30vw;
- position: relative;
- transition: all 225ms ease-in-out;
- &:hover > .profile-img--green {
-   opacity: 1;
- }
- &:hover > .picture-layer {
-   opacity: 0;
- }
+  border-radius: 50%;
+  border: none;
+  width: 30vw;
+  height: 30vw;
+  position: relative;
+  transition: all 1s ease-in-out;
+
+  &:hover > .profile-img--green {
+    opacity: 1;
+  }
+  &:hover > .picture-layer {
+    opacity: 0;
+  }
 }
 
 .profile-img {
- border-radius: 50%;
- width: 30vw;
- height: 30vw;
- object-fit: cover;
- border: none;
- transition: all 225ms ease-in-out;
+  border-radius: 50%;
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+  border: none;
+  transition: all 225ms ease-in-out;
 }
 
 .picture-layer {
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- width: 31vw;
- height: 31vw;
- border-radius: 50%;
- background: radial-gradient(
-   at 50% 48%,
-   rgba(0, 0, 0, 0.3) 20%,
-   rgba(0, 0, 0, 0.8) 50%,
-   rgba(0, 0, 0, 1) 65%
- );
- transition: all 225ms ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31vw;
+  height: 31vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    at 50% 48%,
+    rgba(0, 0, 0, 0.3) 20%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 1) 65%
+  );
+  transition: all 225ms ease-in-out;
 }
 
-
-.letter-animation{
- animation: letter-animation 200ms linear;
+.hover-animation {
+  animation: hover-animation 200ms linear;
+}
+.hover-animation-blue {
+  animation: hover-animation-blue 200ms linear;
 }
 
-@keyframes letter-animation {
- 20%{
-   text-shadow: 0 0 7px rgba(255, 255, 255, 1);
-   top: -15%
+@keyframes hover-animation {
+  20% {
+    text-shadow: 0 0 7px rgba(255, 255, 255, 1);
+    /* top: -15%; */
+  }
+
+  50% {
+    text-shadow: 0 0 7px rgba(255, 255, 255, 1);
+    /* top: -25%; */
+  }
+  80% {
+    text-shadow: 0 0 7px rgba(255, 255, 255, 1);
+    /* top: -15%; */
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 1);
+    /* top: 0; */
+  }
+}
+@keyframes hover-animation-blue {
+  20% {
+    text-shadow: 0 0 7px var(--text-colored);
+    /* top: -15%; */
+  }
+
+  50% {
+    text-shadow: 0 0 7px var(--text-colored);
+    /* top: -25%; */
+  }
+  80% {
+    text-shadow: 0 0 7px var(--text-colored);
+    /* top: -15%; */
+  }
+  100% {
+    text-shadow: 0 0 0 var(--text-colored);
+    /* top: 0; */
+  }
+}
+
+.falling-animation{
+  animation: falling-letter 700ms ease-in-out;
  }
 
- 50%{
-   text-shadow: 0 0 7px rgba(255, 255, 255, 1);
-   top: -25%
+@keyframes falling-letter {
+  0%{
+   top: -300%;
+   left: -40%;
+   opacity: 0;
+  }
+  10%{
+   top: -270%;
+   left: -5%; 
+   opacity: .3;
+  }
+  70%{
+   top: 0;
+   left: 0;
+   opacity: 1;
+   transform: scale(130%, 70%);
+  }
+  100%{
+   transform: scale(100%, 100%);
+  }
  }
- 80%{
-   text-shadow: 0 0 7px rgba(255, 255, 255, 1);
-   top: -15%
- }
- 100%{
-   text-shadow: 0 0 0 rgba(255, 255, 255, 1);
-   top: 0
- }
-}

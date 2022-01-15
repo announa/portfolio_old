@@ -34,18 +34,20 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+  
   constructor(router: Router, viewportScroller: ViewportScroller) {
     viewportScroller.setOffset([0, 0]);
     router.events
-      .pipe(filter((e) => e instanceof Scroll))
+      .pipe(filter((e: any) => e instanceof Scroll))
       .subscribe((e: Scroll) => {
+        
         //a good solve but it still does not scroll to anchor element after second click on the same anchor
         //one fix should be to set routing config option onSameUrlNavigation: 'reload',
         if (e.anchor) {
           // anchor navigation
           /* setTimeout is the core line to solve the solution */
           setTimeout(() => {
-            viewportScroller.scrollToAnchor(e.anchor);
+            viewportScroller.scrollToAnchor(e.anchor as string);
           });
         } else if (e.position) {
           // backward navigation
