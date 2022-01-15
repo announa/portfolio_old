@@ -13,11 +13,12 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   constructor(public navigation: NavigationService) { }
 
   ngOnInit(): void {
-    
+    setTimeout(() => {
+      this.hideElement = false;
+    }, 1);
     
   }
   ngAfterViewInit(){
-    this.hideElement = false;
   }
 
 }
