@@ -25,22 +25,14 @@ export class HeadComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    console.log('change hide element after view init')
     console.log(this.letters);
     let lettersArr = this.letters.toArray();
     console.log(lettersArr);
-/*     lettersArr.forEach((l, i, arr) => {
-      l.nativeElement.innerHTML == ' ' ? arr.splice(i, 1) : null;
-    });
-    console.log(lettersArr); */
     this.fallingLetterAnimation(lettersArr)
   }
   
   ngOnInit(): void {
     this.hideElement = false;
-
-
-    /* this.fallingLetterAnimation() */
   }
 
   fallingLetterAnimation(lettersArr: ElementRef[]) {
