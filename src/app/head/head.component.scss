@@ -1,7 +1,7 @@
 .component-container {
   justify-content: space-between;
   overflow: hidden;
-  /* position: sticky;
+/*   position: absolute;
   top: 0; */
 
   @media (max-width: 600px) {
@@ -32,9 +32,11 @@
   span {
     display: inline-block;
     position: relative;
-    top: 0;
+    top: -300%;
     left: 0;
+    opacity: 0;
     white-space: pre;
+    transform-origin: 50% 70%;
 /*     &:hover{
       animation: hover-animation 500ms linear;
     } */
@@ -42,7 +44,8 @@
 }
 
 .subheading{
-  transition: all 1s ease-in-out;
+  /* transition: all 1s ease-in-out; */
+  opacity: 0;
 }
 
 .text-colored {
@@ -55,10 +58,12 @@
   width: 30vw;
   height: 30vw;
   position: relative;
+  opacity: 0;
   transition: all 1s ease-in-out;
 
-  &:hover > .profile-img--green {
+  &:hover > .profile-img {
     opacity: 1;
+    filter: saturate(1);
   }
   &:hover > .picture-layer {
     opacity: 0;
@@ -69,6 +74,7 @@
   border-radius: 50%;
   width: 30vw;
   height: 30vw;
+  filter: saturate(50%);
   object-fit: cover;
   border: none;
   transition: all 225ms ease-in-out;
@@ -137,27 +143,45 @@
 }
 
 .falling-animation{
-  animation: falling-letter 700ms ease-in-out;
+  animation: falling-letter 700ms ease-in-out forwards;
  }
 
 @keyframes falling-letter {
   0%{
    top: -300%;
-   left: -40%;
+   left: -7%;
    opacity: 0;
   }
-  10%{
+  6%{
    top: -270%;
    left: -5%; 
-   opacity: .3;
+   opacity: .2;
   }
-  70%{
+  65%{
    top: 0;
    left: 0;
    opacity: 1;
-   transform: scale(130%, 70%);
+  }
+  70%{
+    top: 0;
+    left: 0;
+    transform: scale(120%, 70%);
+    opacity: 1;
   }
   100%{
+    top: 0;
+    left: 0;
    transform: scale(100%, 100%);
+   opacity: 1;
   }
  }
+
+ .fade-in{
+   animation: fade-in 1s ease-in-out 2.5s forwards;
+ }
+
+@keyframes fade-in {
+  100%{
+    opacity: 1;
+  }
+}

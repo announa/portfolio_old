@@ -1,11 +1,11 @@
-<nav class="pd-15 flex" [class.invisible]="hideElement">
+<nav class="pd-15 flex fade-in">
   <a routerLink="/#head" (click)="navigation.forceNavigation('head')" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a>
   <div class="nav-links">
     <a routerLink="/#head" (click)="navigation.forceNavigation('head')">Home</a>
     <a href="#">About</a>
-    <a href="#">Skills</a>
+    <a href="/#skills" (click)="navigation.forceNavigation('skills')">Skills</a>
     <a routerLink="/#mywork" (click)="navigation.forceNavigation('mywork')">My Work</a>
     <a href="#">Contact</a>
   </div>

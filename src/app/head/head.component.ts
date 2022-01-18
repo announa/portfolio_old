@@ -32,9 +32,6 @@ export class HeadComponent implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
-    setTimeout(() => {
-      this.hideElement = false;
-    }, 1);
   }
 
   fallingLetterAnimation(lettersArr: ElementRef[]) {
@@ -44,12 +41,12 @@ export class HeadComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         letter.classList.remove('invisible');
          letter.classList.add('falling-animation');
-        this.removeFallingAnimation(l)
+        /* this.removeFallingAnimation(l) */
       }, 1000 + 100 * i);
     });
   }
 
-  removeFallingAnimation(letter: ElementRef){
+/*   removeFallingAnimation(letter: ElementRef){
     setTimeout(() => {
       letter.nativeElement.classList.remove('falling-animation')
     }, 700);
@@ -59,5 +56,5 @@ export class HeadComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.hoverAnimation = false;
     }, 850);
-  }
+  } */
 }

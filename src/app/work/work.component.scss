@@ -1,11 +1,3 @@
-.component-container {
-  flex-direction: column;
-  gap: 40px;
-  @media (max-width: 360px) {
-    padding: 0;
-  }
-}
-
 .work-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
