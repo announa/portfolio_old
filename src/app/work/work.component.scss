@@ -16,6 +16,15 @@
   aspect-ratio: 1.55;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transition: all 225ms ease-in-out;
+
+  &:nth-child(odd){
+    transform: translateX(-300px);
+  }
+  &:nth-child(even){
+    transform: translateX(300px);
+  }
 
   @media (max-width: 360px) {
     width: 100%;
@@ -24,7 +33,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 225ms ease-in-out;
+    transition: all 500ms ease-in-out;
   }
 
   &:hover > .work-layer {
@@ -32,8 +41,14 @@
   }
 
   &:hover > img {
+    filter: blur(3px);
     transform: scale(1.1);
   }
+}
+
+.work-pos-0{
+  opacity: 1 !important;
+  transform: translateX(0) !important;
 }
 
 .work-layer {

@@ -25,9 +25,7 @@ export class HeadComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngAfterViewInit() {
-    console.log(this.letters);
     let lettersArr = this.letters.toArray();
-    console.log(lettersArr);
     this.fallingLetterAnimation(lettersArr)
   }
   
