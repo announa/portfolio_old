@@ -8,6 +8,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 
+declare const init: any;
+
 @Component({
   selector: 'app-head',
   templateUrl: './head.component.html',
@@ -30,6 +32,10 @@ export class HeadComponent implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
+    setTimeout(() => {
+      init();
+      
+    }, 1000);
   }
 
   fallingLetterAnimation(lettersArr: ElementRef[]) {

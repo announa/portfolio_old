@@ -11,7 +11,8 @@ html {
 
 body {
   --bg-grey: #1a1a1a;
-  --text-colored: #11d1ae;
+/*   --text-colored: #11d1ae; */
+  --text-colored: hsl(160, 80%,50%);
   overflow-x: hidden;
 }
 

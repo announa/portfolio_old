@@ -1,27 +1,31 @@
 <div id="head" class="component-container pd-15 flex">
- <div class="headings">
-   <h1 class="main-heading" >
-    <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
-     <span
-       *ngFor="let letter of heading_1; let i = index"
-       #letter
-       [class.hover-animation]="hoverAnimation"
-       [style.animationDelay.ms]="hoverAnimation?  50 * i: 0"
-       >{{ letter }}</span
-     >
-     <span
-      #letter
-       *ngFor="let letter of heading_2; let j = index"
-       class="text-colored"
-       [class.hover-animation-blue]="hoverAnimation"
-       [style.animationDelay.ms]="hoverAnimation?  450 + 50 * j: 0"
-       >{{ letter }}</span
-     >
-   </h1>
+  <div id="canvas-container" class="fade-in">
+    <canvas id="canvas" ></canvas>
+  </div>
 
-   <h2 class="subheading fade-in">Front End Developer</h2>
- </div>
- <!-- <div class="picture-container fade-in">
+  <div class="headings">
+    <h1 class="main-heading">
+      <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
+      <span
+        *ngFor="let letter of heading_1; let i = index"
+        #letter
+        [class.hover-animation]="hoverAnimation"
+        [style.animationDelay.ms]="hoverAnimation ? 50 * i : 0"
+        >{{ letter }}</span
+      >
+      <span
+        #letter
+        *ngFor="let letter of heading_2; let j = index"
+        class="text-colored"
+        [class.hover-animation-blue]="hoverAnimation"
+        [style.animationDelay.ms]="hoverAnimation ? 450 + 50 * j : 0"
+        >{{ letter }}</span
+      >
+    </h1>
+
+    <h2 class="subheading fade-in">Front End Developer</h2>
+  </div>
+  <!-- <div class="picture-container fade-in">
    <img class="profile-img" src="assets/img/profile_picture.jpg" />
    <div class="picture-layer"></div>
  </div> -->
