@@ -13,6 +13,7 @@ import { ViewportScroller } from '@angular/common';
 import { NavigationService } from './navigation.service';
 import { filter } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavigationComponent,
     SkillsComponent,
     WorkComponent,
-    HeadComponent
+    HeadComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
