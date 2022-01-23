@@ -10,7 +10,7 @@ export class NavigationService {
 
   forceNavigation(name: string) {
     this.router
-      .navigate(['/'], { fragment: name })
+      .navigate(['/about'], { fragment: name })
       .then((result) => {
         console.log(result);
       })

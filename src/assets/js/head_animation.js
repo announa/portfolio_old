@@ -109,7 +109,7 @@ function draw() {
 
 function drawPoints() {
   points.forEach((p) => {
-    ctx.fillStyle = p.isMousePoint ? 'hsl(270, 40%, 30%)' : 'hsl(165, 100%, 15%)';
+    ctx.fillStyle = p.isMousePoint ? 'hsl(270, 80%, 50%)' : 'hsl(180, 100%, 15%)';
     ctx.beginPath();
     ctx.arc(p.x - 0.6, p.y - 0.6, 1.2, 0, 2 * Math.PI);
     ctx.fill();
@@ -129,14 +129,14 @@ function drawLines() {
 
 function getLineColor(l) {
   const alpha = getStrokeAlpha(l);
-  return `hsla(165, 100%,20%, ${alpha})`;
+  return `hsla(180, 100%,20%, ${alpha})`;
 }
 
 function getLineGradient(l){
   const alpha = getStrokeAlpha(l);
   let gradient = ctx.createLinearGradient(l.x1, l.y1, l.x2, l.y2);
-  gradient.addColorStop(0, `hsla(280, 80%, 70%, ${alpha}`);
-  gradient.addColorStop(0.5, `hsla(217, 90%, 40%, ${alpha}`);
+  gradient.addColorStop(0, `hsla(280, 90%, 70%, ${alpha}`);
+  gradient.addColorStop(0.5, `hsla(217, 80%, 40%, ${alpha}`);
   gradient.addColorStop(1 ,`hsla(165, 100%,20%, ${alpha})`);
   return gradient;
 }

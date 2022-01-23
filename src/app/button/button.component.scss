@@ -4,16 +4,16 @@ button {
   border: 1px solid var(--text-colored);
   background-color: unset;
   font-size: clamp(16px, 2.5vw, 20px);
-  font-weight: 300;
-  transition: all 180ms ease-in-out;
+  font-weight: 400;
+  transition: all 50ms ease-in-out;
   position: relative;
-
+  
   &:hover {
-    text-shadow: 0 0 4px var(--text-colored);
+    text-shadow: -0px 0 4px hsla(175, 100%, 39%, .8), 0 -0px 4px hsla(175, 100%, 39%, .8), 0px 0 4px hsla(175, 100%, 39%, .8), 0 0px 4px hsla(175, 100%, 39%, .8);
     background-color: rgba(10, 10, 10, .7);
-    box-shadow: inset 0 0 2px var(--text-colored), 0 0 2px var(--text-colored);
+    box-shadow: inset 0 0 6px 0.5px var(--text-colored), 0 0 6px 0.5px var(--text-colored);
    
-    &::before {
+/*     &::before {
      content: "Find out more";
      font-size: clamp(16px, 2.5vw, 20px);
      font-weight: 300;
@@ -29,6 +29,6 @@ button {
       transform: perspective(300px) translateY(30%) rotateX(-120deg);
       filter: blur(2px);
       opacity: .5;
-    }
+    } */
   }
 }
