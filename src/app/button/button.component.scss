@@ -1,0 +1,34 @@
+button {
+  padding: 20px;
+  color: var(--text-colored);
+  border: 1px solid var(--text-colored);
+  background-color: unset;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 300;
+  transition: all 180ms ease-in-out;
+  position: relative;
+
+  &:hover {
+    text-shadow: 0 0 4px var(--text-colored);
+    background-color: rgba(10, 10, 10, .7);
+    box-shadow: inset 0 0 2px var(--text-colored), 0 0 2px var(--text-colored);
+   
+    &::before {
+     content: "Find out more";
+     font-size: clamp(16px, 2.5vw, 20px);
+     font-weight: 300;
+     color: var(--text-colored);
+     background-color: rgba(10, 10, 10, .7);
+      border: 1px solid var(--text-colored);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: 50% 100%;
+      transform: perspective(300px) translateY(30%) rotateX(-120deg);
+      filter: blur(2px);
+      opacity: .5;
+    }
+  }
+}

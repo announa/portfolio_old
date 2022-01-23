@@ -7,13 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SkillsComponent } from './skills/skills.component';
 import { WorkComponent } from './work/work.component';
-import { HeadComponent } from './head/head.component';
 import { Router, RouterModule, Scroll } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { NavigationService } from './navigation.service';
 import { filter } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
+import { ButtonComponent } from './button/button.component';
+import { AboutMeComponent } from './about-me/about-me.component';
 
 
 @NgModule({
@@ -23,8 +24,9 @@ import { AboutComponent } from './about/about.component';
     NavigationComponent,
     SkillsComponent,
     WorkComponent,
-    HeadComponent,
-    AboutComponent
+    AboutComponent,
+    AboutMeComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

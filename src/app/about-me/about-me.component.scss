@@ -1,0 +1,38 @@
+.about-section {
+ height: 100vh;
+ padding: 85px 0 0 0;
+ justify-content: flex-end;
+ position: relative;
+}
+
+.text-container{
+width: calc(50vw + 85px);
+height: calc(100vh - 150px);
+background-color: rgba(154, 255, 208, 0.1);
+position: absolute;
+left: 0;
+top: 150px;
+padding: 65px 150px 85px 85px;
+}
+
+.img-container {
+height: 100%;
+ img {
+   height: calc(100vh - 160px);
+   width: 50vw;
+   object-fit: cover;
+   object-position: 50% 20%;
+ }
+}
+
+h3{
+margin-bottom:  42px;
+}
+
+p{
+text-align: center;
+font-size: 22px;
+font-weight: 100;
+line-height: 2rem;
+
+}
