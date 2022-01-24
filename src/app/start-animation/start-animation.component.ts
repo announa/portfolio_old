@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Line } from './Line.class';
-import { Point } from './Point.class copy';
+import { Point } from './Point.class';
 
 @Component({
   selector: 'app-start-animation',
@@ -23,11 +23,17 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
     this.initCanvas();
   }
   @HostListener('document:mousemove', ['$event'])
-  mousemoveEvent($event: Event) {
+  mousemoveEvent($event: any) {
     this.moveMousePoint($event);
   }
   @HostListener('document:mouseleave', ['$event'])
   mouseleaveEvent() {
+    console.log('mouse leave');
+    this.removeMousePoint();
+  }
+  @HostListener('document:mouseout', ['$event'])
+  mouseoutEvent() {
+    console.log('mouse out');
     this.removeMousePoint();
   }
 
@@ -45,7 +51,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.c = this.canvas.nativeElement;
-    this.cC = this.cC;
+    this.cC = this.canvasContainer.nativeElement;
     this.startAnimation();
   }
 
@@ -68,7 +74,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         const point = new Point(this.getX(), this.getY(), false);
         this.points.push(point);
-      }, 1000 + i * 150);
+      }, 2500 + i * 150);
     }
   }
 
@@ -87,7 +93,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   }
 
   getMouseLines() {
-    if (this.mousePoint.isMousePoint) {
+    if (this.mousePoint && this.mousePoint.isMousePoint) {
       this.getLines(this.mousePoint, 0, true);
     }
   }
@@ -116,7 +122,9 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   }
 
   draw() {
-    this.animationFrame = requestAnimationFrame(this.draw);
+    this.animationFrame = requestAnimationFrame(() => {
+      this.draw();
+    });
     this.ctx.clearRect(0, 0, this.c.width, this.c.height);
     this.drawPoints();
     this.drawLines();
@@ -143,7 +151,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
       this.ctx.moveTo(l.x1, l.y1);
       this.ctx.lineTo(l.x2, l.y2);
       this.ctx.stroke();
-      /* linesToDraw.splice(i, 1); */
     });
   }
 
@@ -213,30 +220,33 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   /* -----------  MOUSE ANIMATION  ------------- */
 
-  createMousePoint(event: Event) {
-    console.log('create mouse point');
-    console.log(event);
-    /*   this.mousePoint = new Point(event.pageX, event.pageY, true);
-  this.points.push(mousePoint);
-  this.createLines(); */
+  createMousePoint(event: any) {
+    if (this.points.length > 0) {
+      console.log('create mouse point');
+      this.mousePoint = new Point(event.x, event.y, true);
+      this.points.push(this.mousePoint);
+      this.createLines();
+    }
   }
 
-  moveMousePoint(event: Event) {
-    console.log('move mouse point');
-    console.log(event);
-    if (!this.mousePoint) {
-      this.createMousePoint(event);
-    } else if (!this.mousePoint.isMousePoint) {
+  moveMousePoint(event: any) {
+    if (this.mousePoint && this.mousePoint.isMousePoint) {
+      this.mousePoint.x = event.x;
+      this.mousePoint.y = event.y;
+      this.createLines();
+    } else {
       this.createMousePoint(event);
     }
-    this.mousePoint.x = event.x;
-    this.mousePoint.y = event.y;
-    this.createLines();
   }
 
   removeMousePoint() {
-    const index = this.points.findIndex((p) => p.isMousePoint === true);
-    this.points.splice(index, 1);
-    this.mousePoint.isMousePoint = false;
+    if (this.mousePoint) {
+      const index = this.points.findIndex((p) => p.isMousePoint === true);
+      if (index) {
+        console.log('remove mouse point');
+        this.points.splice(index, 1);
+        this.mousePoint.isMousePoint = false;
+      }
+    }
   }
 }

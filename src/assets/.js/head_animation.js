@@ -80,6 +80,7 @@ function createLines() {
   linesToDraw = [];
   getMouseLines();
   points.forEach((p, i) => getLines(p, i, false));
+  console.log(this.linesToDraw)
 }
 
 function getMouseLines() {
