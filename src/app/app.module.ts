@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SkillsComponent } from './skills/skills.component';
-import { WorkComponent } from './work/work.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 import { Router, RouterModule, Scroll } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
 import { NavigationService } from './navigation.service';
@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { ButtonComponent } from './button/button.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { StartAnimationComponent } from './start-animation/start-animation.component';
 
 
 @NgModule({
@@ -23,10 +24,11 @@ import { AboutMeComponent } from './about-me/about-me.component';
     HomeComponent,
     NavigationComponent,
     SkillsComponent,
-    WorkComponent,
+    PortfolioComponent,
     AboutComponent,
     AboutMeComponent,
     ButtonComponent,
+    StartAnimationComponent,
   ],
   imports: [
     BrowserModule,

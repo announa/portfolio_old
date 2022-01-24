@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', init);
+/* document.addEventListener('DOMContentLoaded', init); */
 
 let canvas;
 let ctx;
 let points = [];
 let linesToDraw = [];
 let mousePoint = {};
+let animationFrame;
 
 class Point {
   constructor(x, y, isMousePoint) {
@@ -42,12 +43,13 @@ class Line {
   }
 }
 
-function init() {
+/* function init() {
+  console.log('init')
   initCanvas();
   createPoints(80);
   createLines();
   draw();
-}
+} */
 
 function initCanvas() {
   canvas = document.getElementById('canvas');
@@ -100,7 +102,7 @@ function containsLine(line) {
 }
 
 function draw() {
-  requestAnimationFrame(draw);
+  animationFrame = requestAnimationFrame(draw);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawPoints();
   drawLines();
@@ -185,6 +187,13 @@ function outOfView(p) {
 }
 
 window.addEventListener('resize', initCanvas);
+
+function stopAnimationFrame(){
+  cancelAnimationFrame(animationFrame)
+  console.log('stop animation')
+  points = [];
+  linesToDraw = [];
+}
 
 /* -----------  MOUSE ANIMATION  ------------- */
 

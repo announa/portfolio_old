@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -7,8 +6,10 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { Router } from '@angular/router';
 
-declare const init: any;
+/* declare const init: any; */
+declare const stopAnimationFrame: any;
 
 @Component({
   selector: 'app-home',
@@ -21,35 +22,40 @@ export class HomeComponent implements OnInit, AfterViewInit {
   heading_1 = ['H', 'i', ',', ' ', 'I', ' ', 'a', 'm', ' '];
   heading_2 = ['A', 'n', 'n', 'a'];
   hoverAnimation = false;
+  animating = false;
 
   @ViewChildren('letter') letters!: QueryList<any>;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngAfterViewInit() {
     let lettersArr = this.letters.toArray();
-    this.fallingLetterAnimation(lettersArr)
+    this.fallingLetterAnimation(lettersArr);
+/*     if(this.router.url=='/')
+    init(); */
   }
-  
+
   ngOnInit(): void {
-      if(!init){
-      init();
-      }
   }
 
   fallingLetterAnimation(lettersArr: ElementRef[]) {
     lettersArr.reverse().forEach((l, i) => {
-      let letter = l.nativeElement
-      letter.innerHTML == ' '? letter.classList.remove('invisible') : null;
+      let letter = l.nativeElement;
+      letter.innerHTML == ' ' ? letter.classList.remove('invisible') : null;
       setTimeout(() => {
         letter.classList.remove('invisible');
-         letter.classList.add('falling-animation');
+        letter.classList.add('falling-animation');
         /* this.removeFallingAnimation(l) */
       }, 1000 + 100 * i);
     });
   }
 
-/*   removeFallingAnimation(letter: ElementRef){
+  stopAnimation() {
+    stopAnimationFrame();
+    this.animating = false;
+  }
+
+  /*   removeFallingAnimation(letter: ElementRef){
     setTimeout(() => {
       letter.nativeElement.classList.remove('falling-animation')
     }, 700);

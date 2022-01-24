@@ -1,17 +1,20 @@
 import {
   AfterViewInit,
   Component,
+  ElementRef,
+  HostListener,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 
 @Component({
-  selector: 'app-work',
-  templateUrl: './work.component.html',
-  styleUrls: ['./work.component.scss'],
+  selector: 'app-portfolio',
+  templateUrl: './portfolio.component.html',
+  styleUrls: ['./portfolio.component.scss'],
 })
-export class WorkComponent implements OnInit, AfterViewInit {
+export class PortfolioComponent implements OnInit, AfterViewInit {
   projects = [
     {
       title: 'Bitcoin App',
@@ -44,6 +47,13 @@ export class WorkComponent implements OnInit, AfterViewInit {
   observer!: IntersectionObserver;
 
   @ViewChildren('projectItem') projectItemList!: QueryList<any>;
+  @ViewChild('portfolio') portfolio!: ElementRef
+  @ViewChild('portfolioHeading') portfolioHeading!: ElementRef
+  @HostListener("document:scroll", ['$event'])
+  fadeComponent($event:Event){ 
+  }
+/*   let scrollOffset = $event.srcElement.children[0].scrollTop;
+  console.log("window scroll: ", scrollOffset); */
 
   constructor() {}
 
@@ -53,20 +63,21 @@ export class WorkComponent implements OnInit, AfterViewInit {
 
     const options = {
       root: null,
-      rootMargin: "0px",
-      threshold: .5
+      rootMargin: "-125px",
+      threshold: .4
     }
-    console.log(this.projectItemList)
     this.observer = new IntersectionObserver((entries) => {
-      console.log(entries);
       entries.forEach(e => {
-        if(e.isIntersecting){
-          e.target.classList.toggle('work-pos-0')
-          this.observer.unobserve(e.target);
+         if(e.isIntersecting){
+          e.target.classList.add('o-1')
+        } else{
+          e.target.classList.remove('o-1')
         }
+        /* this.observer.unobserve(e.target); */
       })
     }, options);
 
     this.projectItemList.forEach((p) => this.observer.observe(p.nativeElement));
+    this.observer.observe(this.portfolioHeading.nativeElement);
   }
 }

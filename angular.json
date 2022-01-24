@@ -33,7 +33,8 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": ["src/assets/js/head_animation.js"]
+            "scripts": []
+      
           },
           "configurations": {
             "production": {

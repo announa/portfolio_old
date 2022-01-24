@@ -1,7 +1,6 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  /* font-family: "Inter", sans-serif; */
   font-family: 'Spartan', sans-serif;
   color: white;
 }
@@ -12,17 +11,16 @@ html {
 
 body {
   --bg-grey: #1a1a1a;
-/*   --text-colored: #11d1ae; */
-  /* --text-colored: hsl(160, 80%,50%);  */
   --text-colored: hsl(175, 100%, 39%); 
   overflow-x: hidden;
+  background-color: rgb(10,10,10);
 }
 
 .component-container {
   width: 100%;
-  min-height: 100vh;
-   background-color: black;
-   padding: 85px 13vw;
+/*   min-height: 100vh; */
+   padding: 125px 13vw 50px;
+   background-color: rgb(10, 10, 10);
 }
 
 .content-section {
@@ -83,4 +81,25 @@ a {
 
 button{
   cursor: pointer;
+}
+
+
+.fade-in{
+  opacity: 0;
+  animation: fade-in 1s ease-in-out 500ms forwards;
+}
+
+@keyframes fade-in {
+ 100%{
+   opacity: 1;
+ }
+}
+
+.o-0{
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.o-1{
+  opacity: 1 !important;
 }

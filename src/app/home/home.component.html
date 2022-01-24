@@ -1,8 +1,9 @@
-<div id="home" class="head-container pd-15">
-  <div id="canvas-container" class="fade-in">
+<div id="home" class="home-container pd-15">
+<!--   <div id="canvas-container" class="fade-in">
     <canvas id="canvas"></canvas>
-  </div>
-  <div class="head-content flex">
+  </div> -->
+  <app-start-animation></app-start-animation>
+  <div class="home-content flex">
     <div class="headings">
       <h1 class="main-heading">
         <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
@@ -33,7 +34,7 @@
       routerLink="/about"
       class="button-container fade-in"
     >
-      <app-button [buttonText]="'Find out more'"></app-button>
+      <app-button [buttonText]="'Find out more'" (click)="stopAnimation()"></app-button>
     </a>
   </div>
 </div>

@@ -1,4 +1,13 @@
-.work-container {
+.component-container{
+  padding-bottom: 125px;
+}
+
+h3{
+  opacity: 0;
+  margin-bottom: 42px;
+}
+
+.portfolio-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
@@ -11,20 +20,13 @@
   }
 }
 
-.work {
+.portfolio {
   width: 25vw;
   aspect-ratio: 1.3;
   position: relative;
   overflow: hidden;
   opacity: 0;
-  transition: all 225ms ease-in-out;
-
-  &:nth-child(odd){
-    transform: translateX(-300px);
-  }
-  &:nth-child(even){
-    transform: translateX(300px);
-  }
+  transition: all 350ms ease-in-out;
 
   @media (max-width: 360px) {
     width: 100%;
@@ -34,24 +36,21 @@
     height: 100%;
     object-fit: cover;
     transition: all 700ms ease-in-out;
+    filter: blur(2px);
   }
 
-  &:hover > .work-layer {
-    transform: translateY(0);
+  &:hover > .portfolio-layer {
+    transform: translateY(100%);
   }
 
   &:hover > img {
-    filter: blur(3px);
+    filter: blur(0);
     transform: scale(1.1);
   }
 }
 
-.work-pos-0{
-  opacity: 1 !important;
-  transform: translateX(0) !important;
-}
 
-.work-layer {
+.portfolio-layer {
   position: absolute;
   inset: 0;
   padding: 20px;
@@ -59,7 +58,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transform: translateY(100%);
   transition: all 225ms ease-in-out;
   p {
     text-align: center;
