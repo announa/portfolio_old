@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { ButtonComponent } from './button/button.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { StartAnimationComponent } from './start-animation/start-animation.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { StartAnimationComponent } from './start-animation/start-animation.compo
     AboutMeComponent,
     ButtonComponent,
     StartAnimationComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

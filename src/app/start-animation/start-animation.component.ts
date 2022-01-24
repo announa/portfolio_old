@@ -40,10 +40,10 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   points: Point[] = [];
   linesToDraw: Line[] = [];
   mousePoint!: Point;
-  c: any;
+  c!: HTMLCanvasElement;
   cC: any;
   ctx: any;
-  animationFrame: any;
+  animationFrame!: number;
 
   constructor() {}
 
@@ -207,7 +207,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
       p.x < -0.1 * this.c.width ||
       p.x > this.c.width + 0.1 * this.c.width ||
       p.y < -0.1 * this.c.width ||
-      p.y > this.c.hight + 0.1 * this.c.width
+      p.y > this.c.height + 0.1 * this.c.width
     );
   }
 
