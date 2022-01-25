@@ -26,11 +26,14 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   mousemoveEvent($event: any) {
     this.moveMousePoint($event);
   }
-  @HostListener('document:mouseleave', ['$event'])
+
+  /*   @HostListener('document:mouseleave', ['$event'])
   mouseleaveEvent() {
     console.log('mouse leave');
     this.removeMousePoint();
-  }
+  } */
+
+  // mouseleave event not firing in firefox  ---> alternative mouseout
   @HostListener('document:mouseout', ['$event'])
   mouseoutEvent() {
     console.log('mouse out');
@@ -41,8 +44,8 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   linesToDraw: Line[] = [];
   mousePoint!: Point;
   c!: HTMLCanvasElement;
-  cC: any;
-  ctx: any;
+  cC!: HTMLDivElement;
+  ctx!: any;
   animationFrame!: number;
 
   constructor() {}
@@ -94,7 +97,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   getMouseLines() {
     if (this.mousePoint && this.mousePoint.isMousePoint) {
-      this.getLines(this.mousePoint, 0, true);
+      this.getLines(this.mousePoint, -1, true);
     }
   }
 
@@ -102,7 +105,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < this.points.length; i++) {
       if (
         point.pointsAreClose(this.points[i], 0.2 * this.c.width) &&
-        !this.points[i].isMousePoint &&
         i > index
       ) {
         const line = new Line(point, this.points[i], isMouseLine);
@@ -224,7 +226,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
     if (this.points.length > 0) {
       console.log('create mouse point');
       this.mousePoint = new Point(event.x, event.y, true);
-      this.points.push(this.mousePoint);
+      /* this.points.push(this.mousePoint); */
       this.createLines();
     }
   }
@@ -241,12 +243,12 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   removeMousePoint() {
     if (this.mousePoint) {
-      const index = this.points.findIndex((p) => p.isMousePoint === true);
-      if (index) {
-        console.log('remove mouse point');
-        this.points.splice(index, 1);
-        this.mousePoint.isMousePoint = false;
-      }
-    }
+    this.mousePoint.isMousePoint = false;
   }
+  console.log('remove mouse point');
+    /*   const index = this.points.findIndex((p) => p.isMousePoint === true);
+      if (index) {
+        this.points.splice(index, 1);
+      } */
+    }
 }

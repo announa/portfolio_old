@@ -4,8 +4,11 @@
   position: absolute;
   inset: 0;
   padding: 85px 13vw;
-
   z-index: 1;
+
+  app-button + button{
+    padding: 20px;
+  }
 }
 
 .home-container {

@@ -7,11 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
+  @Input() btnHome: boolean = false;
+
   @Input() buttonText: string = '';
 
-  constructor() { }
+  btnType = "button";
 
+  constructor() { 
+  }
+  
   ngOnInit(): void {
+    if(!this.btnHome){
+      this.btnType = "submit";
+    }
   }
 
 }

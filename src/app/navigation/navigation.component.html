@@ -1,12 +1,12 @@
 <nav class="pd-15 flex fade-in">
-  <a routerLink="/" (click)="navigation.forceNavigation('head')" class="logo flex">
+  <a routerLink="/" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a>
   <div class="nav-links">
     <a routerLink="/">Home</a>
-    <a href="/about/#aboutme" (click)="navigation.forceNavigation('aboutme')">About</a>
+    <a routerLink="/about/#aboutme" (click)="navigation.forceNavigation('aboutme')">About</a>
     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a>
-    <a routerLink="/about/#mywork" (click)="navigation.forceNavigation('mywork')">Portfolio</a>
-    <a href="#">Contact</a>
+    <a routerLink="/about/#portfolio" (click)="navigation.forceNavigation('portfolio')">Portfolio</a>
+    <a routerLink="/about/#contact" (click)="navigation.forceNavigation('contact')">Contact</a>
   </div>
 </nav>
