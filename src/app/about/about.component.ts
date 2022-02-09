@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { projects } from '../projects'
 
 @Component({
   selector: 'app-about',
@@ -6,6 +7,10 @@ import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  projects = projects;
+  currentProject: any;
+  projectSelected = false;
+  openProject = false;
   clipValue = 100;
 
   pictures = ['me1.jpg', ]
@@ -28,5 +33,22 @@ export class AboutComponent implements OnInit {
 
   getClipPath(){
     return `polygon(0 0, 100% 0, 100% 0, 0 ${this.clipValue}%)`
+  }
+
+  showProject(event: string){
+    let currentProjectLink = event;
+    this.currentProject = this.projects.find(p => p.link.includes(currentProjectLink));
+    this.projectSelected = true;
+    setTimeout(() => {
+      this.openProject = true;
+    }, 1);
+    console.log(this.currentProject)
+  }
+
+  closeProject(){
+    this.openProject = false;
+    setTimeout(() => {
+      this.projectSelected = false;
+    }, 500);
   }
 }

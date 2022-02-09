@@ -7,3 +7,15 @@
   transform: perspective(10vw);
   transform-origin: 50% 50%;
 }
+
+.project-slider{
+  position: fixed;
+  top: 0;
+  left: 100%;
+  min-height: 100vh;
+  transition: all 500ms ease-in-out 10ms;
+}
+
+.slide-in{
+  left: 0;
+}

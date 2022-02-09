@@ -17,6 +17,7 @@ import { ButtonComponent } from './button/button.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { StartAnimationComponent } from './start-animation/start-animation.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ContactComponent } from './contact/contact.component';
     ButtonComponent,
     StartAnimationComponent,
     ContactComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,

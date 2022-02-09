@@ -1,53 +1,53 @@
 <div #contact id="contact" class="component-container content-section flex">
   <h3 #contactHeading class="o-0">contact me</h3>
-  <div #contactForm class="o-0" class="content flex">
-  <p>
-    If you are interested in realizing your next project together with me, you are
-    welcome to write me a message.
-  </p>
+  <div #contactForm class="content flex o-0">
+    <p>
+      If you are interested in realizing your next project together with me, you
+      are welcome to write me a message.
+    </p>
 
-  <div class="formatting-container">
-    <div class="form-container">
-      <form ngSubmit="submit()">
-        <div class="input-area flex">
-          <label for="first name">First name</label>
-          <input
-            name="first name"
-            type="text"
-            placeholder="First name"
-            class="form-field"
-          />
-          <label for="last name">Last name</label>
-          <input
-            name="last name"
-            type="text"
-            placeholder="Last name"
-            class="form-field"
-          />
-          <label for="e-mail">E-Mail</label>
-          <input
-            name="e-mail"
-            type="email"
-            placeholder="E-Mail"
-            class="form-field"
-          />
-          <label for="message">Your message</label>
-          <textarea
-            name="message"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Your message"
-            class="form-field"
-          ></textarea>
-        </div>
+    <div class="formatting-container">
+      <div class="form-container">
+        <form ngSubmit="submit()">
+          <div class="input-area flex">
+            <label for="first name">First name</label>
+            <input
+              name="first name"
+              type="text"
+              placeholder="First name"
+              class="form-field"
+            />
+            <label for="last name">Last name</label>
+            <input
+              name="last name"
+              type="text"
+              placeholder="Last name"
+              class="form-field"
+            />
+            <label for="e-mail">E-Mail</label>
+            <input
+              name="e-mail"
+              type="email"
+              placeholder="E-Mail"
+              class="form-field"
+            />
+            <label for="message">Your message</label>
+            <textarea
+              name="message"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Your message"
+              class="form-field"
+            ></textarea>
+          </div>
 
-        <!--     <button type="submit">Send</button> -->
-        <div class="btn-container flex">
-        <app-button [buttonText]="'Send'"></app-button>
-       </div>
-      </form>
-    </div>
+          <!--     <button type="submit">Send</button> -->
+          <div class="btn-container flex">
+            <app-button [buttonText]="'Send'"></app-button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

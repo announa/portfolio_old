@@ -9,7 +9,7 @@ import { IntersectionObserverService } from '../intersection-observer.service';
 export class ContactComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
-  @ViewChildren('contactForm') contactForm!: ElementRef<any>;
+  @ViewChildren('contactForm') contactForm!: QueryList<any>;
 
   constructor(public observer: IntersectionObserverService) { }
 

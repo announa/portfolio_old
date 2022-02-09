@@ -2,13 +2,17 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   HostListener,
   OnInit,
+  Output,
   QueryList,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { IntersectionObserverService } from '../intersection-observer.service';
+import { NavigationService } from '../navigation.service';
+import { projects } from '../projects';
 
 @Component({
   selector: 'app-portfolio',
@@ -16,9 +20,10 @@ import { IntersectionObserverService } from '../intersection-observer.service';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent implements OnInit, AfterViewInit {
-  projects = [
+/*   projects = [
     {
       title: 'Bitcoin App',
+      link: 'bitcoin_app',
       description:
         'A BTC/USD exchange calculator which also shows the historic exchange rate over a chosen period',
       url: 'https://annaludewig.net/projects/bitcoin-app/index.html',
@@ -26,25 +31,31 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     },
     {
       title: 'El Pollo Loco',
+      link: 'el_pollo_loco',
       description: 'A jump and run game written in JavaScript',
       url: 'https://annaludewig.net/projects/el_pollo_loco/index.html',
       img: 'pollo_loco.png',
     },
     {
       title: 'Pokedex',
+      link: 'pokedex',
       description: 'A pokemon gallery using the pokeapi',
       url: 'https://annaludewig.net/projects/pokedex/index.html',
       img: 'pokedex.png',
     },
     {
       title: 'Ring of Fire',
+      link: 'ring_of_fire',
       description:
         'A multiplayer online card game, built with Angular and TypeScript',
       url: 'https://ring-of-fire-7eef3.web.app/',
       img: 'ring_of_fire.png',
     },
-  ];
+  ]; */
 
+  projects = projects;
+
+  @Output() openProject = new EventEmitter();
   @ViewChildren('projectItem') projectItemList!: QueryList<any>;
   @ViewChild('portfolio') portfolio!: ElementRef;
   @ViewChildren('portfolioHeading') portfolioHeading!: QueryList<any>;
@@ -54,12 +65,16 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   /*   let scrollOffset = $event.srcElement.children[0].scrollTop;
   console.log("window scroll: ", scrollOffset); */
 
-  constructor(public observer: IntersectionObserverService) {}
+  constructor(public observer: IntersectionObserverService, public navigation: NavigationService) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
     const observeItems = [this.projectItemList, this.portfolioHeading];
     this.observer.createIntersectionObserver(observeItems);
+  }
+
+  showProject(projectLink: string){
+    this.openProject.emit(projectLink)
   }
 }

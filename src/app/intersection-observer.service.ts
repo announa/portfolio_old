@@ -23,7 +23,6 @@ export class IntersectionObserverService implements AfterViewInit {
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
-          console.log(e.target)
            if(e.isIntersecting){
             e.target.classList.add('o-1')
             this.observer.unobserve(e.target)
@@ -34,7 +33,6 @@ export class IntersectionObserverService implements AfterViewInit {
       }, options);
   
       observeItems.forEach((item: any) => {
-        console.log(item)
         item.forEach((i: ElementRef) => this.observer.observe(i.nativeElement));
       });
     }
