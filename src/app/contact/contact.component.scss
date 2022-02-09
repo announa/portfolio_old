@@ -1,10 +1,19 @@
+.content{
+flex-direction: column;
+gap: 40px;
+}
+
 .formatting-container{
  width: 100%;
  display: flex;
 }
 
 .form-container{
- width: 40%;
+ width: 60%;
+
+ @media (max-width: 800px){
+  width: 100%;
+ }
 }
 
 .input-area{

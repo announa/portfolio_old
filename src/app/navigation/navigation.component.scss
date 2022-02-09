@@ -10,10 +10,13 @@ nav {
   opacity: 0;
 
   .nav-links {
+    justify-content: space-between;
     white-space: nowrap;
+    gap: clamp(20px, 3vw, 50px);
+    width: 100%;
 
     a {
-      margin-left: clamp(20px, 3vw, 50px);
+      /* margin-left: clamp(20px, 3vw, 50px); */
       text-transform: uppercase;
     }
   }

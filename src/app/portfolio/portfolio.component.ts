@@ -8,6 +8,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { IntersectionObserverService } from '../intersection-observer.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -44,40 +45,21 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  observer!: IntersectionObserver;
-
   @ViewChildren('projectItem') projectItemList!: QueryList<any>;
-  @ViewChild('portfolio') portfolio!: ElementRef
-  @ViewChild('portfolioHeading') portfolioHeading!: ElementRef
-  @HostListener("document:scroll", ['$event'])
-  fadeComponent($event:Event){ 
-  }
-/*   let scrollOffset = $event.srcElement.children[0].scrollTop;
+  @ViewChild('portfolio') portfolio!: ElementRef;
+  @ViewChildren('portfolioHeading') portfolioHeading!: QueryList<any>;
+  /* @ViewChild('portfolioHeading') portfolioHeading!: ElementRef */
+  @HostListener('document:scroll', ['$event'])
+  fadeComponent($event: Event) {}
+  /*   let scrollOffset = $event.srcElement.children[0].scrollTop;
   console.log("window scroll: ", scrollOffset); */
 
-  constructor() {}
+  constructor(public observer: IntersectionObserverService) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-
-    const options = {
-      root: null,
-      rootMargin: "-125px",
-      threshold: .4
-    }
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-         if(e.isIntersecting){
-          e.target.classList.add('o-1')
-        } else{
-          e.target.classList.remove('o-1')
-        }
-        /* this.observer.unobserve(e.target); */
-      })
-    }, options);
-
-    this.projectItemList.forEach((p) => this.observer.observe(p.nativeElement));
-    this.observer.observe(this.portfolioHeading.nativeElement);
+    const observeItems = [this.projectItemList, this.portfolioHeading];
+    this.observer.createIntersectionObserver(observeItems);
   }
 }
