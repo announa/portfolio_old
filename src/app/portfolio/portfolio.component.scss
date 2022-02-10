@@ -7,9 +7,13 @@ h3{
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  gap: 20px;
   justify-content: center;
   cursor: pointer;
+
+  @media (max-width: 1000px) {
+    gap: 10px;
+  }
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;

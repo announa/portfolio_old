@@ -12,10 +12,17 @@
   position: fixed;
   top: 0;
   left: 100%;
+  opacity: 0;
   min-height: 100vh;
-  transition: all 500ms ease-in-out 10ms;
+  /* transition-property: left, opacity;
+  transition-duration: 650ms, 250ms;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0, 400ms; */
+  transition: left 650ms ease-in-out, opacity 500ms ease-in-out 150ms;
 }
 
 .slide-in{
   left: 0;
+  opacity: 1;
+  transition: all 650ms ease-in-out;
 }

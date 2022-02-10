@@ -13,9 +13,18 @@
           <p *ngFor="let t of currentProject.technologies">{{ t }}</p>
         </div>
         <div class="links">
-          <h4>Have a look at it:</h4>
-          <a href="#">Github-Repository</a>
-          <a href="{{ currentProject.url }}" target="_blank">Try it!</a>
+          <h4>Have a look</h4>
+          <a href="{{ currentProject.github }}" target="_blank" class="flex"
+            ><img src="assets/img/skills/github.svg" class="link-icon" />
+            Github-Repository</a
+          >
+          <a href="{{ currentProject.url }}" target="_blank" class="flex"
+            ><img
+              src="assets/img/portfolio/external-link.svg"
+              class="link-icon"
+            />
+            Try it online!</a
+          >
         </div>
       </div>
       <div class="project-images">

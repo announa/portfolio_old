@@ -42,13 +42,14 @@ export class AboutComponent implements OnInit {
     setTimeout(() => {
       this.openProject = true;
     }, 1);
-    console.log(this.currentProject)
+    document.body.style.overflowY = 'hidden'
   }
-
+  
   closeProject(){
     this.openProject = false;
     setTimeout(() => {
       this.projectSelected = false;
     }, 500);
+    document.body.style.overflowY = ''
   }
 }
