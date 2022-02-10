@@ -12,7 +12,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { projects } from '../projects';
+/* import { projects } from '../projects'; */
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -20,14 +21,14 @@ import { projects } from '../projects';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit, AfterViewInit, OnChanges {
-  projects = projects;
+  /* projects = projects; */
   @Input() currentProject: any;
   @Output() goBack = new EventEmitter();
   @ViewChildren('img') img!: QueryList<any>;
   currentImage = 0;
   imgArr!: ElementRef[];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public projects: ProjectsService) {
   }
 
   ngOnInit(): void {

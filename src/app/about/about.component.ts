@@ -1,16 +1,17 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { projects } from '../projects'
+import { Component, ElementRef, HostListener, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+/* import { projects } from '../projects' */
+import { ProjectsService } from '../projects.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
-  projects = projects;
+export class AboutComponent implements OnInit, OnChanges {
+  /* projects = projects; */
   currentProject: any;
-  projectSelected = false;
-  openProject = false;
+/*   projectSelected = false;
+  openProject = false; */
   clipValue = 100;
 
   pictures = ['me1.jpg', ]
@@ -26,9 +27,14 @@ export class AboutComponent implements OnInit {
       }
   }}
 
-  constructor() { }
+  constructor(public projects: ProjectsService) { }
 
   ngOnInit(): void {
+    console.log(this.projects.projectSelected)
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.projects.projectSelected)
   }
 
   getClipPath(){
@@ -37,19 +43,11 @@ export class AboutComponent implements OnInit {
 
   showProject(event: string){
     let currentProjectLink = event;
-    this.currentProject = this.projects.find(p => p.link.includes(currentProjectLink));
-    this.projectSelected = true;
+    this.currentProject = this.projects.projects.find(p => p.link.includes(currentProjectLink));
+    this.projects.projectSelected = true;
     setTimeout(() => {
-      this.openProject = true;
+      this.projects.openProject = true;
     }, 1);
     document.body.style.overflowY = 'hidden'
-  }
-  
-  closeProject(){
-    this.openProject = false;
-    setTimeout(() => {
-      this.projectSelected = false;
-    }, 500);
-    document.body.style.overflowY = ''
   }
 }

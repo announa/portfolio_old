@@ -1,7 +1,7 @@
 <div #portfolio id="portfolio" class="component-container content-section flex">
   <h3 #portfolioHeading class="o-0">portfolio</h3>
   <div class="portfolio-container">
-    <a *ngFor="let project of projects" #projectItem (click)="showProject(project.link)" class="portfolio o-0">
+    <a *ngFor="let project of projects.projects" #projectItem (click)="showProject(project.link)" class="portfolio o-0">
     <img src="assets/img/portfolio/{{ project.img[0] }}" />
       <div class="portfolio-layer flex">
         <h4>{{ project.title }}</h4>

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NavigationService } from '../navigation.service';
+import { ProjectsService } from '../projects.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { NavigationService } from '../navigation.service';
 export class NavigationComponent implements OnInit, AfterViewInit {
   hideElement = true;
 
-  constructor(public navigation: NavigationService) { }
+  constructor(public navigation: NavigationService, public projects: ProjectsService) { }
 
   ngOnInit(): void {
     setTimeout(() => {

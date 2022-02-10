@@ -4,9 +4,9 @@
   </a> -->
   <div class="nav-links flex">
     <a routerLink="/">Home</a>
-    <a routerLink="/about/#aboutme" (click)="navigation.forceNavigation('aboutme')">About</a>
+    <a routerLink="/about/#aboutme" (click)="navigation.forceNavigation('aboutme'); projects.closeProject()">About</a>
     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a>
-    <a routerLink="/about/#portfolio" (click)="navigation.forceNavigation('portfolio')">Portfolio</a>
-    <a routerLink="/about/#contact" (click)="navigation.forceNavigation('contact')">Contact</a>
+    <a routerLink="/about/#portfolio" (click)="navigation.forceNavigation('portfolio'); projects.closeProject()">Portfolio</a>
+    <a routerLink="/about/#contact" (click)="navigation.forceNavigation('contact'); projects.closeProject()">Contact</a>
   </div>
 </nav>
