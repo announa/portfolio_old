@@ -26,7 +26,7 @@
       </h1>
 
       <h2 class="subheading">
-        <span class="falling-letter" *ngFor="let letter of heading_2; let i = index" [class.flip-text1]="flipText && i == 18"  #letter2>{{
+        <span class="falling-letter" *ngFor="let letter of heading_2; let i = index" [class.fade-out]="flipText && i == 18" #letter2>{{
           letter 
         }}</span>
       </h2>

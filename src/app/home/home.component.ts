@@ -42,9 +42,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }, 700);
     setTimeout(() => {
       this.flipText = true;
-      lettersArr2[0].nativeElement.classList.add('o-0')
-      console.log(lettersArr2)
     }, 3500);
+/*     setTimeout(() => {
+      lettersArr2[0].nativeElement.classList.add('o-0')
+    }, 10500); */
   }
 
   ngOnInit(): void {
