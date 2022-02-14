@@ -18,6 +18,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { StartAnimationComponent } from './start-animation/start-animation.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ProjectsComponent } from './projects/projects.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [NavigationService],
   bootstrap: [AppComponent]

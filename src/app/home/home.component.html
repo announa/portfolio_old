@@ -1,40 +1,46 @@
 <div id="home" class="home-container pd-15">
-<!--   <div id="canvas-container" class="fade-in">
+  <!--   <div id="canvas-container" class="fade-in">
     <canvas id="canvas"></canvas>
   </div> -->
   <app-start-animation></app-start-animation>
   <div class="home-content flex">
     <div class="headings">
-      <h1 class="main-heading">
-        <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
-        <span
-          *ngFor="let letter of heading_1; let i = index"
-          #letter
-          [class.hover-animation]="hoverAnimation"
-          [style.animationDelay.ms]="hoverAnimation ? 50 * i : 0"
-          >{{ letter }}</span
-        >
-        <span
-          #letter
-          *ngFor="let letter of heading_2; let j = index"
-          class="text-colored"
-          [class.hover-animation-blue]="hoverAnimation"
-          [style.animationDelay.ms]="hoverAnimation ? 450 + 50 * j : 0"
-          >{{ letter }}</span
-        >
+      <h1 class="mainheading">
+        <div class="falling-letter-container" [class.flip-text1]="flipText" >
+          <!-- (mouseenter)="hoverAnimation = true; resetAnimation()" -->
+          <span class="falling-letter" *ngFor="let letter of heading_1; let i = index" #letter>{{
+            letter
+          }}</span>
+          <!--         <span
+            #letter
+            *ngFor="let letter of heading_2; let j = index"
+            class="text-colored"
+            [class.hover-animation-blue]="hoverAnimation"
+            [style.animationDelay.ms]="hoverAnimation ? 450 + 50 * j : 0"
+            >{{ letter }}</span
+          > -->
+        </div>
+        <div class="mainheading2" [class.flip-text2]="flipText">
+          <span>Hi, I am </span><span class="text-colored">Anna</span>
+        </div>
       </h1>
 
-      <h2 class="subheading fade-in">Front End Developer</h2>
+      <h2 class="subheading">
+        <span class="falling-letter" *ngFor="let letter of heading_2; let i = index" [class.flip-text1]="flipText && i == 18"  #letter2>{{
+          letter 
+        }}</span>
+      </h2>
     </div>
     <!-- <div class="picture-container fade-in">
    <img class="profile-img" src="assets/img/profile_picture.jpg" />
    <div class="picture-layer"></div>
  </div> -->
-    <a
-      routerLink="/about"
-      class="button-container fade-in"
-    >
-      <app-button [buttonText]="'Find out more'" [btnHome]="true" (click)="stopAnimation()"></app-button>
+    <a routerLink="/about" class="button-container fade-in">
+      <app-button
+        [buttonText]="'Find out more'"
+        [btnHome]="true"
+        (click)="stopAnimation()"
+      ></app-button>
     </a>
   </div>
 </div>

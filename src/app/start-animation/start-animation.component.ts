@@ -77,7 +77,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         const point = new Point(this.getX(), this.getY(), false);
         this.points.push(point);
-      }, 2500 + i * 150);
+      }, 5500 + i * 150);
     }
   }
 

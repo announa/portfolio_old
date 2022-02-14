@@ -1,4 +1,4 @@
-<div #contact id="contact" class="component-container content-section flex">
+<!-- <div #contact id="contact" class="component-container content-section flex">
   <h3 #contactHeading class="o-0">contact me</h3>
   <div #contactForm class="content flex o-0">
     <p>
@@ -8,28 +8,34 @@
 
     <div class="formatting-container">
       <div class="form-container">
-        <form ngSubmit="submit()">
+        <form ngSubmit="submit()" #form="ngForm">
           <div class="input-area flex">
-            <label for="first name">First name</label>
+            <label for="firstname">First name</label>
             <input
-              name="first name"
+              name="firstname"
               type="text"
               placeholder="First name"
               class="form-field"
+              [(ngModel)]="contact.firstname"
+              #firstname="ngModel"
             />
-            <label for="last name">Last name</label>
+            <label for="lastname">Last name</label>
             <input
-              name="last name"
+              name="lastname"
               type="text"
               placeholder="Last name"
               class="form-field"
+              [(ngModel)]="contact.firstname"
+              #lastname="ngModel"
             />
-            <label for="e-mail">E-Mail</label>
+            <label for="email">E-Mail</label>
             <input
-              name="e-mail"
+              name="email"
               type="email"
               placeholder="E-Mail"
               class="form-field"
+              [(ngModel)]="contact.email"
+              #email="ngModel"
             />
             <label for="message">Your message</label>
             <textarea
@@ -39,10 +45,17 @@
               rows="10"
               placeholder="Your message"
               class="form-field"
+              [(ngModel)]="contact.message"
+              #message="ngModel"
             ></textarea>
           </div>
+          <div>
+            <p>{{ contact.firstname }}</p>
+            <p>{{ contact.lastname }}</p>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.message }}</p>
+          </div>
 
-          <!--     <button type="submit">Send</button> -->
           <div class="btn-container flex">
             <app-button [buttonText]="'Send'"></app-button>
           </div>
@@ -51,3 +64,4 @@
     </div>
   </div>
 </div>
+ -->
