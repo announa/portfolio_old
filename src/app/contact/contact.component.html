@@ -8,7 +8,7 @@
 
     <div class="formatting-container">
       <div class="form-container">
-        <form ngSubmit="submit(form)" #form="ngForm">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="input-area flex">
             <label for="firstname">First name</label>
             <input
@@ -27,7 +27,7 @@
               placeholder="Last name"
               class="form-field"
               required
-              [(ngModel)]="contactData.firstname"
+              [(ngModel)]="contactData.lastname"
               #lastname="ngModel"
             />
             <label for="email">E-Mail</label>
@@ -53,15 +53,11 @@
               #message="ngModel"
             ></textarea>
           </div>
-<!--           <div>
-            <p>{{ contactData.firstname }}</p>
-            <p>{{ contactData.lastname }}</p>
-            <p>{{ contactData.email }}</p>
-            <p>{{ contactData.message }}</p>
-          </div> -->
 
           <div class="btn-container flex">
-            <app-button [buttonText]="'Send'"></app-button>
+            <button type="submit" class="flex" [disabled]="!form.valid">
+              Send
+             </button>
           </div>
         </form>
       </div>

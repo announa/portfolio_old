@@ -45,3 +45,31 @@ label{
 .btn-container{
  justify-content: flex-end;
 }
+
+button {
+ cursor: pointer;
+ padding: 15px 30px;
+ color: var(--text-colored);
+ border: 1px solid var(--text-colored);
+ background-color: unset;
+ font-size: 1rem;
+ font-weight: 400;
+ transition: all 50ms ease-in-out;
+ position: relative;
+ 
+ &:disabled{
+  cursor: default;
+  border: 1px solid hsl(179, 26%, 36%);
+  color: hsl(179, 26%, 36%);
+  
+  &:disabled:hover {
+    text-shadow: none;
+    box-shadow: none;
+  }
+ }
+ 
+ &:hover {
+   text-shadow: 0px 0 2px hsla(175, 100%, 39%, .8);
+   box-shadow: inset 0 0 2px 0.3px var(--text-colored), 0 0 2px 0.3px var(--text-colored);
+ }
+}

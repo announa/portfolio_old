@@ -35,12 +35,8 @@
    <img class="profile-img" src="assets/img/profile_picture.jpg" />
    <div class="picture-layer"></div>
  </div> -->
-    <a routerLink="/about" class="button-container fade-in">
-      <app-button
-        [buttonText]="'Find out more'"
-        [btnHome]="true"
-        (click)="stopAnimation()"
-      ></app-button>
+      <a routerLink="/about" class="btn-home fade-in" (click)="stopAnimation()">
+        Find out more
     </a>
   </div>
 </div>

@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
+  OnChanges,
   OnInit,
   QueryList,
+  SimpleChanges,
   ViewChildren,
 } from '@angular/core';
 import { IntersectionObserverService } from '../intersection-observer.service';
@@ -20,16 +22,13 @@ export class ContactComponent implements OnInit, AfterViewInit {
     email: '',
     message: '',
   };
-  
-    @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
-    @ViewChildren('contactForm') contactForm!: QueryList<any>;
+  invalid = false;
+
+  @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
+  @ViewChildren('contactForm') contactForm!: QueryList<any>;
 
   endpoint = 'aludewig@posteo.de';
   body = (payload: any) => JSON.stringify(payload);
-  httpHeaders = new Headers()
-  .append(
-    'Content-Type', 'text/plain'
-  )
 
   submitted = false;
 
@@ -38,22 +37,29 @@ export class ContactComponent implements OnInit, AfterViewInit {
     private http: HttpClient
   ) {}
 
-  ngOnInit(): void {
-    console.log(this.contactData);
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     const observeItems = [this.contactHeading, this.contactForm];
     this.observer.createIntersectionObserver(observeItems);
   }
 
-  submit(ngForm: any) {
-    console.log(this.contactData);
-    this.submitted = true;
-    this.http.post(
-      this.endpoint,
-      this.body(this.contactData),
-      {this.httpHeaders: Headers}).subscribe((response) =>  console.log(response)))
-    );
+/*   ngOnChanges(changes: SimpleChanges): void {
+      this.invalid = 
+  } */
+
+  onSubmit(ngForm: any) {
+/*     if (ngForm.form.valid) { */
+      console.log('send');
+      console.log(this.contactData);
+      this.submitted = true;
+      this.http
+        .post(this.endpoint, this.body(this.contactData))
+        .subscribe({
+          next: (response) => console.log(response),
+          error: (error) => console.error(error),
+          complete: () => console.info('send post complete'),
+        });
+    /* } */
   }
 }
