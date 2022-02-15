@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   AfterViewInit,
   Component,
@@ -13,22 +14,32 @@ import { IntersectionObserverService } from '../intersection-observer.service';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit, AfterViewInit {
-    contact = {
+  contactData = {
     firstname: '',
     lastname: '',
     email: '',
-    message: ''
-  }
+    message: '',
+  };
+  
+    @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
+    @ViewChildren('contactForm') contactForm!: QueryList<any>;
+
+  endpoint = 'aludewig@posteo.de';
+  body = (payload: any) => JSON.stringify(payload);
+  httpHeaders = new Headers()
+  .append(
+    'Content-Type', 'text/plain'
+  )
 
   submitted = false;
 
-  @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
-  @ViewChildren('contactForm') contactForm!: QueryList<any>;
-
-  constructor(public observer: IntersectionObserverService) {}
+  constructor(
+    public observer: IntersectionObserverService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.contact)
+    console.log(this.contactData);
   }
 
   ngAfterViewInit(): void {
@@ -36,8 +47,13 @@ export class ContactComponent implements OnInit, AfterViewInit {
     this.observer.createIntersectionObserver(observeItems);
   }
 
-  submit() {
-    console.log(this.contact);
+  submit(ngForm: any) {
+    console.log(this.contactData);
     this.submitted = true;
+    this.http.post(
+      this.endpoint,
+      this.body(this.contactData),
+      {this.httpHeaders: Headers}).subscribe((response) =>  console.log(response)))
+    );
   }
 }
