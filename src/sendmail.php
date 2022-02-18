@@ -13,13 +13,16 @@ switch($_SERVER['REQUEST_METHOD']){
         $json = file_get_contents('php://input');
         //parse the Payload from text format to Object
         $params = json_decode($json);
+        echo($params);
 
         $email = $params->email;
-        $name = $params->name;
+        $firstname = $params->firstname;
+        $lastname = $params->lastname;
+        // $name = $params->firstname . $params->lastname;
         $message = $params->message;
 
         $recipient = 'aludewig@posteo.de'; //your email address
-        $subject = "Contact From $name <$email>";
+        $subject = "Contact From $firstname $lastname <$email>";
         $headers = "From:  noreply@mywebsite.com";
 
         mail($recipient, $subject, $message, $headers);

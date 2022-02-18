@@ -19,6 +19,8 @@ import { StartAnimationComponent } from './start-animation/start-animation.compo
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { FormsModule } from '@angular/forms';
+import { ImprintComponent } from './imprint/imprint.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { FormsModule } from '@angular/forms';
     StartAnimationComponent,
     ContactComponent,
     ProjectsComponent,
+    ImprintComponent,
+    PrivacyComponent,
   ],
   imports: [
     BrowserModule,

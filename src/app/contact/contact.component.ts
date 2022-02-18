@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
   @ViewChildren('contactForm') contactForm!: QueryList<any>;
 
-  endpoint = 'aludewig@posteo.de';
+  endpoint = 'http://anna-ludewig.developerakademie.com/annaludewig/sendmail.php';
   body = (payload: any) => JSON.stringify(payload);
 
   submitted = false;
