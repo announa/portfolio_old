@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 /* import { projects } from '../projects' */
 import { ProjectsService } from '../projects.service';
 
@@ -7,7 +7,7 @@ import { ProjectsService } from '../projects.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit, OnChanges {
+export class AboutComponent implements OnInit {
   /* projects = projects; */
   currentProject: any;
 /*   projectSelected = false;
@@ -30,13 +30,8 @@ export class AboutComponent implements OnInit, OnChanges {
   constructor(public projects: ProjectsService) { }
 
   ngOnInit(): void {
-    console.log(this.projects.projectSelected)
   }
   
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.projects.projectSelected)
-  }
-
   getClipPath(){
     return `polygon(0 0, 100% 0, 100% 0, 0 ${this.clipValue}%)`
   }

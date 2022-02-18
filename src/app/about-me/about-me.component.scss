@@ -1,9 +1,22 @@
+.component-container{
+  @media (max-width:800px){
+    padding-bottom: 0;
+  }
+}
+
 .content-container {
   align-self: flex-start;
   justify-content: flex-end;
   position: relative;
   gap: 5%;
   width: calc(100% + 60px);
+
+  @media (max-width: 800px) {
+    width: 50vw;
+    align-self: unset;
+    align-content: flex-start;
+    flex-direction: column;
+  }
 }
 
 .text-container {
@@ -13,6 +26,13 @@
   flex: 1;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 800px) {
+    align-self: flex-start;
+    width: calc(50vh + 60px);
+    height: 240px;
+    flex: none;
+  }
 }
 
 .img-container {
@@ -31,20 +51,22 @@
   }
 }
 
-  .img1{
-    left: 0;
-  }
-  .img2{
-    left: 100%;
-  }
-  
-  .img3{
-    left: -100%;
-    display: none;
-  }
+.img1 {
+  left: 0;
+}
+.img2 {
+  left: 100%;
+}
+
+.img3 {
+  left: -100%;
+  display: none;
+}
 
 h3 {
-  margin-bottom: 42px;
+  @media (min-width: 800px) {
+    margin-bottom: 42px;
+  }
 }
 
 .textbox {
@@ -58,6 +80,13 @@ h3 {
   font-weight: 300;
   line-height: 2rem;
   transition: all 225ms ease-in-out;
+
+  @media (max-width: 800px) {
+    height: unset;
+    top: 0;
+    transform: none;
+  }
+
   @media (max-width: 1000px) {
     font-size: 16px;
     line-height: 1.5rem;
@@ -67,29 +96,29 @@ h3 {
 .textwrap {
   position: relative;
   max-height: calc(100% - 75px);
-  p{
+  p {
     padding-right: 10px;
     max-height: calc(50vh - 75px);
     overflow-y: auto;
-    scrollbar-color: rgba(255,255,255,.05) rgba(255,255,255,.0);
-    
-    &::-webkit-scrollbar{
+    scrollbar-color: rgba(255, 255, 255, 0.05) rgba(255, 255, 255, 0);
+
+    &::-webkit-scrollbar {
       width: 5px;
-      background: rgba(255,255,255,.0);
+      background: rgba(255, 255, 255, 0);
     }
-    &::-webkit-scrollbar-track{
+    &::-webkit-scrollbar-track {
       border-radius: 4px;
     }
-    &::-webkit-scrollbar-thumb{
-      background-color: rgba(255,255,255,.05);
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.05);
       border-radius: 4px;
     }
-    &:hover::-webkit-scrollbar-thumb{
+    &:hover::-webkit-scrollbar-thumb {
       cursor: pointer;
-      background-color: rgba(255,255,255,.1);
+      background-color: rgba(255, 255, 255, 0.1);
     }
-    &:hover{
-      scrollbar-color: rgba(255,255,255,.1) rgba(255,255,255,.0);
+    &:hover {
+      scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0);
     }
   }
 }
@@ -140,7 +169,7 @@ h3 {
   transform: rotateZ(-45deg);
   bottom: 50%;
   right: -40px;
-  
+
   &::before {
     box-shadow: 0 0 2px var(--text-colored);
     right: 0;
@@ -163,10 +192,14 @@ h3 {
   right: 12px;
   box-shadow: 1.5px 1.5px 1px var(--text-colored);
   opacity: 0;
-  
-  &:hover{
+
+  &:hover {
     box-shadow: 2px 2px 2px var(--text-colored);
     filter: brightness(130%);
+  }
+
+  @media (max-width: 800px) {
+    bottom: 65%;
   }
 }
 

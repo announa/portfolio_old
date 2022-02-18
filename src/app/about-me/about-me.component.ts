@@ -88,7 +88,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     });
   }
   offHover() {
-    console.log('mouseleave');
     this.textHover = false;
     this.linesArr.forEach((l) => {
       l.nativeElement.style.display = 'unset';
