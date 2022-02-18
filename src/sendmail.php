@@ -26,6 +26,7 @@ switch($_SERVER['REQUEST_METHOD']){
         $headers = "From:  noreply@mywebsite.com";
 
         mail($recipient, $subject, $message, $headers);
+        echo $params
         break;
     default: //Reject any non POST or OPTIONS requests.
         header("Allow: POST", true, 405);

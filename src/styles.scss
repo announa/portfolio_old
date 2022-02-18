@@ -1,7 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Spartan', sans-serif;
+  font-family: "Spartan", sans-serif;
   color: white;
 }
 
@@ -11,24 +11,46 @@ html {
 
 body {
   --bg-grey: #1a1a1a;
-  --text-colored: hsl(175, 100%, 39%); 
+  --text-colored: hsl(175, 100%, 39%);
   overflow-x: hidden;
-  background-color: rgb(10,10,10);
+  background-color: rgb(10, 10, 10);
 }
 
 .component-container {
   min-height: 100vh;
   width: 100vw;
-/*   min-height: 100vh; */
-   padding: 125px 13vw 50px;
-   background-color: rgb(10, 10, 10);
-}
-
-.content-section {
   flex-direction: column;
   gap: 40px;
+  padding: 125px 13vw 85px;
+  background-color: rgb(10, 10, 10);
   @media (max-width: 360px) {
-    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.bg-white{
+  background-color: #eeeeee;
+  
+  h3, h4, h5, p, a{
+    color: #222222;
+  }
+
+  h3{
+    margin-bottom: 50px;
+  }
+  h4, h5{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  p{
+    margin-bottom: 10px;
+    line-height: 1.4rem;
+  }
+  a{
+    &:hover{
+      color: #555;
+    }
   }
 }
 
@@ -60,6 +82,10 @@ h4 {
   font-size: 20px;
 }
 
+h5{
+  font-size: 18px;
+}
+
 a {
   font-size: clamp(16px, 2vw, 18px);
   color: white;
@@ -76,26 +102,30 @@ a {
   align-items: center;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
-.fade-in{
+.fade-in {
   opacity: 0;
   animation: fade-in 1s ease-in-out 1000ms forwards;
 }
 
 @keyframes fade-in {
- 100%{
-   opacity: 1;
- }
+  100% {
+    opacity: 1;
+  }
 }
 
-.o-0{
+.o-0 {
   opacity: 0;
   transition: opacity 500ms ease-in-out;
 }
 
-.o-1{
+.o-1 {
   opacity: 1 !important;
 }
+
+.source{
+  margin-top: 30px;
+ }

@@ -21,6 +21,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { FormsModule } from '@angular/forms';
 import { ImprintComponent } from './imprint/imprint.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
     ProjectsComponent,
     ImprintComponent,
     PrivacyComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
