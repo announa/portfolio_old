@@ -30,7 +30,7 @@
   @media (max-width: 800px) {
     align-self: flex-start;
     width: calc(50vh + 60px);
-    height: 240px;
+    height: 265px;
     flex: none;
   }
 }
@@ -137,7 +137,7 @@ h3 {
   width: 50%;
   height: 50%;
   position: absolute;
-  bottom: -25px;
+  top: calc(50% + 25px);
   right: -20px;
   transition: all 350ms ease-in-out;
   z-index: 2;
@@ -167,8 +167,12 @@ h3 {
   width: 30px;
   height: 30px;
   transform: rotateZ(-45deg);
-  bottom: 50%;
+  top: 50%;
   right: -40px;
+
+  @media (max-width: 800px){
+    top: 64px;
+  }
 
   &::before {
     box-shadow: 0 0 2px var(--text-colored);

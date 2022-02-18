@@ -26,7 +26,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   linesArr!: ElementRef[];
   textHover = false;
 
-  constructor(public observer: IntersectionObserverService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -35,9 +35,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.imgArr = this.img.toArray();
     this.linesArr = this.lines.toArray();
 
-    const observeItems = [this.aboutHeading, this.aboutSection];
+/*     const observeItems = [this.aboutHeading, this.aboutSection];
 
-    this.observer.createIntersectionObserver(observeItems);
+    this.observer.createIntersectionObserver(observeItems); */
 
     /*     const options = {
       root: null,
