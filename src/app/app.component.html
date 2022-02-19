@@ -1,3 +1,3 @@
 <app-navigation [class.d-none]="this.router.url == '/'"></app-navigation>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer [class.d-none]="this.router.url == '/'"></app-footer>

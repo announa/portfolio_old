@@ -42,6 +42,8 @@
 
 .falling-letter-container {
   transition: transform 800ms ease-in-out;
+  position: relative;
+  perspective: 10px;
 }
 
 .falling-letter {
@@ -51,6 +53,7 @@
   left: 0;
   opacity: 0;
   white-space: pre;
+  transform-style: preserve-3d;
   transform-origin: 50% 70%;
   transition: all 500ms ease-in-out 2s;
 
@@ -60,7 +63,7 @@
 }
 
 .mainheading2 {
-  transform: rotateX(90deg);
+  transform: rotateX(-90deg);
   transition: transform 800ms ease-in-out 800ms;
 }
 
@@ -170,11 +173,13 @@ a {
 
 .flip-text1 {
   transform-origin: 50% 100% !important;
-  transform: rotateX(90deg) !important;
+  perspective-origin: center;
+  transform: perspective(1000px) rotateX(90deg) !important;
 }
 .flip-text2 {
   transform-origin: 50% 0;
-  transform: rotateX(0);
+  perspective-origin: center;
+  transform: perspective(1000px) rotateX(0);
 }
 
 .fade-in {

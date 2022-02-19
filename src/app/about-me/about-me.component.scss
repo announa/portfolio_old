@@ -2,36 +2,48 @@
   @media (max-width:800px){
     padding-bottom: 20px;
   }
+
+  @media (max-width: 350px){
+    padding-left: 13vw;
+    padding-right: 13vw;
+  }
 }
 
 .content-container {
   align-self: flex-start;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: relative;
-  gap: 5%;
-  width: calc(100% + 60px);
+  width: 100%;
+  height: 50vh;
 
   @media (max-width: 800px) {
-    width: 50vh;
-    max-width: 300px;
+    width: 100%;
+    height: unset;
     align-self: unset;
     align-content: flex-start;
-    flex-direction: column;
     gap: 30px;
   }
 }
 
+.content{
+  flex: 1;
+  justify-content: space-between;
+
+  @media (max-width: 800px){
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
 .text-container {
-  width: 100%;
   height: 50vh;
-  padding-right: 60px;
+  width: 100%;
   flex: 1;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 
   @media (max-width: 800px) {
     align-self: flex-start;
-    width: calc(50vh + 60px);
     height: 265px;
     flex: none;
   }
@@ -44,6 +56,18 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  margin-right: 4%;
+  
+  @media (max-width: 800px){
+    width: 40vh;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 450px){
+    width: 70vw;
+    max-width: 250px;
+  }
+
   img {
     position: absolute;
     width: 50vh;
@@ -51,6 +75,16 @@
     aspect-ratio: 1;
     object-fit: cover;
     transition: all 225ms ease-in-out;
+
+    @media (max-width: 800px){
+      width: 40vh;
+    }
+
+    @media (max-width: 450px){
+      width: 70vw;
+      max-width: 250px;
+
+    }
   }
 }
 
@@ -76,8 +110,7 @@ h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: calc(100% - 50px);
-  height: 50vh;
+  width: 100%;
   text-align: center;
   font-size: 18px;
   font-weight: 300;
@@ -85,8 +118,6 @@ h3 {
   transition: all 225ms ease-in-out;
 
   @media (max-width: 800px) {
-    width: 50vh;
-    max-width: 300px;
     height: unset;
     top: 0;
     transform: none;
@@ -98,11 +129,7 @@ h3 {
   }
 }
 
-.textwrap {
-  position: relative;
-  max-height: calc(100% - 75px);
   p {
-    padding-right: 10px;
     max-height: calc(50vh - 75px);
     overflow-y: auto;
     scrollbar-color: rgba(255, 255, 255, 0.05) rgba(255, 255, 255, 0);
@@ -126,7 +153,7 @@ h3 {
       scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0);
     }
   }
-}
+/* } */
 
 .text1 {
   left: 0;
@@ -138,61 +165,7 @@ h3 {
   left: -100%;
 }
 
-.lines {
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  top: calc(50% + 25px);
-  right: -20px;
-  transition: all 350ms ease-in-out;
-  z-index: 2;
-
-  &::before {
-    content: "";
-    height: 100%;
-    position: absolute;
-    right: 0;
-    bottom: -15px;
-    border-right: 1px solid var(--text-colored);
-    transition: all 350ms ease-in-out;
-  }
-
-  &::after {
-    content: "";
-    width: 100%;
-    position: absolute;
-    right: -20px;
-    bottom: 0;
-    border-bottom: 1px solid var(--text-colored);
-    transition: all 350ms ease-in-out;
-  }
-}
-
-.hover-lines {
-  width: 30px;
-  height: 30px;
-  transform: rotateZ(-45deg);
-  top: calc(50% - 15px);
-  right: -40px;
-
-  @media (max-width: 800px){
-    top: 64px;
-  }
-
-  &::before {
-    box-shadow: 0 0 2px var(--text-colored);
-    right: 0;
-    bottom: 0;
-  }
-  &::after {
-    box-shadow: 0 0 2px var(--text-colored);
-    bottom: 0;
-    right: 0;
-  }
-}
-
 .next {
-  position: absolute;
   cursor: pointer;
   width: 30px;
   height: 30px;
@@ -200,7 +173,8 @@ h3 {
   top: calc(50% - 15px);
   right: 12px;
   box-shadow: 1.5px 1.5px 1px var(--text-colored);
-  opacity: 0;
+  margin-left: 20px;
+/*   opacity: 0; */
 
   &:hover {
     box-shadow: 2px 2px 2px var(--text-colored);
@@ -208,17 +182,21 @@ h3 {
   }
 
   @media (max-width: 800px) {
-    top: 64px;
-    right: 37px;
+    top: calc(20vh - 15px);
+    right: 22px;
+    position: absolute;
+  }
+
+  @media (max-width: 600px){
+  }
+
+  @media (max-width: 500px){
+    width: 18px;
+    height: 18px;
+    right: -10px;
+  }
+  @media (max-width: 400px){
+    right: -15px;
   }
 }
 
-.invisible {
-  opacity: 0;
-}
-
-.visible {
-  opacity: 1;
-  transition: opacity;
-  transition-delay: 350ms;
-}
