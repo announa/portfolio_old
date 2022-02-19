@@ -1,6 +1,32 @@
 <div id="projects" class="component-container flex">
   <div class="arrow before big" (click)="backToPortfolio()"></div>
   <h3>{{ currentProject.title }}</h3>
+  <div class="project-images">
+    <div class="image-container">
+      <img
+        src="assets/img/portfolio/{{ currentProject.img[0] }}"
+        #img
+        class="img0"
+      />
+      <img
+        src="assets/img/portfolio/{{ currentProject.img[1] }}"
+        #img
+        class="img1"
+      />
+      <img
+        src="assets/img/portfolio/{{ currentProject.img[2] }}"
+        #img
+        class="img2"
+      />
+      <div class="slide-img">
+        <div class="point point1" [class.point-active]="currentImage == 0" (click)="selectImage(0)"></div>
+        <div class="point point2" [class.point-active]="currentImage == 1" (click)="selectImage(1)"></div>
+        <div class="point point3" [class.point-active]="currentImage == 2" (click)="selectImage(2)"></div>
+      </div>
+    </div>
+<!--     <div class="arrow before" (click)="slideImagesLeft()"></div>
+    <div class="arrow next" (click)="slideImagesRight()"></div> -->
+  </div>
   <div class="content">
     <div class="description">
       <p>{{ currentProject.description }}</p>
@@ -27,7 +53,7 @@
           >
         </div>
       </div>
-      <div class="project-images">
+     <!--  <div class="project-images">
         <div class="image-container">
           <img
             src="assets/img/portfolio/{{ currentProject.img[0] }}"
@@ -47,7 +73,7 @@
         </div>
         <div class="arrow before" (click)="slideImagesLeft()"></div>
         <div class="arrow next" (click)="slideImagesRight()"></div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

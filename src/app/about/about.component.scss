@@ -1,4 +1,4 @@
-.transform-container{
+/* .transform-container{
   height: 80vh;
   width: 80%;
   position: absolute;
@@ -6,7 +6,7 @@
   top: 100px;
   transform: perspective(10vw);
   transform-origin: 50% 50%;
-}
+} */
 
 .project-slider{
   position: fixed;
@@ -14,6 +14,8 @@
   left: 100%;
   opacity: 0;
   min-height: 100vh;
+  height: 100%;
+  overflow: scroll;
   /* transition-property: left, opacity;
   transition-duration: 650ms, 250ms;
   transition-timing-function: ease-in-out;

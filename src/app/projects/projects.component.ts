@@ -4,15 +4,12 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
   QueryList,
-  SimpleChanges,
   ViewChildren,
 } from '@angular/core';
 import { Router } from '@angular/router';
-/* import { projects } from '../projects'; */
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -20,8 +17,7 @@ import { ProjectsService } from '../projects.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit, AfterViewInit, OnChanges {
-  /* projects = projects; */
+export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
   @Input() currentProject: any;
   @Output() goBack = new EventEmitter();
   @ViewChildren('img') img!: QueryList<any>;
@@ -35,13 +31,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnChanges {
     console.log(this.currentProject)
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-      console.log(this.currentProject)
-
-  }
-
   ngAfterViewInit(): void {
     this.imgArr = this.img.toArray();
+    setInterval(() => {
+      this.slideImagesRight()
+    }, 4000)
   }
 
   slideImagesLeft() {
@@ -80,6 +74,16 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnChanges {
       setTimeout(() => {
         this.imgArr[before].nativeElement.style.display = 'unset';
       }, 226);
+    }
+  }
+
+  selectImage(imgNumber: number){
+    let imgNow = this.currentImage
+    this.currentImage = imgNumber
+    if(imgNow - this.currentImage == -1 || imgNow == 2 && this.currentImage == 0){
+      this.slideImages('right')
+    }else{
+      this.slideImages('left')
     }
   }
 
