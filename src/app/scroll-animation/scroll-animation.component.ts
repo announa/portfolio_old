@@ -19,7 +19,10 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   @ViewChild('canvasContainer') canvasContainer!: ElementRef;
   @HostListener('window:resize', ['$event'])
   resizeEvent() {
+    /* this.savePoints(); */
     this.initCanvas();
+    /* this.getResizePoints() */
+    /* this.restorePoints(); */
   }
   @HostListener('window: scroll', ['$event'])
   scrollEvent() {
@@ -228,4 +231,8 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
       l.y2 = p2.y;
     });
   }
+
+/*   savePoints(){
+    this.points.forEach
+  } */
 }

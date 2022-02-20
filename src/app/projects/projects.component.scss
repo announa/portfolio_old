@@ -8,6 +8,7 @@ h3{
 
 .content{
  width: 100%;
+ margin-top: 30px;
 }
 
 .content__bottom {
@@ -58,11 +59,8 @@ p {
   width: 100%;
   height: calc(50vh + 40px);
   max-height: 300px;
-  /* aspect-ratio: 1.7; */
   gap: 5px;
   position: relative;
-/*   outline: 1px solid var(--text-colored);
-  outline-offset: 5px; */
   margin-right: 20px;
   img {
     position: absolute;

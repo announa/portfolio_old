@@ -34,26 +34,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.textboxArr = this.textbox.toArray();
     this.imgArr = this.img.toArray();
     this.linesArr = this.lines.toArray();
-
-/*     const observeItems = [this.aboutHeading, this.aboutSection];
-
-    this.observer.createIntersectionObserver(observeItems); */
-
-    /*     const options = {
-      root: null,
-      rootMargin: "-130px",
-      threshold: 0.9
-    }
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        e.target.classList.toggle('visible')
-        console.log(e)
-        if(e.isIntersecting){
-        }
-      })
-    }, options);
-  
-    this.observer.observe(this.aboutHeading.nativeElement); */
   }
 
   switchText() {

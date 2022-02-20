@@ -4,7 +4,10 @@
 
 h3{
   opacity: 0;
-  margin-bottom: 42px;
+}
+
+.section-text{
+  margin-bottom: 35px;
 }
 
 .portfolio-container {
@@ -32,6 +35,7 @@ h3{
   overflow: hidden;
   opacity: 0;
   transition: all 350ms ease-in-out;
+
 
   @media (max-width: 500px){
     width: 100vw;

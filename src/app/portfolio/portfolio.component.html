@@ -1,5 +1,6 @@
 <div #portfolio id="portfolio" class="component-container flex">
   <h3 #portfolioHeading class="o-0">portfolio</h3>
+  <p class="section-text">Here you can find some of my projects. Select a project for more information.</p>
   <div class="portfolio-container">
     <a *ngFor="let project of projects.projects" #projectItem (click)="showProject(project.link)" class="portfolio o-0">
     <img src="assets/img/portfolio/{{ project.img[0] }}" />
