@@ -35,6 +35,7 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   ctx!: any;
   animationFrame!: number;
   scrolltop = 0;
+  scrollStart = false;
 
   constructor() {}
 
@@ -43,9 +44,12 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.c = this.canvas.nativeElement;
     this.cC = this.canvasContainer.nativeElement;
+    this.points = [];
+    this.linesToDraw = [];
+    this.createdPoints = 0;
     setTimeout(() => {
       this.initCanvas();
-    }, 1);
+    }, 10);
   }
 
   initCanvas() {
@@ -62,12 +66,17 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
       this.removePoint();
     }
     this.scrolltop = window.scrollY;
-    if(this.scrolltop < 0){
-      this.scrolltop = 0
+    if (this.scrolltop < 0) {
+      this.scrolltop = 0;
     }
   }
 
   addPoint() {
+    if(window.scrollY < document.body.clientHeight / this.pointCount && this.scrollStart == false){
+      this.createPoint();
+      this.createPoint();
+      this.scrollStart = true
+    }
     if (
       window.scrollY >=
       (document.body.clientHeight / this.pointCount) * (1 + this.createdPoints)
@@ -81,19 +90,26 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
       window.scrollY <=
       (document.body.clientHeight / this.pointCount) * (1 + this.createdPoints)
     ) {
-      let linesToDelete: number[] = [];
-      this.linesToDraw.forEach((l, i) => {
-        if (l.i1 == this.points.length - 1 || l.i2 == this.points.length - 1) {
-          linesToDelete.push(i);
-        }
-      });
-      linesToDelete.reverse().forEach((l) => this.linesToDraw.splice(l, 1));
+      this.removeLines();
       this.points.splice(this.points.length - 1, 1);
       this.createdPoints--;
-      if(this.createdPoints < 0){
+      if (this.createdPoints < 0) {
         this.createdPoints = 0;
       }
     }
+    if(window.scrollY == 0){
+      this.scrollStart = false;
+    }
+  }
+
+  removeLines() {
+    let linesToDelete: number[] = [];
+    this.linesToDraw.forEach((l, i) => {
+      if (l.i1 == this.points.length - 1 || l.i2 == this.points.length - 1) {
+        linesToDelete.push(i);
+      }
+    });
+    linesToDelete.reverse().forEach((l) => this.linesToDraw.splice(l, 1));
   }
 
   createPoint() {
@@ -110,7 +126,9 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   getY() {
     let segmentHeight = this.c.height / this.pointCount;
     return (
-      10 + (1.35 * segmentHeight * this.createdPoints + Math.random() * segmentHeight)
+      10 +
+      (1.35 * segmentHeight * this.createdPoints +
+        Math.random() * segmentHeight)
     );
   }
 
@@ -164,9 +182,9 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
 
   getLineGradient(l: Line) {
     let gradient = this.ctx.createLinearGradient(l.x1, l.y1, l.x2, l.y2);
-    gradient.addColorStop(0, `hsla(280, 90%, 70%, 0.3`);
-    gradient.addColorStop(0.3, `hsla(217, 80%, 40%, 0.3`);
-    gradient.addColorStop(1, `hsla(165, 100%,20%, 0.3)`);
+    gradient.addColorStop(0, `hsla(280, 90%, 70%, 0.4`);
+    gradient.addColorStop(0.3, `hsla(217, 80%, 40%, 0.4`);
+    gradient.addColorStop(1, `hsla(165, 100%,20%, 0.4)`);
     return gradient;
   }
 

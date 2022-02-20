@@ -69,11 +69,13 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.imgArr[before].nativeElement.style.left = '-100%';
     setTimeout(() => {
       this.imgArr[before].nativeElement.style.display = 'none';
+      this.textboxArr[before].nativeElement.style.display = 'none';
     }, 225);
     this.textboxArr[next].nativeElement.style.left = 'calc(100% + 60px)';
     this.imgArr[next].nativeElement.style.left = '100%';
     setTimeout(() => {
       this.imgArr[next].nativeElement.style.display = 'unset';
+      this.textboxArr[next].nativeElement.style.display = 'unset';
     }, 225);
   }
 

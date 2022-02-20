@@ -1,25 +1,41 @@
 .content-container{
   width: 100%;
   position: relative;
-  min-height: 50vh;
+  min-height: 55vh;
 }
 
 h3{
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+
+  @media (max-width: 800px) {
+    margin-bottom: 25px;
+  }
 }
 
 .img-container{
   width: 55vh;
   aspect-ratio: 1;
   position: absolute;
+  right: 13vw;
   overflow: hidden;
+
+  @media (max-width: 800px){
+   width: 35vh;
+  }
 
   img{
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    filter: saturate(70%) brightness(60%);
+    filter: saturate(70%) brightness(80%);
     position: absolute;
+    cursor: pointer;
+    transition: left 350ms ease-in-out;
+  }
+
+  @media (max-width: 800px){
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 
@@ -33,18 +49,48 @@ h3{
 .img3 {
   left: -100%;
   display: none;
+  filter: saturate(100%) brightness(80%) !important;
 }
 
 .text-container{
-  width: calc(100% - 40vh);
+  width: calc(74vw - 45vh);
   position: absolute;
-  right: 0;
-  bottom: -70px;
+  left: 13vw;
+  bottom: 45px;
   background-color: rgba(255, 255, 255, 0.1);
   min-height: 35vh;
   overflow: hidden;
   cursor: pointer;
   perspective: 100px;
+
+  @media (max-width: 1000px) {
+    min-height: 45vh;
+  }
+
+  @media (max-width: 800px){
+    min-height: 150px;
+    height: fit-content;
+    width: calc(74vw);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &::before{
+    content: "";
+    width: 12vh;
+    height: calc(35vh - 35px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba($color: #2d4446, $alpha: 0.4);
+    @media (max-width: 1000px) {
+      height: calc(45vh - 35px);
+    }
+
+    @media (max-width: 800px){
+      display: none;
+    }
+  }
 
   &:hover > .textbox{
     transform-style: preserve-3d;
@@ -58,8 +104,10 @@ h3{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  transition: left 350ms ease-in-out;
 
   p{
+    text-align: center;
     line-height: 1.5rem;
   }
 }
@@ -73,4 +121,5 @@ h3{
 }
 .text3 {
   left: -100%;
+  display: none;
 }

@@ -5,12 +5,12 @@ import {
   ElementRef,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { Router } from '@angular/router';
-
-/* declare const init: any; */
-declare const stopAnimationFrame: any;
+import { NavigationService } from '../navigation.service';
+import { StartAnimationComponent } from '../start-animation/start-animation.component';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +20,6 @@ declare const stopAnimationFrame: any;
 export class HomeComponent implements OnInit, AfterViewInit {
   hideElement = true;
   index: number = 0;
-/*   heading_1 = ['H', 'i', ',', ' ', 'I', ' ', 'a', 'm', ' '];
-  heading_2 = ['A', 'n', 'n', 'a']; */
   heading_1 = ['L', 'o', 'o', 'k', 'i', 'n', 'g', ' ', 'f', 'o', 'r', ' ', 'a', ' '];
   heading_2 = ['F', 'r', 'o', 'n', 't', 'e', 'n', 'd', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r', '?'];
   hoverAnimation = false;
@@ -31,8 +29,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('letter') letters!: QueryList<any>;
   @ViewChildren('letter2') letters2!: QueryList<any>;
+  @ViewChild(StartAnimationComponent) animation!: StartAnimationComponent;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private navigation: NavigationService) {}
 
   ngAfterViewInit() {
     let lettersArr = this.letters.toArray();
@@ -44,9 +43,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.flipText = true;
     }, 3500);
-/*     setTimeout(() => {
-      lettersArr2[0].nativeElement.classList.add('o-0')
-    }, 10500); */
   }
 
   ngOnInit(): void {
@@ -59,25 +55,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
       setTimeout(() => {
         letter.classList.remove('invisible');
         letter.classList.add('falling-animation');
-        /* this.removeFallingAnimation(l) */
       }, 1000 + 50 * i);
     });
   }
 
   stopAnimation() {
-    stopAnimationFrame();
+    this.animation.stopAnimationFrame();
     this.animating = false;
+    this.navigation.forceNavigation('')
   }
-
-  /*   removeFallingAnimation(letter: ElementRef){
-    setTimeout(() => {
-      letter.nativeElement.classList.remove('falling-animation')
-    }, 700);
-  }
-
-  resetAnimation() {
-    setTimeout(() => {
-      this.hoverAnimation = false;
-    }, 850);
-  } */
 }
