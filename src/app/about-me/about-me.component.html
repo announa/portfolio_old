@@ -1,58 +1,55 @@
-<div #aboutme id="aboutme" class="component-container flex fade-in">
+<div #aboutme id="aboutme" class="component-container fade-in">
   <h3 #aboutHeading>about me</h3>
-  <div class="content-container flex" #aboutSection>
-    <div class="content flex">
-      <div class="img-container flex fade-in">
-        <img src="assets/img/about/me1.jpg" class="img1" #img />
-        <img src="assets/img/about/me2.jpg" class="img2" #img />
-        <img src="assets/img/about/me3.jpg" class="img3" #img />
+  <div class="content-container" #aboutSection>
+    <div class="img-container fade-in">
+      <img src="assets/img/about/me1.jpg" class="img1" #img />
+      <img src="assets/img/about/me2.jpg" class="img2" #img />
+      <img src="assets/img/about/me3.jpg" class="img3" #img />
+    </div>
+    <div class="text-container">
+      <div class="color-layer"></div>
+      <div
+        class="textbox flex text1"
+        #textbox
+        [class.invisible]="currentText != 0"
+      >
+        <p #text>
+          <strong>"</strong>I am a junior front end developer from
+          Germany<strong>,</strong> passionate about programming well designed
+          and functional web sites and applications<strong>.</strong> I would
+          love to help you realizing your next project<strong>."</strong>
+        </p>
       </div>
-      <div class="text-container">
-        <div
-          class="textbox flex text1"
-          #textbox
-          [class.invisible]="currentText != 0"
-        >
-          <p #text>
-            <strong>"</strong>I am a junior front end developer from
-            Germany<strong>,</strong> passionate about programming well designed
-            and functional web sites and applications<strong>.</strong> I would
-            love to help you realizing your next project<strong>."</strong>
-          </p>
-        </div>
-        <div
-          class="textbox flex text2"
-          #textbox
-          [class.invisible]="currentText != 1"
-        >
-          <!-- <div class="textwrap"> -->
-          <p #text>
-            <strong>"</strong>Actually I am a language teacher and I myself love
-            learning languages<strong>.</strong> I studied french and chemistry
-            for becoming a teacher and worked as teacher for German as a foreign
-            language<strong>.</strong> But I wanted a career change and a new
-            challenge and finally I discovered my passion for programming<strong
-              >."</strong
-            >
-          </p>
-        </div>
-        <div
-          class="textbox flex text3"
-          #textbox
-          [class.invisible]="currentText != 2"
-        >
-          <!-- <div class="textwrap"> -->
-          <p #text>
-            <strong>"</strong>Sports and outdoor activities are an important
-            part of my life. I love bouldering and climbing, moutainbiking,
-            hiking and - the mountains<strong>.</strong> Ultimately I also
-            discovered surfing and I am fascinated by this sport<strong
-              >."</strong
-            >
-          </p>
-        </div>
+      <div
+        class="textbox flex text2"
+        #textbox
+        [class.invisible]="currentText != 1"
+      >
+        <!-- <div class="textwrap"> -->
+        <p #text>
+          <strong>"</strong>Actually I am a language teacher and I myself love
+          learning languages<strong>.</strong> I studied french and chemistry
+          for becoming a teacher and worked as teacher for German as a foreign
+          language<strong>.</strong> But I wanted a career change and a new
+          challenge and finally I discovered my passion for programming<strong
+            >."</strong
+          >
+        </p>
+      </div>
+      <div
+        class="textbox flex text3"
+        #textbox
+        [class.invisible]="currentText != 2"
+      >
+        <!-- <div class="textwrap"> -->
+        <p #text>
+          <strong>"</strong>Sports and outdoor activities are an important part
+          of my life. I love bouldering and climbing, moutainbiking, hiking and
+          - the mountains<strong>.</strong> Ultimately I also discovered surfing
+          and I am fascinated by this sport<strong>."</strong>
+        </p>
       </div>
     </div>
-    <div class="next" (click)="switchText()" #next></div>
+    <!-- <div class="next" (click)="switchText()" #next></div> -->
   </div>
 </div>

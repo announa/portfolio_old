@@ -36,7 +36,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   // mouseleave event not firing in firefox  ---> alternative mouseout
   @HostListener('document:mouseout', ['$event'])
   mouseoutEvent() {
-    console.log('mouse out');
     this.removeMousePoint();
   }
 
@@ -59,7 +58,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   }
 
   startAnimation() {
-    console.log('init');
     this.initCanvas();
     this.createPoints(80);
     this.createLines();
@@ -215,7 +213,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   stopAnimationFrame() {
     cancelAnimationFrame(this.animationFrame);
-    console.log('stop animation');
     this.points = [];
     this.linesToDraw = [];
   }
@@ -224,7 +221,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   createMousePoint(event: any) {
     if (this.points.length > 0) {
-      console.log('create mouse point');
       this.mousePoint = new Point(event.x, event.y, true);
       /* this.points.push(this.mousePoint); */
       this.createLines();
@@ -245,7 +241,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
     if (this.mousePoint) {
     this.mousePoint.isMousePoint = false;
   }
-  console.log('remove mouse point');
     /*   const index = this.points.findIndex((p) => p.isMousePoint === true);
       if (index) {
         this.points.splice(index, 1);

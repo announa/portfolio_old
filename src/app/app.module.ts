@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { ImprintComponent } from './imprint/imprint.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { FooterComponent } from './footer/footer.component';
+import { ScrollAnimationComponent } from './scroll-animation/scroll-animation.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { FooterComponent } from './footer/footer.component';
     ImprintComponent,
     PrivacyComponent,
     FooterComponent,
+    ScrollAnimationComponent,
   ],
   imports: [
     BrowserModule,
