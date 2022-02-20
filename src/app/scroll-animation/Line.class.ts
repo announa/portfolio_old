@@ -8,12 +8,9 @@ export class Line {
   i1: number;
   i2: number;
   length: number;
-  point1: Point;
-  point2: Point;
+
 
   constructor(point_1: Point, index1: number, point_2: Point, index2: number) {
-    this.point1 = point_1;
-    this.point2 = point_2;
     this.i1 = index1;
     this.i2 = index2;
     this.x1 = point_1.x;

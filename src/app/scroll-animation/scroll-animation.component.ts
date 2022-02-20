@@ -20,11 +20,10 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   resizeEvent() {
     this.initCanvas();
-    console.log(this.c);
   }
   @HostListener('window: scroll', ['$event'])
   scrollEvent() {
-    this.addPoint();
+    this.checkPoints();
   }
 
   points: Point[] = [];
@@ -35,6 +34,7 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   cC!: HTMLDivElement;
   ctx!: any;
   animationFrame!: number;
+  scrolltop = 0;
 
   constructor() {}
 
@@ -52,6 +52,19 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
     this.c.width = this.cC.clientWidth;
     this.c.height = this.cC.clientHeight;
     this.ctx = this.c.getContext('2d');
+    this.draw();
+  }
+
+  checkPoints() {
+    if (window.scrollY > this.scrolltop) {
+      this.addPoint();
+    } else {
+      this.removePoint();
+    }
+    this.scrolltop = window.scrollY;
+    if(this.scrolltop < 0){
+      this.scrolltop = 0
+    }
   }
 
   addPoint() {
@@ -60,36 +73,61 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
       (document.body.clientHeight / this.pointCount) * (1 + this.createdPoints)
     ) {
       this.createPoint();
-      this.draw();
+    }
+  }
+
+  removePoint() {
+    if (
+      window.scrollY <=
+      (document.body.clientHeight / this.pointCount) * (1 + this.createdPoints)
+    ) {
+      let linesToDelete: number[] = [];
+      this.linesToDraw.forEach((l, i) => {
+        if (l.i1 == this.points.length - 1 || l.i2 == this.points.length - 1) {
+          linesToDelete.push(i);
+        }
+      });
+      linesToDelete.reverse().forEach((l) => this.linesToDraw.splice(l, 1));
+      this.points.splice(this.points.length - 1, 1);
+      this.createdPoints--;
+      if(this.createdPoints < 0){
+        this.createdPoints = 0;
+      }
     }
   }
 
   createPoint() {
-    console.log('createPoit')
     const point = new Point(this.getX(), this.getY());
     this.points.push(point);
-    console.log(point)
     this.createdPoints++;
     this.createLines();
   }
 
   getX() {
-    return this.c.width / 4 + Math.random() * (this.c.width / 2);
+    return 5 + Math.random() * (this.c.width - 10);
   }
 
   getY() {
     let segmentHeight = this.c.height / this.pointCount;
-    return 1.3 * segmentHeight * this.createdPoints + Math.random() * segmentHeight;
+    return (
+      10 + (1.35 * segmentHeight * this.createdPoints + Math.random() * segmentHeight)
+    );
   }
 
   createLines() {
     this.points.forEach((p, i) => {
-      console.log('check if close')
       if (
-        p.pointsAreClose(this.points[this.points.length - 1], (this.c.height / this.pointCount) * 4)
+        p.pointsAreClose(
+          this.points[this.points.length - 1],
+          (this.c.height / this.pointCount) * 4
+        )
       ) {
-        console.log('close')
-        const line = new Line(this.points[this.points.length - 1], this.points.length - 1, p, i);
+        const line = new Line(
+          this.points[this.points.length - 1],
+          this.points.length - 1,
+          p,
+          i
+        );
         this.linesToDraw.push(line);
       }
     });
@@ -107,7 +145,7 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
 
   drawPoints() {
     this.points.forEach((p) => {
-      this.ctx.fillStyle = 'hsl(270, 80%, 50%)';
+      this.ctx.fillStyle = 'hsla(270, 80%, 50%, 0.3)';
       this.ctx.beginPath();
       this.ctx.arc(p.x - 0.6, p.y - 0.6, 1.2, 0, 2 * Math.PI);
       this.ctx.fill();
@@ -126,9 +164,9 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
 
   getLineGradient(l: Line) {
     let gradient = this.ctx.createLinearGradient(l.x1, l.y1, l.x2, l.y2);
-    gradient.addColorStop(0, `hsla(280, 90%, 70%, 1`);
-    gradient.addColorStop(0.5, `hsla(217, 80%, 40%, 1`);
-    gradient.addColorStop(1, `hsla(165, 100%,20%, 1)`);
+    gradient.addColorStop(0, `hsla(280, 90%, 70%, 0.3`);
+    gradient.addColorStop(0.3, `hsla(217, 80%, 40%, 0.3`);
+    gradient.addColorStop(1, `hsla(165, 100%,20%, 0.3)`);
     return gradient;
   }
 
@@ -152,26 +190,24 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
 
   atXLimit(p: Point) {
     let newDirection =
-      p.x <= 10 || p.x >= this.c.width - 10 ? -p.speed.x : p.speed.x;
+      p.x <= 5 || p.x >= this.c.width - 5 ? -p.speed.x : p.speed.x;
     return newDirection;
   }
 
   atYLimit(p: Point) {
     let newDirection =
-      p.y <= this.c.offsetHeight + 20 || p.y >= this.c.height - 20
-        ? -p.speed.y
-        : p.speed.y;
+      p.y <= 80 || p.y >= this.c.height - 20 ? -p.speed.y : p.speed.y;
     return newDirection;
   }
 
-  moveLines(){
-    this.linesToDraw.forEach(l => {
-      let p1 = this.points[l.i1]
-      let p2 = this.points[l.i2]
+  moveLines() {
+    this.linesToDraw.forEach((l) => {
+      let p1 = this.points[l.i1];
+      let p2 = this.points[l.i2];
       l.x1 = p1.x;
       l.x2 = p2.x;
       l.y1 = p1.y;
       l.y2 = p2.y;
-    })
+    });
   }
 }
