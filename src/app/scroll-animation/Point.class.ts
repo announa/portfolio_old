@@ -1,10 +1,12 @@
 export class Point {
   x: number;
   y: number;
+  speed: {x: number, y: number};
 
   constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
+    this.speed = { x: -0.025 + Math.random() * 0.05, y: -0.05 + Math.random() * 0.1 };
   }
 
   pointsAreClose(point_2: Point, canvas: any) {

@@ -5,16 +5,4 @@
 
 canvas {
  display: block;
- background-color: rgba($color: #ffffff, $alpha: 0.5);
-}
-
-.fade-in{
- opacity: 0;
- animation: fade-in 1s ease-in-out 4000ms forwards;
-}
-
-@keyframes fade-in {
-100%{
-  opacity: 1;
-}
 }
