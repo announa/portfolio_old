@@ -1,12 +1,12 @@
 <div #aboutme id="aboutme" class="component-container fade-in">
   <h3 #aboutHeading>about me</h3>
-<!--   <div class="content-container" #aboutSection> -->
+  <div class="content-container" #aboutSection>
     <div class="img-container fade-in" (click)="switchText()">
       <img src="assets/img/about/me1.jpg" class="img1" #img />
       <img src="assets/img/about/me2.jpg" class="img2" #img />
       <img src="assets/img/about/me3_2.jpg" class="img3" #img />
     </div>
-    <div class="text-container" (click)="switchText()">
+    <div class="text-container" (click)="switchText()" #textContainer>
       <div class="color-layer"></div>
       <div
         class="textbox flex text1"
@@ -51,5 +51,5 @@
       </div>
     </div>
     <!-- <div class="next" (click)="switchText()" #next></div> -->
-<!--   </div> -->
+  </div>
 </div>

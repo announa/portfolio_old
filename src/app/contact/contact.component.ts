@@ -51,7 +51,6 @@ export class ContactComponent implements OnInit, AfterViewInit {
   onSubmit(ngForm: any) {
 /*     if (ngForm.form.valid) { */
       console.log('send');
-      console.log(this.contactData);
       this.submitted = true;
       this.http
         .post(this.endpoint, this.body(this.contactData))

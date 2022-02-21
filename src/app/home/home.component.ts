@@ -62,6 +62,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   stopAnimation() {
     this.animation.stopAnimationFrame();
     this.animating = false;
-    this.navigation.forceNavigation('')
+    this.router.navigate(['/about']);
   }
 }

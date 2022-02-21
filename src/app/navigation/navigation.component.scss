@@ -1,12 +1,25 @@
 nav {
   position: fixed;
-  justify-content: space-between;
-  width: 100%;
-  height: 80px;
-  padding: 0 13vw;
+  top: 0;
+  right: -100%;
   background-color: rgba(28, 28, 28, 0.9);
-  z-index: 4;
   opacity: 0;
+  width: 200px;
+  height: 100vh;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 4;
+  padding: 40px;
+  padding-top: 100px;
+  transition: all 400ms ease-in-out;
+  
+  @media (min-width: 600px){
+    right: unset;
+    width: 100%;
+    height: 80px;
+    padding: 0 13vw;
+    align-items: center;
+  }
 
   .nav-links {
     justify-content: space-between;
@@ -16,6 +29,13 @@ nav {
 
     a {
       text-transform: uppercase;
+      @media (max-width: 600px) {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 600px){
+      flex-direction: column;
     }
   }
 }
@@ -42,4 +62,97 @@ nav {
     display: inline-block;
     transition: filter 225ms ease-in-out;
   }
+}
+
+.menu-icon{
+  width: 40px;
+  cursor: pointer;
+  height: auto;
+  object-fit: contain;
+  filter: invert(100%);
+  
+  &:hover{
+    filter: invert(70%);
+  }
+
+  @media (min-width: 600px){
+    display: none;
+  }
+}
+
+.menu{
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+
+  &:hover .menu-bar{
+    background-color: #aaaaaa;
+  }
+
+  &:hover .bar1, &:hover .bar3{
+    width: 25px;
+    transform: translateX(0);
+  }
+}
+
+.menu--close{
+  &:hover .bar1{
+    width: 30px;
+    height: 2px;
+    transform: rotate(45deg) translateY(-2px);
+  }
+  
+  &:hover .bar3{
+    width: 30px;
+    height: 2px;
+    transform: rotate(-45deg) translateY(2px);
+
+  }
+}
+
+.menu-bar{
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: white;
+  transition: all 225ms ease-in-out;
+}
+
+.bar1{
+  width: 20px;
+transform: translateX(-5px);
+transform-origin: 0 50%;
+}
+
+.bar2{
+  width: 100%;
+}
+
+.bar3{
+  width: 20px;
+transform: translateX(5px);
+transform-origin: 0 50%;
+}
+
+.bar1--close{
+  width: 30px;
+  height: 2px;
+  transform: rotate(45deg) translateY(-2px);
+}
+
+.bar2--close{
+  opacity: 0;
+}
+
+.bar3--close{
+  width: 30px;
+  height: 2px;
+  transform: rotate(-45deg) translateY(2px);
 }

@@ -2,8 +2,10 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   QueryList,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { IntersectionObserverService } from '../intersection-observer.service';
@@ -21,6 +23,11 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   @ViewChildren('img') img!: QueryList<any>;
   @ViewChildren('textbox') textbox!: QueryList<any>;
   @ViewChildren('lines') lines!: QueryList<any>;
+  @ViewChild('textContainer') textContainer!: ElementRef;
+  @HostListener('window:resize', ['$event'])
+  resizeEvent(){
+    this.resizeTextContainer();
+  }
   textboxArr!: ElementRef[];
   imgArr!: ElementRef[];
   linesArr!: ElementRef[];
@@ -78,5 +85,11 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
         l.nativeElement.classList.remove('hover-lines');
       }, 1);
     });
+  }
+
+  resizeTextContainer(){
+    let maxHeight = Math.max(this.textboxArr[0].nativeElement.clientHeight, this.textboxArr[1].nativeElement.clientHeight, this.textboxArr[2].nativeElement.clientHeight)
+    console.log(maxHeight)
+    this.textContainer.nativeElement.style.height = `${maxHeight}px`
   }
 }

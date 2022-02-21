@@ -18,7 +18,7 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas') canvas!: ElementRef;
   @ViewChild('canvasContainer') canvasContainer!: ElementRef;
   @HostListener('window:resize', ['$event'])
-  resizeEvent() {
+  resize() {
     /* this.savePoints(); */
     this.initCanvas();
     /* this.getResizePoints() */
@@ -52,7 +52,7 @@ export class ScrollAnimationComponent implements OnInit, AfterViewInit {
     this.createdPoints = 0;
     setTimeout(() => {
       this.initCanvas();
-    }, 10);
+    }, 50);
   }
 
   initCanvas() {

@@ -1,12 +1,9 @@
-/* .content-container{
-  width: 100%;
+.content-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
   position: relative;
-  min-height: 55vh;
-} */
-
-.component-container {
   @media (max-width: 800px) {
-    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
@@ -30,17 +27,16 @@ h3 {
   aspect-ratio: 1;
   position: relative;
   margin-bottom: 30px;
-  /* right: 50%;
-  transform: translateX(50%); */
-
-  @media (min-width: 400px) {
-    margin-bottom: 10px;
-  }
 
   @media (min-width: 800px) {
-    width: 55vh;
-    position: absolute;
-    right: 13vw;
+    width: 45vh;
+    margin-bottom: 0;
+    /*     position: absolute;
+    right: 13vw; */
+  }
+  
+  @media (min-width: 1000px){
+   width: 55vh;
   }
 
   img {
@@ -53,8 +49,12 @@ h3 {
     transition: left 350ms ease-in-out;
 
     @media (min-width: 800px) {
-      width: 55vh;
+      width: 45vh;
     }
+
+    @media (min-width: 1000px){
+      width: 55vh;
+     }
   }
 }
 
@@ -78,42 +78,31 @@ h3 {
   height: 350px;
   position: relative;
 
-  @media (min-width: 400px){
+  @media (min-width: 400px) {
     height: 260px;
   }
 
-  @media (min-width: 600px){
+  @media (min-width: 600px) {
     height: 200px;
   }
 
   @media (min-width: 800px) {
-    width: calc(74vw - 45vh);
     position: absolute;
+    left: 0;
+    bottom: -7vh;
+    align-self: flex-end;
+    width: calc(74vw - 35vh);
+    /*     position: absolute;
     left: 13vw;
-    bottom: 45px;
+    bottom: 45px; */
     background-color: rgba(255, 255, 255, 0.1);
     height: 45vh;
+    /* transform: translate(5vw, 5vw); */
   }
-
+  
   @media (min-width: 1000px) {
     height: 35vh;
-  }
-
-  &::before {
-    content: "";
-    width: 12vh;
-    height: calc(35vh - 35px);
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgba($color: #2d4446, $alpha: 0.4);
-    @media (max-width: 1000px) {
-      height: calc(45vh - 35px);
-    }
-
-    @media (max-width: 800px) {
-      display: none;
-    }
+    width: calc(74vw - 45vh);
   }
 
   &:hover > .textbox {
@@ -124,19 +113,19 @@ h3 {
 
 .textbox {
   width: 100%;
-  padding: 5%;
   position: absolute;
   top: 0;
   transition: left 350ms ease-in-out;
-
-  @media (min-width: 800px){
+  
+  @media (min-width: 800px) {
+    padding: 4vh 12vh 4vh 3vw;
     top: 50%;
     transform: translateY(-50%);
   }
 
   p {
     text-align: center;
-    line-height: 1.5rem;
+    /*     line-height: 1.5rem; */
   }
 }
 

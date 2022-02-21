@@ -74,8 +74,13 @@ h2 {
 h3 {
   font-weight: 500;
   text-align: center;
-  font-size: clamp(24px, 4vw, 32px);
+  font-size: clamp(24px, 3vw, 38px);
   margin-bottom: 35px;
+  
+  @media (min-width: 1800px){
+    font-size: clamp(24px, 4vw, 64px);
+
+  }
 }
 
 h4 {
@@ -87,14 +92,28 @@ h5{
 }
 
 a {
-  font-size: clamp(16px, 2vw, 18px);
+  font-size: clamp(16px, 1.5vw, 32px);
   color: white;
   text-decoration: none;
+  
+  @media (min-width: 1800px){
+    font-size: clamp(16px, 2vw, 42px);
+
+  }
 
   &:hover {
     color: #bbb;
   }
 }
+
+p{
+  line-height: 1.5rem;
+  font-size: clamp(16px, 1.5vw, 18px);
+
+  @media (min-width: 1800px){
+  line-height: 2.5rem;
+  font-size: clamp(20px, 2vw, 32px);
+}}
 
 .flex {
   display: flex;

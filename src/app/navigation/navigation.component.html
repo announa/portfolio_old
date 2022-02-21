@@ -1,12 +1,30 @@
-<nav class="pd-15 flex fade-in">
-<!--   <a routerLink="/" class="logo flex">
+<nav class="pd-15 flex fade-in"  [style.right] = "navOpen? '0' : '-100%'" #nav>
+  <!--   <a routerLink="/" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a> -->
   <div class="nav-links flex">
     <a routerLink="/">Home</a>
-    <a routerLink="/about/#aboutme" (click)="navigation.forceNavigation('aboutme'); projects.closeProject()">About</a>
-<!--     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a> -->
-    <a routerLink="/about/#portfolio" (click)="navigation.forceNavigation('portfolio'); projects.closeProject()">Portfolio</a>
-    <a routerLink="/about/#contact" (click)="navigation.forceNavigation('contact'); projects.closeProject()">Contact</a>
+    <a
+      routerLink="/about/#aboutme"
+      (click)="navigation.forceNavigation('aboutme'); projects.closeProject()"
+      >About</a
+    >
+    <!--     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a> -->
+    <a
+      routerLink="/about/#portfolio"
+      (click)="navigation.forceNavigation('portfolio'); projects.closeProject()"
+      >Portfolio</a
+    >
+    <a
+      routerLink="/about/#contact"
+      (click)="navigation.forceNavigation('contact'); projects.closeProject()"
+      >Contact</a
+    >
   </div>
+  <!--     <img class="menu-icon" src="assets/img/icons/menu_icon.svg" alt="menu" /> -->
 </nav>
+<div class="menu" [class.menu--close]="navOpen" (click)="toggleMenu()">
+  <div class="menu-bar bar1" [class.bar1--close]="navOpen"></div>
+  <div class="menu-bar bar2" [class.bar2--close]="navOpen"></div>
+  <div class="menu-bar bar3" [class.bar3--close]="navOpen"></div>
+</div>

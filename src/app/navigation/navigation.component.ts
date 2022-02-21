@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavigationService } from '../navigation.service';
 import { ProjectsService } from '../projects.service';
@@ -11,6 +11,12 @@ import { ProjectsService } from '../projects.service';
 })
 export class NavigationComponent implements OnInit, AfterViewInit {
   hideElement = true;
+  navOpen = false;
+  @ViewChild('nav') nav!: ElementRef;
+  @HostListener('window:resize', ['$event'])
+  resize(){
+    this.resetNav()
+  }
 
   constructor(public navigation: NavigationService, public projects: ProjectsService, public router: Router) { }
 
@@ -23,4 +29,11 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
   }
 
+  toggleMenu(){
+    this.navOpen = !this.navOpen;
+  }
+
+  resetNav(){
+    this.nav.nativeElement.style = '';
+  }
 }
