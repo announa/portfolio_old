@@ -30,6 +30,7 @@ nav {
     width: 100%;
 
     a {
+      cursor: pointer;
       text-transform: uppercase;
       @media (max-width: 600px) {
         margin-top: 20px;
@@ -83,6 +84,10 @@ nav {
   cursor: pointer;
   z-index: 5;
 
+  &:not(:hover){
+    mix-blend-mode: difference;
+  }
+
   @media (min-width: 600px){
     display: none;
   }
@@ -91,7 +96,7 @@ nav {
     /* background-color: #aaaaaa; */
     background-color: rgb(191, 0, 255);
   }
-
+  
   &:hover .bar1, &:hover .bar3{
     width: 25px;
     transform: translateX(0);
@@ -117,8 +122,12 @@ nav {
   height: 1.5px;
   border-radius: 2px;
   background-color: white;
-  mix-blend-mode: difference;
   transition: all 400ms ease-in-out;
+}
+
+.menu-bar--dark{
+  background-color: rgb(10, 10, 10);
+
 }
 
 .bar1{

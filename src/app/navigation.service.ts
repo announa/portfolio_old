@@ -2,20 +2,23 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavigationService {
+  constructor(public router: Router) {}
 
-  constructor(public router: Router) { }
-
-  forceNavigation(name: string) {
-    this.router
-      .navigate(['/about'], { fragment: name })
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  forceNavigation(path: string, name?: string) {
+    if (name) {
+      this.router
+        .navigate([path], { fragment: name })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      this.router.navigate([path]);
+    }
   }
 }
