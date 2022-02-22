@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChildren('letter2') letters2!: QueryList<any>;
   @ViewChild(StartAnimationComponent) animation!: StartAnimationComponent;
 
-  constructor(private router: Router, private navigation: NavigationService) {}
+  constructor(private router: Router, public navigation: NavigationService) {}
 
   ngAfterViewInit() {
     let lettersArr = this.letters.toArray();

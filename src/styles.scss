@@ -10,7 +10,8 @@ html {
 
 body {
   --bg-grey: #1a1a1a;
-  --text-colored: rgb(0, 255, 213);
+  --text-colored: rgb(0, 225, 255);
+  --text-colored2: rgb(0, 182, 173);
   overflow-x: hidden;
   background-color: rgb(10, 10, 10);
 }
@@ -29,7 +30,7 @@ body {
 }
 
 .component-light {
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(220, 220, 220);
   color: rgb(10, 10, 10);
 }
 
@@ -101,7 +102,7 @@ h5 {
 }
 
 a {
-  font-size: clamp(16px, 1.5vw, 32px);
+  font-size: clamp(20px, 1.5vw, 32px);
   color: white;
   text-decoration: none;
 
@@ -110,7 +111,7 @@ a {
   }
 
   &:hover {
-    color: #bbb;
+    color: rgb(162, 162, 162);
   }
 }
 
@@ -159,6 +160,10 @@ p {
 }
 
 .text-blue {
+  color: var(--text-colored);
+  font-weight: 500;
+}
+.text-blue2 {
   color: var(--text-colored);
   font-weight: 500;
 }
