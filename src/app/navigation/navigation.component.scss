@@ -88,7 +88,8 @@ nav {
   }
 
   &:hover .menu-bar{
-    background-color: #aaaaaa;
+    /* background-color: #aaaaaa; */
+    background-color: rgb(191, 0, 255);
   }
 
   &:hover .bar1, &:hover .bar3{
@@ -116,6 +117,7 @@ nav {
   height: 1.5px;
   border-radius: 2px;
   background-color: white;
+  mix-blend-mode: difference;
   transition: all 400ms ease-in-out;
 }
 
@@ -139,6 +141,8 @@ transform-origin: 0 50%;
   width: 30px;
   height: 2px;
   transform: rotate(45deg) translateY(-2px);
+    transition: width, transform 400ms ease-in-out;
+
 }
 
 .bar2--close{
@@ -149,4 +153,6 @@ transform-origin: 0 50%;
   width: 30px;
   height: 2px;
   transform: rotate(-45deg) translateY(2px);
+    transition: width, transform 400ms ease-in-out;
+
 }
