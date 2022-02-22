@@ -26,7 +26,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   @ViewChild('textContainer') textContainer!: ElementRef;
   @HostListener('window:resize', ['$event'])
   resizeEvent(){
-    this.resizeTextContainer();
+    this.setTextContanerHeight();
   }
   textboxArr!: ElementRef[];
   imgArr!: ElementRef[];
@@ -41,6 +41,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.textboxArr = this.textbox.toArray();
     this.imgArr = this.img.toArray();
     this.linesArr = this.lines.toArray();
+    this.setTextContanerHeight();
   }
 
   switchText() {
@@ -87,9 +88,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  resizeTextContainer(){
+  setTextContanerHeight(){
     let maxHeight = Math.max(this.textboxArr[0].nativeElement.clientHeight, this.textboxArr[1].nativeElement.clientHeight, this.textboxArr[2].nativeElement.clientHeight)
-    console.log(maxHeight)
     this.textContainer.nativeElement.style.height = `${maxHeight}px`
   }
 }

@@ -1,22 +1,22 @@
-<nav class="pd-15 flex fade-in"  [style.right] = "navOpen? '0' : '-100%'" #nav>
+<nav class="pd-15 flex fade-in"  [style.right] = "navOpen || bigger600 ? '0' : '-100%'" #nav>
   <!--   <a routerLink="/" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a> -->
   <div class="nav-links flex">
     <a routerLink="/">Home</a>
     <a
-      routerLink="/about/#aboutme"
+      routerLink="/about/#aboutme" [class.link-active]="this.router.url == '/about#aboutme'"
       (click)="navigation.forceNavigation('aboutme'); projects.closeProject()"
       >About</a
     >
     <!--     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a> -->
     <a
-      routerLink="/about/#portfolio"
+      routerLink="/about/#portfolio" [class.link-active]="this.router.url == '/about#portfolio'"
       (click)="navigation.forceNavigation('portfolio'); projects.closeProject()"
       >Portfolio</a
     >
     <a
-      routerLink="/about/#contact"
+      routerLink="/about/#contact" [class.link-active]="this.router.url == '/about#contact'"
       (click)="navigation.forceNavigation('contact'); projects.closeProject()"
       >Contact</a
     >

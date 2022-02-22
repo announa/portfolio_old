@@ -3,6 +3,7 @@ nav {
   top: 0;
   right: -100%;
   background-color: rgba(28, 28, 28, 0.9);
+  background: linear-gradient(rgba(28, 28, 28, 1) 50%, rgba(28, 28, 28, 0) 90%);
   opacity: 0;
   width: 200px;
   height: 100vh;
@@ -14,6 +15,7 @@ nav {
   transition: all 400ms ease-in-out;
   
   @media (min-width: 600px){
+    background: linear-gradient(rgba(28, 28, 28, 1) 65%, rgba(28, 28, 28, 0.8));
     right: unset;
     width: 100%;
     height: 80px;
@@ -46,6 +48,10 @@ nav {
   }
 }
 
+.link-active{
+  color: rgb(170, 0, 255);
+}
+
 .logo {
   height: clamp(14px, 1.8vw, 16px);
   width: auto;
@@ -64,22 +70,6 @@ nav {
   }
 }
 
-.menu-icon{
-  width: 40px;
-  cursor: pointer;
-  height: auto;
-  object-fit: contain;
-  filter: invert(100%);
-  
-  &:hover{
-    filter: invert(70%);
-  }
-
-  @media (min-width: 600px){
-    display: none;
-  }
-}
-
 .menu{
   position: fixed;
   top: 30px;
@@ -92,6 +82,10 @@ nav {
   align-items: center;
   cursor: pointer;
   z-index: 5;
+
+  @media (min-width: 600px){
+    display: none;
+  }
 
   &:hover .menu-bar{
     background-color: #aaaaaa;
@@ -122,7 +116,7 @@ nav {
   height: 1.5px;
   border-radius: 2px;
   background-color: white;
-  transition: all 225ms ease-in-out;
+  transition: all 400ms ease-in-out;
 }
 
 .bar1{

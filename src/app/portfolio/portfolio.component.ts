@@ -25,6 +25,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   @ViewChildren('projectItem') projectItemList!: QueryList<any>;
   @ViewChild('portfolio') portfolio!: ElementRef;
   @ViewChildren('portfolioHeading') portfolioHeading!: QueryList<any>;
+  @ViewChildren('text') text!: QueryList<any>;
   @HostListener('document:scroll', ['$event'])
   fadeComponent($event: Event) {}
   /*   let scrollOffset = $event.srcElement.children[0].scrollTop;
@@ -35,7 +36,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    const observeItems = [this.projectItemList, this.portfolioHeading];
+    const observeItems = [this.projectItemList, this.portfolioHeading, this.text];
     this.observer.createIntersectionObserver(observeItems);
   }
 

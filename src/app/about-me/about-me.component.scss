@@ -36,7 +36,7 @@ h3 {
   }
   
   @media (min-width: 1000px){
-   width: 55vh;
+   width: 50vh;
   }
 
   img {
@@ -53,7 +53,7 @@ h3 {
     }
 
     @media (min-width: 1000px){
-      width: 55vh;
+      width: 50vh;
      }
   }
 }
@@ -78,13 +78,13 @@ h3 {
   height: 350px;
   position: relative;
 
-  @media (min-width: 400px) {
+/*   @media (min-width: 400px) {
     height: 260px;
   }
 
   @media (min-width: 600px) {
     height: 200px;
-  }
+  } */
 
   @media (min-width: 800px) {
     position: absolute;
@@ -96,12 +96,12 @@ h3 {
     left: 13vw;
     bottom: 45px; */
     background-color: rgba(255, 255, 255, 0.1);
-    height: 45vh;
+    /* height: 45vh; */
     /* transform: translate(5vw, 5vw); */
   }
   
   @media (min-width: 1000px) {
-    height: 35vh;
+    /* height: 35vh; */
     width: calc(74vw - 45vh);
   }
 

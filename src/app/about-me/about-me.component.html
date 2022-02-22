@@ -1,5 +1,5 @@
 <div #aboutme id="aboutme" class="component-container fade-in">
-  <h3 #aboutHeading>about me</h3>
+  <h3 #aboutHeading>about <span class="text-blue">me</span></h3>
   <div class="content-container" #aboutSection>
     <div class="img-container fade-in" (click)="switchText()">
       <img src="assets/img/about/me1.jpg" class="img1" #img />
@@ -14,10 +14,7 @@
         [class.invisible]="currentText != 0"
       >
         <p #text>
-          <strong>"</strong>I am a junior front end developer from
-          Germany<strong>,</strong> passionate about programming well designed
-          and functional web sites and applications<strong>.</strong> I would
-          love to help you realizing your next project<strong>."</strong>
+          <strong>"</strong>I am a <span class="text-violet">passionate</span> front end developer from Germany<strong>,</strong> actually living in Colombia. I enjoy programming <span class="text-blue">well designed</span> and <span class="text-blue">functional</span> web sites and applications<strong>.</strong> Now<strong>,</strong> after my training, I am ready to take the <span class="text-blue">next step</span><strong>,</strong> starting my carreer in this awesome business<strong>.</strong> I would love to help you realizing your next project and to be a part of your team<strong>."</strong>
         </p>
       </div>
       <div
@@ -27,11 +24,11 @@
       >
         <!-- <div class="textwrap"> -->
         <p #text>
-          <strong>"</strong>Actually I am a language teacher and I myself love
-          learning languages<strong>.</strong> I studied french and chemistry
+          <strong>"</strong>Actually I am a <span class="text-blue">language teacher</span> and I myself love
+          learning languages<strong>.</strong> I studied <span class="text-blue">french and chemistry</span>
           for becoming a teacher and worked as teacher for German as a foreign
           language<strong>.</strong> But I wanted a career change and a new
-          challenge and finally I discovered my passion for programming<strong
+          challenge and finally I discovered my passion for <span class="text-violet">programming</span><strong
             >."</strong
           >
         </p>
@@ -43,10 +40,10 @@
       >
         <!-- <div class="textwrap"> -->
         <p #text>
-          <strong>"</strong>Sports and outdoor activities are an important part
-          of my life. I love bouldering and climbing, moutainbiking, hiking and
-          - the mountains<strong>.</strong> Ultimately I also discovered surfing
-          and I am fascinated by this sport<strong>."</strong>
+          <strong>"</strong><span class="text-violet">Sports</span> and outdoor activities are an important part
+          of my life. I love <span class="text-blue">bouldering</span> and climbing, moutainbiking, hiking and
+          - the <span class="text-blue">mountains</span><strong>.</strong> Ultimately I also discovered surfing
+          and the fascination of the ocean<strong>."</strong>
         </p>
       </div>
     </div>
