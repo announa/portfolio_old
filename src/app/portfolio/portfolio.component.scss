@@ -31,10 +31,6 @@ h3 {
 }
 
 .portfolio-container {
-  /*   display: grid;
-  grid-template-rows: 4fr;
-  grid-template-columns: 1fr;
-  justify-content: center; */
   cursor: pointer;
   width: 100%;
 
@@ -53,8 +49,8 @@ h3 {
   max-height: 270px;
   position: relative;
   gap: 5%;
-  opacity: 0;
-  transition: all 350ms ease-in-out;
+  /* opacity: 0; */
+  transition: all 500ms ease-in-out;
   border-top: 1px solid rgb(180, 180, 180);
   padding: 20px 0;
 
@@ -71,6 +67,7 @@ h3 {
     height: 100%;
     position: relative;
     overflow: hidden;
+    transition: all 500ms ease-in-out;
   }
   img {
     width: 100%;
@@ -108,8 +105,16 @@ h3 {
 .description {
   flex: 1;
   color: rgb(10, 10, 10);
+  transition: all 500ms ease-in-out;
   p {
     line-height: 1.5rem;
     margin-top: 5%;
   }
+}
+
+.tt--100 {
+  transform: translateX(-50%);
+}
+.tt-100 {
+  transform: translateX(50%);
 }

@@ -24,7 +24,9 @@ export class IntersectionObserverService implements AfterViewInit {
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
            if(e.isIntersecting){
+             console.log(e.target)
             e.target.classList.add('o-1')
+            e.target.classList.add('tt-0')
             this.observer.unobserve(e.target)
           } /* else{
             e.target.classList.remove('o-1')
