@@ -84,6 +84,9 @@ h3 {
     filter: blur(2px);
     transform: scale(1.1);
   }
+
+  &:hover .description{
+color: rgb(100, 100, 100)  }
 }
 
 .portfolio-layer {
@@ -105,7 +108,12 @@ h3 {
 .description {
   flex: 1;
   color: rgb(10, 10, 10);
-  transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out, color 0ms;
+/*   h4{
+    @media (max-width: 600px) {
+      font-size: 16px;
+    } */
+  }
   p {
     line-height: 1.5rem;
     margin-top: 5%;
