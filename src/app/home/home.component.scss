@@ -23,7 +23,6 @@
   @media (max-width: 600px) {
     flex-direction: column-reverse;
     justify-content: space-evenly;
-
   }
 }
 
@@ -61,22 +60,6 @@
 .text-colored {
   color: var(--text-colored);
 }
-
-a {
-  cursor: pointer;
-  color: var(--text-colored);
-  border: 1px solid var(--text-colored);
-  background-color: unset;
-  font-weight: 400;
-  position: relative;
-  opacity: 0;
-  padding: 20px;
-  font-size: clamp(16px, 2.5vw, 20px);
-  &:hover {
-    text-shadow: 0px 0 4px hsla(175, 100%, 39%, .8);
-    background-color: rgba(10, 10, 10, .7);
-    box-shadow: inset 0 0 6px 0.5px var(--text-colored), 0 0 6px 0.5px var(--text-colored);
-}}
 
 .hover-animation {
   animation: hover-animation 200ms linear;
@@ -166,7 +149,7 @@ a {
   animation: fade-in 1s ease-in-out 5s forwards;
 }
 .fade-out {
-  animation:  fade-out 1s ease-in-out both;
+  animation: fade-out 1s ease-in-out both;
 }
 
 @keyframes fade-in {
@@ -175,7 +158,7 @@ a {
   }
 }
 @keyframes fade-out {
-  0%{
+  0% {
     opacity: 1;
     top: 0;
     left: 0;

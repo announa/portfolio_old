@@ -13,7 +13,8 @@
       class="project flex"
       [style.flexDirection]="!bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'"
     >
-      <div class="img-container o-0" [ngClass]="{'tt--100': i % 2 == 0, 'tt-100': i % 2 != 0}" #imgContainer>
+    <div class="o-0" [class.separator]="i != 0" [class.right]="i % 2 != 0" #separator [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}"></div>
+      <div class="img-container o-0" [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}" #imgContainer>
         <img src="assets/img/portfolio/{{ project.img[0] }}" />
         <div class="portfolio-layer flex">
         <p>

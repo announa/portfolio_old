@@ -28,6 +28,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   @ViewChildren('portfolioHeading') portfolioHeading!: QueryList<any>;
   @ViewChildren('imgContainer') imgContainer!: QueryList<any>;
   @ViewChildren('description') description!: QueryList<any>;
+  @ViewChildren('separator') separator!: QueryList<any>;
   @HostListener('document:scroll', ['$event'])
   fadeComponent($event: Event) {}
   @HostListener('window:resize', ['$event'])
@@ -55,6 +56,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       this.text,
       this.imgContainer,
       this.description,
+      this.separator
     ];
     this.observer.createIntersectionObserver(observeItems);
   }

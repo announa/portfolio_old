@@ -24,6 +24,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   @ViewChildren('textbox') textbox!: QueryList<any>;
   @ViewChildren('lines') lines!: QueryList<any>;
   @ViewChild('textContainer') textContainer!: ElementRef;
+  @ViewChildren('separator') separator!: QueryList<any>;
   @HostListener('window:resize', ['$event'])
   resizeEvent(){
     this.setTextContanerHeight();
@@ -42,6 +43,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.imgArr = this.img.toArray();
     this.linesArr = this.lines.toArray();
     this.setTextContanerHeight();
+    this.separator.toArray().forEach(s => s.nativeElement.classList.add('tt-0'))
   }
 
   switchText() {
