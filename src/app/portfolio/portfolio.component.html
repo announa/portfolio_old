@@ -11,7 +11,7 @@
       #projectItem
       (click)="showProject(project.link)"
       class="project flex"
-      [style.flexDirection]="i % 2 == 0 ? 'row' : 'row-reverse'"
+      [style.flexDirection]="!bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'"
     >
       <div class="img-container o-0" [ngClass]="{'tt--100': i % 2 == 0, 'tt-100': i % 2 != 0}" #imgContainer>
         <img src="assets/img/portfolio/{{ project.img[0] }}" />

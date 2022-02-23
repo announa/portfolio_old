@@ -20,7 +20,7 @@ import { ProjectsService } from '../projects.service';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent implements OnInit, AfterViewInit {
-
+  bigger800!: boolean;
   @Output() openProject = new EventEmitter();
   @ViewChildren('projectItem') projectItemList!: QueryList<any>;
   @ViewChild('portfolio') portfolio!: ElementRef;
@@ -30,21 +30,44 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   @ViewChildren('description') description!: QueryList<any>;
   @HostListener('document:scroll', ['$event'])
   fadeComponent($event: Event) {}
+  @HostListener('window:resize', ['$event'])
+  resize() {
+    this.checkWindowSize();
+  }
   /*   let scrollOffset = $event.srcElement.children[0].scrollTop;
   console.log("window scroll: ", scrollOffset); */
 
-  constructor(public observer: IntersectionObserverService, public navigation: NavigationService, public projects: ProjectsService) {}
+  constructor(
+    public observer: IntersectionObserverService,
+    public navigation: NavigationService,
+    public projects: ProjectsService
+  ) {
+    this.checkWindowSize();
+  }
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    console.log(this.imgContainer)
-    console.log(this.text)
-    const observeItems = [this.portfolioHeading, this.text, this.imgContainer, this.description];
+    console.log(this.imgContainer);
+    console.log(this.text);
+    const observeItems = [
+      this.portfolioHeading,
+      this.text,
+      this.imgContainer,
+      this.description,
+    ];
     this.observer.createIntersectionObserver(observeItems);
   }
 
-  showProject(projectLink: string){
-    this.openProject.emit(projectLink)
+  showProject(projectLink: string) {
+    this.openProject.emit(projectLink);
+  }
+
+  checkWindowSize() {
+    if (window.innerWidth >= 800) {
+      this.bigger800 = true;
+    } else {
+      this.bigger800 = false;
+    }
   }
 }
