@@ -71,5 +71,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     } else {
       this.bigger800 = false;
     }
+    console.log(this.bigger800)
   }
 }

@@ -23,10 +23,6 @@ body {
   flex-direction: column;
   padding: 125px 13vw 85px;
   background-color: rgb(10, 10, 10);
-/*   @media (max-width: 360px) {
-    padding-left: 10px;
-    padding-right: 10px;
-  } */
 
   @media (min-width: 1800px){
     padding-left: calc((100vw - 1332px) / 2);
@@ -73,18 +69,11 @@ h1 {
   font-size: clamp(32px, 3vw, 72px);
   font-weight: 500;
   margin-bottom: 20px;
-
-  /*   @media (max-width: 600px) {
-    font-size: clamp(32px, 10vw, 60px);
-  } */
 }
 
 h2 {
   font-weight: 500;
   font-size: clamp(22px, 2.5vw, 60px);
-  /*   @media (max-width: 600px) {
-    font-size: clamp(22px, 8vw, 50px);
-  } */
 }
 
 h3 {
