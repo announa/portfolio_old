@@ -22,10 +22,14 @@
 
 .separator{
   width: 55vw;
-  height: 10px;
+  height: 8px;
   position: absolute;
   background-color: rgb(50,50,50);
-  transition: all 600ms ease-in-out 1.3s;
+  transition: transform 600ms ease-in-out 1.3s;
+
+  @media (max-width: 800px){
+    width: 65vw;
+  }
 }
 
   
