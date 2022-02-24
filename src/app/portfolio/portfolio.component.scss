@@ -50,7 +50,7 @@ h3 {
   aspect-ratio: 3;
   max-height: 250px;
   position: relative;
-  transition: all 500ms ease-in-out;
+  transition: all 600ms ease-in-out;
   /* border-top: 1px solid rgb(180, 180, 180); */
   padding: 25px 0;
 
@@ -79,7 +79,7 @@ h3 {
   }
 
   &:hover .description {
-    color: rgb(106, 0, 141);
+    color: rgb(212, 0, 255);
   }
 }
 
@@ -90,7 +90,7 @@ h3 {
   left: -13vw;
   top: -5px;
   background-color: rgb(200, 200, 200);
-  transition: all 500ms ease-in-out;
+  transition: all 600ms ease-in-out;
   @media (max-width: 800px) {
     width: 74vw;
     left: calc(-13vw - (100vw - 400px) / 2);
@@ -112,7 +112,7 @@ h3 {
   height: 100%;
   position: relative;
   overflow: hidden;
-  transition: all 500ms ease-in-out;
+  transition: all 600ms ease-in-out;
 
   @media (max-width: 800px) {
     width: 100%;
@@ -148,7 +148,7 @@ h3 {
 .description {
   flex: 1;
   color: rgb(10, 10, 10);
-  transition: all 500ms ease-in-out, color 0ms;
+  transition: all 600ms ease-in-out, color 0ms;
   @media (max-width: 800px) {
     width: 100%;
     margin-bottom: 10px;
@@ -164,8 +164,8 @@ h3 {
 }
 
 .tt--100 {
-  transform: translateX(-50%);
+  transform: translateX(-100%);
 }
 .tt-100 {
-  transform: translateX(50%);
+  transform: translateX(100%);
 }

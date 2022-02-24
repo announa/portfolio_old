@@ -39,8 +39,11 @@ p {
    margin-bottom: 5px;
    justify-content: flex-start;
 
+   &:hover {
+     color: rgb(162, 162, 162);
+   }
    &:hover > img{
-    filter: invert(70%);
+    filter: invert(50%);
    }
   }
 }

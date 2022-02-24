@@ -8,13 +8,13 @@
   <div class="portfolio-container">
     <a
       *ngFor="let project of projects.projects; let i = index"
-      #projectItem
+      #project
       (click)="showProject(project.link)"
-      class="project flex"
+      class="project flex o-0"
       [style.flexDirection]="!bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'"
     >
-    <div class="o-0" [class.separator]="i != 0" [class.right]="i % 2 != 0" #separator [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}"></div>
-      <div class="img-container o-0" [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}" #imgContainer>
+    <div [class.separator]="i != 0" [class.right]="i % 2 != 0" #separator [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}"></div>
+      <div class="img-container" [ngClass]="{'tt-100': i % 2 != 0, 'tt--100': i % 2 == 0}" #imgContainer>
         <img src="assets/img/portfolio/{{ project.img[0] }}" />
         <div class="portfolio-layer flex">
         <p>
@@ -22,7 +22,7 @@
         </p>
         </div>
       </div>
-      <div class="description o-0" [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}" [ngStyle]="{'textAlign': i % 2 == 0 ? 'left' : 'right', 'marginLeft': i % 2 == 0 && bigger800? '5%': '', 'marginRight': i % 2 != 0 && bigger800? '5%': ''}" #description>
+      <div class="description" [ngClass]="{'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0}" [ngStyle]="{'textAlign': i % 2 == 0 ? 'left' : 'right', 'marginLeft': i % 2 == 0 && bigger800? '5%': '', 'marginRight': i % 2 != 0 && bigger800? '5%': ''}" #description>
         <h4>{{ project.title }}</h4>
         <p>
           {{ project.description }}

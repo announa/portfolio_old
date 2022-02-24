@@ -54,3 +54,10 @@
     filter: invert(100%);
   }
 }
+
+a{
+
+  &:hover {
+    color: rgb(162, 162, 162);
+  }
+}

@@ -13,8 +13,8 @@ nav {
   padding: 40px;
   padding-top: 100px;
   transition: all 400ms ease-in-out;
-  
-  @media (min-width: 600px){
+
+  @media (min-width: 600px) {
     background: linear-gradient(rgba(28, 28, 28, 1) 65%, rgba(28, 28, 28, 0.8));
     right: unset;
     width: 100%;
@@ -31,13 +31,17 @@ nav {
 
     a {
       cursor: pointer;
-      
+
+      &:hover {
+        color: rgb(162, 162, 162);
+      }
+
       @media (max-width: 600px) {
         margin-top: 20px;
       }
     }
 
-    @media (max-width: 600px){
+    @media (max-width: 600px) {
       flex-direction: column;
     }
   }
@@ -49,12 +53,12 @@ nav {
   }
 }
 
-.link-active{
+.link-active {
   color: rgb(225, 0, 255);
   text-shadow: 0 0 4px rgb(225, 0, 255);
-  
-  &:hover{
-    color: rgb(236, 91, 255);
+
+  &:hover {
+    color: rgb(236, 91, 255) !important;
     text-shadow: 0 0 6px rgb(233, 70, 255) !important;
   }
 }
@@ -77,7 +81,7 @@ nav {
   }
 }
 
-.menu{
+.menu {
   position: fixed;
   top: 30px;
   right: 30px;
@@ -90,84 +94,81 @@ nav {
   cursor: pointer;
   z-index: 5;
 
-  &:not(:hover){
+  &:not(:hover) {
     mix-blend-mode: difference;
   }
 
-  @media (min-width: 600px){
+  @media (min-width: 600px) {
     display: none;
   }
 
-  &:hover .menu-bar{
+  &:hover .menu-bar {
     /* background-color: #aaaaaa; */
     background-color: rgb(191, 0, 255);
   }
-  
-  &:hover .bar1, &:hover .bar3{
+
+  &:hover .bar1,
+  &:hover .bar3 {
     width: 25px;
     transform: translateX(0);
   }
 }
 
-.menu--close{
-  &:hover .bar1{
+.menu--close {
+  &:hover .bar1 {
     width: 30px;
     height: 2px;
     transform: rotate(45deg) translateY(-2px);
   }
-  
-  &:hover .bar3{
+
+  &:hover .bar3 {
     width: 30px;
     height: 2px;
     transform: rotate(-45deg) translateY(2px);
-
   }
 }
 
-.menu-bar{
+.menu-bar {
   height: 1.5px;
   border-radius: 2px;
   background-color: white;
   transition: all 400ms ease-in-out;
 }
 
-.menu-bar--dark{
+.menu-bar--dark {
   background-color: rgb(10, 10, 10);
-
 }
 
-.bar1{
+.bar1 {
   width: 20px;
-transform: translateX(-5px);
-transform-origin: 0 50%;
+  transform: translateX(-5px);
+  transform-origin: 0 50%;
 }
 
-.bar2{
+.bar2 {
   width: 100%;
 }
 
-.bar3{
+.bar3 {
   width: 20px;
-transform: translateX(5px);
-transform-origin: 0 50%;
+  transform: translateX(5px);
+  transform-origin: 0 50%;
 }
 
-.bar1--close{
+.bar1--close {
   width: 30px;
   height: 2px;
   transform: rotate(45deg) translateY(-2px);
-    transition: width, transform 400ms ease-in-out;
-
+  transition: width, transform 400ms ease-in-out;
 }
 
-.bar2--close{
+.bar2--close {
   opacity: 0;
 }
 
-.bar3--close{
+.bar3--close {
   width: 30px;
   height: 2px;
   transform: rotate(-45deg) translateY(2px);
-    transition: width, transform 400ms ease-in-out;
-
+  transition: width, transform 400ms ease-in-out;
 }

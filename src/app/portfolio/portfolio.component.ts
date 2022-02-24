@@ -22,7 +22,7 @@ import { ProjectsService } from '../projects.service';
 export class PortfolioComponent implements OnInit, AfterViewInit {
   bigger800!: boolean;
   @Output() openProject = new EventEmitter();
-  @ViewChildren('projectItem') projectItemList!: QueryList<any>;
+  @ViewChildren('project') project!: QueryList<any>;
   @ViewChild('portfolio') portfolio!: ElementRef;
   @ViewChildren('text') text!: QueryList<any>;
   @ViewChildren('portfolioHeading') portfolioHeading!: QueryList<any>;
@@ -52,10 +52,11 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     console.log(this.imgContainer);
     console.log(this.text);
     const observeItems = [
+      this.project,
       this.portfolioHeading,
       this.text,
-      this.imgContainer,
-      this.description,
+/*       this.imgContainer,
+      this.description, */
       this.separator
     ];
     this.observer.createIntersectionObserver(observeItems);
