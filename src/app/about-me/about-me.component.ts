@@ -26,7 +26,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   @ViewChild('textContainer') textContainer!: ElementRef;
   @ViewChildren('separator') separator!: QueryList<any>;
   @HostListener('window:resize', ['$event'])
-  resizeEvent(){
+  resizeEvent() {
     this.setTextContanerHeight();
   }
   textboxArr!: ElementRef[];
@@ -43,29 +43,33 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     this.imgArr = this.img.toArray();
     this.linesArr = this.lines.toArray();
     this.setTextContanerHeight();
-    this.separator.toArray().forEach(s => s.nativeElement.classList.add('tt-0'))
+    this.separator
+      .toArray()
+      .forEach((s) => s.nativeElement.classList.add('tt-0'));
   }
 
-  switchText() {
+  switchContent() {
     this.currentText++;
     this.currentText = this.currentText % 3;
     let before: number;
     let next: number;
     this.currentText === 0 ? (before = 2) : (before = this.currentText - 1);
     this.currentText === 2 ? (next = 0) : (next = this.currentText + 1);
-    this.textboxArr[this.currentText].nativeElement.style.left = '0';
-    this.imgArr[this.currentText].nativeElement.style.left = '0';
-    this.textboxArr[before].nativeElement.style.left = '-100%';
-    this.imgArr[before].nativeElement.style.left = '-100%';
+
+    [this.textboxArr, this.imgArr].forEach((arr) =>
+      this.switch(arr, before, next)
+    );
+  }
+
+  switch(arr: ElementRef[], before: number, next: number) {
+    arr[this.currentText].nativeElement.style.left = '0';
+    arr[before].nativeElement.style.left = '-100%';
     setTimeout(() => {
-      this.imgArr[before].nativeElement.style.display = 'none';
-      this.textboxArr[before].nativeElement.style.display = 'none';
+      arr[before].nativeElement.style.display = 'none';
     }, 225);
-    this.textboxArr[next].nativeElement.style.left = 'calc(100% + 60px)';
-    this.imgArr[next].nativeElement.style.left = '100%';
+    arr[next].nativeElement.style.left = '100%';
     setTimeout(() => {
-      this.imgArr[next].nativeElement.style.display = 'unset';
-      this.textboxArr[next].nativeElement.style.display = 'unset';
+      arr[next].nativeElement.style.display = 'unset';
     }, 225);
   }
 
@@ -90,8 +94,12 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  setTextContanerHeight(){
-    let maxHeight = Math.max(this.textboxArr[0].nativeElement.clientHeight, this.textboxArr[1].nativeElement.clientHeight, this.textboxArr[2].nativeElement.clientHeight)
-    this.textContainer.nativeElement.style.height = `${maxHeight}px`
+  setTextContanerHeight() {
+    let maxHeight = Math.max(
+      this.textboxArr[0].nativeElement.clientHeight,
+      this.textboxArr[1].nativeElement.clientHeight,
+      this.textboxArr[2].nativeElement.clientHeight
+    );
+    this.textContainer.nativeElement.style.height = `${maxHeight}px`;
   }
 }

@@ -53,7 +53,6 @@ export class ContactComponent implements OnInit, AfterViewInit {
 
   onSubmit(ngForm: any) {
     /*     if (ngForm.form.valid) { */
-    console.log('send');
     this.submitted = true;
     this.http.post(this.endpoint, this.body(this.contactData)).subscribe({
       next: (response) => console.log(response),
@@ -72,9 +71,8 @@ export class ContactComponent implements OnInit, AfterViewInit {
     this.input.toArray().forEach((i) => (i.nativeElement.value = ''));
   }
 
-  closeConfirmation(event: any){
-    console.log(event.target)
-    if(event.target.id == 'confirmationContainer'){
+  closeConfirmation(event: any) {
+    if (event.target.id == 'confirmationContainer') {
       this.messageSent = false;
     }
   }

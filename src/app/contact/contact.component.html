@@ -60,16 +60,25 @@
           </div>
 
           <div class="btn-container flex">
-            <button type="submit" class="send-btn flex" [disabled]="!form.valid">
+            <button
+              type="submit"
+              class="send-btn flex"
+              [disabled]="!form.valid"
+            >
               Send
             </button>
           </div>
         </form>
       </div>
-      <div class="confirmation-container flex" [class.d-none]="!messageSent" (click)="closeConfirmation($event)" id="confirmationContainer">
+      <div
+        class="confirmation-container flex"
+        [class.d-none]="!messageSent"
+        (click)="closeConfirmation($event)"
+        id="confirmationContainer"
+      >
         <div class="confirmation flex">
           <p>Thank you! Your message has been sent.</p>
-          <button class="btn flex" (click)="messageSent=false">OK</button>
+          <button class="btn flex" (click)="messageSent = false">OK</button>
         </div>
       </div>
     </div>

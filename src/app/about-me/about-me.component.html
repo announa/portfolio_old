@@ -3,12 +3,12 @@
   <div class="positioning-container">
     <div class="separator separator1" #separator></div>
     <div class="content-container" #aboutSection>
-      <div class="img-container fade-in" (click)="switchText()">
+      <div class="img-container fade-in" (click)="switchContent()">
         <img src="assets/img/about/me1.jpg" class="img1" #img />
         <img src="assets/img/about/me2.jpg" class="img2" #img />
         <img src="assets/img/about/me3_2.jpg" class="img3" #img />
       </div>
-      <div class="text-container" (click)="switchText()" #textContainer>
+      <div class="text-container" (click)="switchContent()" #textContainer>
         <div class="color-layer"></div>
         <div
           class="textbox flex text1"
@@ -58,7 +58,7 @@
           </p>
         </div>
       </div>
-      <!-- <div class="next" (click)="switchText()" #next></div> -->
+      <!-- <div class="next" (click)="switchContent()" #next></div> -->
     </div>
     <div class="separator separator2" #separator></div>
   </div>
