@@ -222,7 +222,6 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
   createMousePoint(event: any) {
     if (this.points.length > 0) {
       this.mousePoint = new Point(event.x, event.y, true);
-      /* this.points.push(this.mousePoint); */
       this.createLines();
     }
   }
@@ -239,11 +238,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
 
   removeMousePoint() {
     if (this.mousePoint) {
-    this.mousePoint.isMousePoint = false;
-  }
-    /*   const index = this.points.findIndex((p) => p.isMousePoint === true);
-      if (index) {
-        this.points.splice(index, 1);
-      } */
+      this.mousePoint.isMousePoint = false;
     }
+  }
 }
