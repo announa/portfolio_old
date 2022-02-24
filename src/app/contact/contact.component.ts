@@ -23,11 +23,14 @@ export class ContactComponent implements OnInit, AfterViewInit {
     message: '',
   };
   invalid = false;
+  messageSent = false;
 
   @ViewChildren('contactHeading') contactHeading!: QueryList<any>;
   @ViewChildren('contactForm') contactForm!: QueryList<any>;
+  @ViewChildren('input') input!: QueryList<any>;
 
-  endpoint = 'http://anna-ludewig.developerakademie.com/annaludewig/sendmail.php';
+  endpoint =
+    'http://anna-ludewig.developerakademie.com/annaludewig/sendmail.php';
   body = (payload: any) => JSON.stringify(payload);
 
   submitted = false;
@@ -44,21 +47,35 @@ export class ContactComponent implements OnInit, AfterViewInit {
     this.observer.createIntersectionObserver(observeItems);
   }
 
-/*   ngOnChanges(changes: SimpleChanges): void {
+  /*   ngOnChanges(changes: SimpleChanges): void {
       this.invalid = 
   } */
 
   onSubmit(ngForm: any) {
-/*     if (ngForm.form.valid) { */
-      console.log('send');
-      this.submitted = true;
-      this.http
-        .post(this.endpoint, this.body(this.contactData))
-        .subscribe({
-          next: (response) => console.log(response),
-          error: (error) => console.error(error),
-          complete: () => console.info('send post complete'),
-        });
-    /* } */
+    /*     if (ngForm.form.valid) { */
+    console.log('send');
+    this.submitted = true;
+    this.http.post(this.endpoint, this.body(this.contactData)).subscribe({
+      next: (response) => console.log(response),
+      error: (error) => console.error(error),
+      complete: () => {
+        console.info('send post complete');
+      },
+    });
+    setTimeout(() => {
+      this.messageSent = true;
+    }, 50);
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.input.toArray().forEach((i) => (i.nativeElement.value = ''));
+  }
+
+  closeConfirmation(event: any){
+    console.log(event.target)
+    if(event.target.id == 'confirmationContainer'){
+      this.messageSent = false;
+    }
   }
 }

@@ -51,7 +51,7 @@ label{
  justify-content: flex-end;
 }
 
-button {
+.send-btn {
  cursor: pointer;
  padding: 15px 30px;
  color: var(--text-colored);
@@ -77,4 +77,36 @@ button {
    text-shadow: 0px 0 2px hsla(175, 100%, 39%, .8);
    box-shadow: inset 0 0 2px 0.3px var(--text-colored), 0 0 2px 0.3px var(--text-colored);
  }
+}
+
+.confirmation-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255,255,255,.5);
+  z-index: 4;
+}
+
+.confirmation{
+  width: 350px;
+  height: 200px;
+  padding: 10px 25px;
+  background-color: rgb(10, 10, 10);
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid var(--text-colored);
+  box-shadow: 4px 4px 12px rgba(10, 10, 10, .5);
+
+  button{
+    opacity: 1;
+    height: 40px;
+    font-size: 16px;
+
+    &:hover{
+      box-shadow: inset 0 0 4px var(--text-colored),
+      0 0 4px var(--text-colored);
+    }
+  }
 }
