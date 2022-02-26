@@ -35,7 +35,6 @@ h3 {
   width: 100%;
 
   @media (max-width: 1000px) {
-    gap: 15px;
   }
 
   @media (max-width: 800px) {
@@ -46,19 +45,20 @@ h3 {
 }
 
 .project-container{
-  overflow-y: clip;
-  overflow-x: visible;
+  width: 100%;
+  height: calc(20vw + 45px);
+  padding-top: 45px;
+  position: relative;
 }
 
 .project {
   width: 100%;
-  height: 33vw;
-  max-height: 250px;
+  height: 20vw;
+  max-height: 220px;
   position: relative;
   transition: all 600ms ease-in-out;
-  padding-bottom: 25px;
-  margin-top: 25px;
-
+  overflow-y: clip;
+  overflow-x: visible;
   
   @media (max-width: 800px) {
     flex-direction: column;
@@ -83,10 +83,6 @@ h3 {
     filter: blur(2px);
     transform: scale(1.1);
   }
-/* 
-  &:hover .description {
-    color: rgb(212, 0, 255);
-  } */
 }
 
 .separator {
@@ -94,7 +90,7 @@ h3 {
   height: 10px;
   position: absolute;
   left: -13vw;
-  top: -25px;
+  top: 17.5px;
   background-color: rgb(45, 45, 45);
   transition: all 600ms ease-in-out;
   @media (max-width: 800px) {
@@ -122,7 +118,6 @@ h3 {
 
   @media (max-width: 800px) {
     width: 100%;
-    margin-bottom: 30px;
   }
   
   img {
@@ -137,12 +132,10 @@ h3 {
 .portfolio-layer {
   position: absolute;
   inset: 0;
-  padding: 20px;
-  background-color: rgba($color: #ffffff, $alpha: 0.2);
-  display: flex;
-  flex-direction: column;
+  background-color: rgba($color: #000000, $alpha: 0.2);
   gap: 20px;
-  transform: translateY(100%);
+  justify-content: flex-start;
+  transform: translateY(105%);
   transition: all 225ms ease-in-out;
   
   p {
@@ -150,8 +143,12 @@ h3 {
   }
 }
 
-.layer--text{
-  background-color: transparent;
+.layer-text{
+  width: 45%;
+  max-width: 400px;
+
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.5);
 
   p{
     color: rgb(212, 0, 255);
@@ -161,19 +158,20 @@ h3 {
 
 .description {
   flex: 1;
-  /* color: rgb(10, 10, 10); */
   transition: all 600ms ease-in-out, color 0ms;
   @media (max-width: 800px) {
     width: 100%;
-    margin-bottom: 10px;
   }
   @media (max-width: 400px) {
     padding: 0 10px;
   }
-
+  
   p {
     line-height: 1.5rem;
-    margin-top: 5%;
+    margin-top: 15px;
+    @media (max-width: 800px){
+      margin-bottom: 40px;
+    }
   }
 }
 
@@ -182,4 +180,10 @@ h3 {
 }
 .tt-100 {
   transform: translateX(100%);
+}
+.tt--80 {
+  transform: translateX(-80%);
+}
+.tt-80 {
+  transform: translateX(80%);
 }

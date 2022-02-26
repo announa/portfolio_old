@@ -29,6 +29,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   @ViewChildren('imgContainer') imgContainer!: QueryList<any>;
   @ViewChildren('description') description!: QueryList<any>;
   @ViewChildren('separator') separator!: QueryList<any>;
+  @ViewChildren('projectContainer') projectContainer!: QueryList<any>;
   @HostListener('document:scroll', ['$event'])
   fadeComponent($event: Event) {}
   @HostListener('window:resize', ['$event'])
@@ -46,17 +47,15 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this.checkWindowSize();
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+  }
+  
   ngAfterViewInit() {
-    console.log(this.imgContainer);
-    console.log(this.text);
+    console.log(this.separator)
     const observeItems = [
       this.project,
       this.portfolioHeading,
       this.text,
-/*       this.imgContainer,
-      this.description, */
       this.separator
     ];
     this.observer.createIntersectionObserver(observeItems);

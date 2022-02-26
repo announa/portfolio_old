@@ -20,6 +20,10 @@ export class IntersectionObserverService implements AfterViewInit {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
+          console.log(e.target);
+          if (e.target.classList.contains('separator')) {
+            e.target.classList.add('tt-0');
+          }
           if (
             e.target.classList.contains('project') ||
             e.target.classList.contains('skill-container')
@@ -27,11 +31,8 @@ export class IntersectionObserverService implements AfterViewInit {
             let children = Array.from(e.target.children);
             children.forEach((child) => {
               if (!child.classList.contains('portfolio-layer'))
-                child.classList.add('tt-0');
+              child.classList.add('tt-0');
             });
-/*             if(e.target.classList.contains('project')){
-              e.target.classList.add('of-hidden')
-            } */
           }
           e.target.classList.add('o-1');
           this.observer.unobserve(e.target);

@@ -7,50 +7,59 @@
     Here you can find some of my projects.
     <span class="text-violet">Select a project</span> for more information.
   </p>
-  <div class="portfolio-container" >
-    <div class="project-container" *ngFor="let project of projects.projects; let i = index">
-    <a
-      #project
-      (click)="showProject(project.link)"
-      class="project flex o-0"
-      [style.flexDirection]="
-        !bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'
-      "
+  <div class="portfolio-container">
+    <div
+      class="project-container"
+      *ngFor="let project of projects.projects; let i = index"
+      #projectContainer
     >
       <div
+        class="project-separator o-0"
         [class.separator]="i != 0"
         [class.right]="i % 2 != 0"
+        [ngClass]="{ 'tt-80': i % 2 == 0, 'tt--80': i % 2 != 0 }"
         #separator
-        [ngClass]="{ 'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0 }"
       ></div>
-      <div
-        class="img-container"
-        [ngClass]="{ 'tt-100': i % 2 != 0, 'tt--100': i % 2 == 0 }"
-        #imgContainer
+      <a
+        #project
+        (click)="showProject(project.link)"
+        class="project flex o-0"
+        [style.flexDirection]="
+          !bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'
+        "
       >
-        <img src="assets/img/portfolio/{{ project.img[0] }}" />
-        <div class="portfolio-layer layer--text flex">
-          <p>More about this project</p>
+        <div
+          class="img-container"
+          [ngClass]="{ 'tt-100': i % 2 != 0, 'tt--100': i % 2 == 0 }"
+          #imgContainer
+        >
+          <img src="assets/img/portfolio/{{ project.img[0] }}" />
+          <!--   <div class="portfolio-layer layer--text flex">
+            <p>More about this project</p>
+          </div> -->
         </div>
-      </div>
-      <div
-        class="description"
-        [ngClass]="{ 'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0 }"
-        [ngStyle]="{
-          textAlign: i % 2 == 0 ? 'left' : 'right',
-          marginLeft: i % 2 == 0 && bigger800 ? '5%' : '',
-          marginRight: i % 2 != 0 && bigger800 ? '5%' : ''
-        }"
-        #description
-      >
-        <h4>{{ project.title }}</h4>
-        <p>
-          {{ project.description }}
-        </p>
-      </div>
-      <div class="portfolio-layer"></div>
-    </a>
-  </div>
+        <div
+          class="description"
+          [ngClass]="{ 'tt-100': i % 2 == 0, 'tt--100': i % 2 != 0 }"
+          [ngStyle]="{
+            textAlign: i % 2 == 0 ? 'left' : 'right',
+            marginLeft: i % 2 == 0 && bigger800 ? '5%' : '',
+            marginRight: i % 2 != 0 && bigger800 ? '5%' : ''
+          }"
+          #description
+        >
+          <h4>{{ project.title }}</h4>
+          <p>
+            {{ project.description }}
+          </p>
+        </div>
+        <div class="portfolio-layer flex"  [style.flexDirection]="
+        !bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'
+      ">
+          <div class="layer-text flex"><p>More about this project</p></div>
+        </div>
+      </a>
+    </div>
   </div>
   <div class="clip-path clip2"></div>
 </div>
