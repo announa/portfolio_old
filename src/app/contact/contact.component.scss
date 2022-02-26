@@ -47,6 +47,12 @@ label {
   }
 }
 
+.invalid{
+  outline: 1px solid rgb(212, 0, 255) !important;
+  border-right: 1px solid rgb(212, 0, 255) !important;
+
+}
+
 .btn-container {
   justify-content: flex-end;
 }

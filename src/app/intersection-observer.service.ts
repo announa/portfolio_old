@@ -24,14 +24,11 @@ export class IntersectionObserverService implements AfterViewInit {
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
            if(e.isIntersecting){
-             console.log(e.target)
-             if(e.target.classList.contains('project')){
+             if(e.target.classList.contains('project') || e.target.classList.contains('skill-container')) {
                let children = Array.from(e.target.children);
-               console.log(children)
                children.forEach(child => child.classList.add('tt-0'))
-             }
+              }
             e.target.classList.add('o-1')
-            /* e.target.classList.add('tt-0') */
             this.observer.unobserve(e.target)
           }
         })

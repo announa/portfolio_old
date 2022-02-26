@@ -39,10 +39,11 @@
               type="email"
               placeholder="E-Mail"
               class="form-field"
-              required
               [(ngModel)]="contactData.email"
               #email="ngModel"
               #input
+              required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [class.invalid]="email.invalid && email.touched"
             />
             <label for="message">Your message</label>
             <textarea

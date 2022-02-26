@@ -51,12 +51,11 @@ h3 {
   max-height: 250px;
   position: relative;
   transition: all 600ms ease-in-out;
-  /* border-top: 1px solid rgb(180, 180, 180); */
   padding: 25px 0;
-
+  
   @media (max-width: 800px) {
     flex-direction: column;
-    aspect-ratio: unset;
+    height: unset;
     max-height: unset;
     max-width: 400px;
   }
@@ -119,7 +118,7 @@ h3 {
     margin-bottom: 30px;
     margin-top: 10px;
   }
-
+  
   img {
     display: block;
     width: 100%;

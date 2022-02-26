@@ -1,17 +1,12 @@
-<div id="skills" class="component-container flex">
+
+<div id="skills" class="component-container content-section flex">
  <h3>My Skills</h3>
- <div #canvasContainer class="canvas-container fade-in">
-  <canvas #canvas></canvas>>
- </div>
-</div>
-<!-- <div id="skills" class="component-container content-section flex">
- <h3>My Skills</h3>
-  <div class="skill-container flex">
-    <div *ngFor="let skill of skills" class="skill flex">
-      <div class="skill-logo flex">
+  <div class="skill-container o-0" #skillContainer>
+    <div *ngFor="let skill of skills; let i = index" class="skill flex" id="skill{{i}}" #skill>
+     <!--  <div class="skill-logo flex">
         <img src="assets/img/skills/{{ skill }}.png" />
-      </div>
+      </div> -->
       <p>{{ skill }}</p>
     </div>
   </div>
-</div> -->
+</div>
