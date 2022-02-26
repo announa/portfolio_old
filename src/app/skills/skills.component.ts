@@ -8,9 +8,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { IntersectionObserverService } from '../intersection-observer.service';
-import { Line } from './Line.class';
-import { Point } from './Point.class';
-import { Skill } from './Skill.class';
 
 @Component({
   selector: 'app-skills',
