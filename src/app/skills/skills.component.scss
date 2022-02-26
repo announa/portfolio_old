@@ -9,13 +9,22 @@
   max-height: 500px;
   height: 74vw;
   transition: opacity 500ms ease-in-out;
+
+  @media (max-width: 500px) {
+    width: 95vw;
+    height: 95vw;
+  }
 }
 
 .skill{
   color: var(--text-colored);
   border: 1px solid var(--text-colored);
   transition: transform 700ms ease-in-out;
+  text-align: center;
 
+  p{
+    font-size:  clamp(12px, 2vw, 18px);;
+  }
 }
 
 #skill0{
