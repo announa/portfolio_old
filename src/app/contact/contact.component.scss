@@ -1,5 +1,18 @@
 .component-container {
   padding-bottom: 125px;
+  position: relative;
+}
+
+.clip-path {
+  width: 100%;
+  position: absolute;
+  background-color: rgb(10, 10, 10);
+}
+
+.clip1 {
+  height: 5vh;
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 .content {

@@ -47,12 +47,14 @@ h3 {
 .project-container {
   width: 100%;
   height: calc(20vw + 45px);
+  max-height: 265px;
   padding-top: 45px;
   position: relative;
 
   @media (max-width: 800px) {
     height: fit-content;
     max-width: 400px;
+    max-height: unset;
   }
 
 

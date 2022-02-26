@@ -19,7 +19,7 @@ import { ProjectsService } from '../projects.service';
 export class NavigationComponent implements OnInit, AfterViewInit {
   hideElement = true;
   navOpen = false;
-  bigger600;
+  bigger700;
   @ViewChild('nav') nav!: ElementRef;
   @HostListener('window:resize', ['$event'])
   resize() {
@@ -31,7 +31,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     public projects: ProjectsService,
     public router: Router
   ) {
-    this.bigger600 = window.innerWidth >= 600 ? true : false;
+    this.bigger700 = window.innerWidth >= 700 ? true : false;
   }
 
   ngOnInit(): void {
@@ -46,12 +46,12 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   }
 
   resetNav() {
-    if (window.innerWidth >= 600) {
+    if (window.innerWidth >= 700) {
       this.navOpen = false;
       this.nav.nativeElement.style = '';
-      this.bigger600 = true;
+      this.bigger700 = true;
     } else {
-      this.bigger600 = false;
+      this.bigger700 = false;
     }
   }
 }

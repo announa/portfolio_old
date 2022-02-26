@@ -28,7 +28,7 @@ export class SkillsComponent implements OnInit {
     ''
   ];
 
-  @ViewChildren('skillHeading') skillHeading!: QueryList<any>;
+  @ViewChildren('skillsHeading') skillsHeading!: QueryList<any>;
   @ViewChildren('skillContainer') skillContainer!: QueryList<any>;
 
   constructor(public observer: IntersectionObserverService) {}
@@ -36,7 +36,7 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    const observeItems = [this.skillHeading, this.skillContainer];
+    const observeItems = [this.skillsHeading, this.skillContainer];
     this.observer.createIntersectionObserver(observeItems);
   }
 

@@ -1,6 +1,6 @@
 
 <div id="skills" class="component-container flex">
- <h3>My Skills</h3>
+ <h3 #skillsHeading class="o-0">my <span class="text-blue">skills</span></h3>
   <div class="skill-container o-0" #skillContainer>
     <div *ngFor="let skill of skills; let i = index" class="skill flex" id="skill{{i}}" #skill>
      <!--  <div class="skill-logo flex">

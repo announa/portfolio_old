@@ -1,4 +1,4 @@
-<nav class="pd-15 flex fade-in"  [style.right] = "navOpen || bigger600 ? '0' : '-100%'" #nav>
+<nav class="pd-15 flex fade-in"  [style.right] = "navOpen || bigger700 ? '0' : '-100%'" #nav>
   <!--   <a routerLink="/" class="logo flex">
     <img src="assets/img/logo.png" alt="logo" />
   </a> -->
@@ -9,11 +9,15 @@
       (click)="toggleMenu(); navigation.forceNavigation('/about', 'aboutme'); projects.closeProject()"
       >about</a
     >
-    <!--     <a href="#" (click)="navigation.forceNavigation('skills')">Skills</a> -->
     <a
       routerLink="/about/#portfolio" [class.link-active]="this.router.url == '/about#portfolio'"
       (click)="toggleMenu(); navigation.forceNavigation('/about', 'portfolio'); projects.closeProject()"
       >portfolio</a
+    >
+    <a
+      routerLink="/about/#skills" [class.link-active]="this.router.url == '/about#skills'"
+      (click)="toggleMenu(); navigation.forceNavigation('/about', 'skills'); projects.closeProject()"
+      >skills</a
     >
     <a
       routerLink="/about/#contact" [class.link-active]="this.router.url == '/about#contact'"
