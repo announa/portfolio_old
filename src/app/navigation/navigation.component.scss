@@ -22,27 +22,35 @@ nav {
     align-items: center;
   }
 
-  .nav-links {
-    justify-content: space-between;
-    white-space: nowrap;
-    gap: clamp(20px, 3vw, 50px);
-    width: 100%;
+  @media (min-width: 1400px){
+    height: 120px;
+  }
 
-    a {
-      cursor: pointer;
+  @media (min-width: 1800px) {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+.nav-links {
+  justify-content: space-between;
+  white-space: nowrap;
+  gap: clamp(20px, 3vw, 50px);
+  width: 100%;
 
-      &:hover {
-        color: rgb(162, 162, 162);
-      }
+  a {
+    cursor: pointer;
 
-      @media (max-width: 700px) {
-        margin-top: 20px;
-      }
+    &:hover {
+      color: rgb(162, 162, 162);
     }
 
     @media (max-width: 700px) {
-      flex-direction: column;
+      margin-top: 20px;
     }
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
   }
 }
 

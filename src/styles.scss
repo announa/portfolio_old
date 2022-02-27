@@ -24,10 +24,10 @@ body {
   padding: 125px 13vw 150px;
   background-color: rgb(10, 10, 10);
 
-  @media (min-width: 1800px){
-    padding-left: calc((100vw - 1332px) / 2);
-    padding-right: calc((100vw - 1332px) / 2);
+  @media (min-width: 1400px){
+    padding: 200px 15vw 240px;
   }
+
 }
 
 .component-light {
@@ -84,6 +84,7 @@ h3 {
 
   @media (min-width: 1800px) {
     font-size: clamp(24px, 4vw, 64px);
+    margin-bottom: 100px;
   }
 }
 
@@ -109,7 +110,7 @@ p {
   line-height: 1.5rem;
   font-size: clamp(16px, 1.5vw, 18px);
 
-  @media (min-width: 1800px) {
+  @media (min-width: 1400px) {
     line-height: 2.5rem;
     font-size: clamp(20px, 2vw, 30px);
   }
