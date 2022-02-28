@@ -37,9 +37,6 @@ h3 {
   cursor: pointer;
   width: 74vw;
 
-  @media (max-width: 1000px) {
-  }
-
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
@@ -60,8 +57,9 @@ h3 {
     max-height: unset;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 450px) {
     width: 100vw;
+    max-width: unset;
   }
 
   @media (min-width: 1400px){
@@ -192,7 +190,7 @@ h3 {
   }
 
   p {
-    font-size: 20px;
+    font-size: clamp(16px, 1.5vw, 20px);
     color: rgb(112, 0, 135);
     font-weight: 600;
     text-shadow: 0 0 4px rgb(212, 0, 255);
@@ -204,11 +202,11 @@ h3 {
   transition: all 600ms ease-in-out, color 0ms;
   @media (max-width: 800px) {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 30px;
   }
-  @media (max-width: 400px) {
-    padding-left: 10px;
-    padding-right: 20px;
+  @media (max-width: 450px) {
+    padding-left: 6vw;
+    padding-right: 6vw;
   }
 
   p {

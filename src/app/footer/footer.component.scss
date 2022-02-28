@@ -1,5 +1,5 @@
 .footer {
- height: 180px;
+ height: 250px;
  padding: 50px 13vw 30px;
  gap: 50px;
  justify-content: space-between;
@@ -8,11 +8,10 @@
  position: relative;
  color: white;
  @media (min-width: 1400px){
-   height: 250px;
    line-height: 2.5rem;
    padding: 50px 15vw 30px;
  }
-  
+
   a,
   p {
     font-size: clamp(15px, 1.2vw, 20px);
@@ -25,6 +24,14 @@
    content: "";
    height: 70%;
    border-right: 1px solid rgba($color: #ffffff, $alpha: 0.1);
+
+   @media (max-width: 700px) {
+     height: 50%;
+   }
+
+   @media (max-width: 350px){
+     left: 45%;
+   }
   }
 }
 
@@ -33,7 +40,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .footer-right {
@@ -67,5 +73,12 @@ a{
 
   &:hover {
     color: rgb(162, 162, 162);
+  }
+}
+
+.copyright{
+  @media (max-width: 700px){
+    position: absolute;
+    bottom: 30px;
   }
 }

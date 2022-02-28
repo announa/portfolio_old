@@ -27,6 +27,9 @@ body {
   padding: 125px 13vw 150px;
   background-color: rgb(10, 10, 10);
 
+  @media (max-width: 450px){
+    padding: 125px 6vw 150px;
+  }
   @media (min-width: 1400px){
     padding: 200px 15vw 240px;
   }
@@ -92,7 +95,7 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(18px, 1.75vw, 32px);
+  font-size: clamp(16px, 1.6vw, 32px);
 }
 
 h5 {
