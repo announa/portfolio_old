@@ -1,11 +1,11 @@
-<div #contact id="contact" class="component-container component-light  flex">
+<div #contact id="contact" class="component-container component-light fade-in flex">
   <div class="clip-path clip1"></div>
-  <h3 #contactHeading class="o-0"><span class="text-blue">contact</span> me</h3>
-  <div #contactForm class="content flex o-0">
+  <h3 #contactHeading class="o-0"><span class="text-violet">contact</span> me</h3>
+  <div #contactForm class="content flex o-0" id="contactform">
     <p>
       If you are interested in realizing your next project with me, you are
       welcome to write me a message here or send an e-mail to
-      <span class="text-blue">aludewig@posteo.de</span>.
+      <span class="text-violet">aludewig@posteo.de</span>.
     </p>
 
     <div class="formatting-container">
@@ -23,7 +23,9 @@
               [(ngModel)]="contactData.firstname"
               #firstname="ngModel"
               #input
+              [class.invalid]="firstname.invalid && firstname.touched"
             />
+            <div class="input-hint" [class.d-none]="!(firstname.invalid && firstname.touched)">Please enter at least 3 characters.</div>
             <label for="lastname">Last name</label>
             <input
               name="lastname"
@@ -35,7 +37,10 @@
               [(ngModel)]="contactData.lastname"
               #lastname="ngModel"
               #input
+              [class.invalid]="lastname.invalid && lastname.touched"
             />
+            <div class="input-hint" [class.d-none]="!(lastname.invalid && lastname.touched)">Please enter at least 3 characters.</div>
+
             <label for="email">E-Mail</label>
             <input
               name="email"
@@ -48,6 +53,8 @@
               required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               [class.invalid]="email.invalid && email.touched"
             />
+            <div class="input-hint" [class.d-none]="!(email.invalid && email.touched)">Please enter a valid e-mail address.</div>
+
             <label for="message">Your message</label>
             <textarea
               name="message"
@@ -61,7 +68,10 @@
               [(ngModel)]="contactData.message"
               #message="ngModel"
               #input
+              [class.invalid]="message.invalid && message.touched"
             ></textarea>
+            <div class="input-hint" [class.d-none]="!(message.invalid && message.touched)">Please enter at least 10 characters.</div>
+
           </div>
 
           <div class="btn-container flex">

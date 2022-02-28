@@ -68,10 +68,21 @@ label {
   }
 }
 
+.input-hint{
+  font-size: 14px;
+  color: var(--text-colored-violet);
+  margin-top: -10px;
+  margin-bottom: 25px;
+}
+
 .invalid{
   outline: 1.5px solid var(--text-colored-violet) !important;
   border-right: 1px solid var(--text-colored-violet) !important;
 
+  &:focus{
+    outline: 2px solid var(--text-colored-violet);
+    box-shadow: 0 0 3px var(--text-colored-violet), inset 0 0 3px var(--text-colored-violet);
+  }
 }
 
 .btn-container {
@@ -121,7 +132,7 @@ label {
   width: 350px;
   height: 200px;
   padding: 10px 25px;
-  background-color: rgb(10, 10, 10);
+  background-color: rgba(10, 10, 10, 0.6);
   flex-direction: column;
   justify-content: space-evenly;
   border: 1px solid var(--text-colored);
@@ -131,9 +142,10 @@ label {
     opacity: 1;
     height: 40px;
     font-size: 16px;
-
+    
     &:hover {
       box-shadow: inset 0 0 4px var(--text-colored), 0 0 4px var(--text-colored);
+      background-color: transparent;
     }
   }
 }

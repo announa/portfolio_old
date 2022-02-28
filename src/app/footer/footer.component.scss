@@ -4,7 +4,6 @@
  gap: 50px;
  justify-content: space-between;
  background-color: #232323;
- line-height: 1.5rem;
  position: relative;
  color: white;
  @media (min-width: 1400px){
@@ -36,6 +35,7 @@
 }
 
 .footer-left {
+  line-height: 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;

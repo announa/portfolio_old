@@ -51,7 +51,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   }
   
   ngAfterViewInit() {
-    console.log(this.separator)
     const observeItems = [
       this.project,
       this.portfolioHeading,
@@ -71,6 +70,5 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     } else {
       this.bigger800 = false;
     }
-    console.log(this.bigger800)
   }
 }
