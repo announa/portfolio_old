@@ -111,7 +111,7 @@ a {
 
 p, label {
   line-height: 1.5rem;
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(16px, 1.3vw, 18px);
   
   @media (min-width: 1400px) {
     line-height: 2.5rem;
@@ -120,7 +120,7 @@ p, label {
 }
 
 input, textarea{
-  font-size: clamp(16px, 1.3vw, 18px);
+  font-size: clamp(15px, 1vw, 18px);
   @media (min-width: 1400px) {
     font-size: clamp(18px, 1.8vw, 25px);
   }

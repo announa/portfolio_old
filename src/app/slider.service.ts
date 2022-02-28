@@ -5,16 +5,11 @@ import { ProjectsComponent } from './projects/projects.component';
   providedIn: 'root'
 })
 export class SliderService {
-/*   currentImage = 0;
-  imgArr: ElementRef[]; */
 
-/*   constructor(imgArr: ElementRef[]) {
-    this.imgArr = imgArr;
-   } */
 
    constructor(){}
 
-  slideImagesLeft() {
+/*   slideImagesLeft() {
     this.currentImage--;
     this.currentImage = this.currentImage < 0 ? 2 : this.currentImage;
     this.slideImages('left');
@@ -26,7 +21,6 @@ export class SliderService {
     this.slideImages('right');
   }
 
-  // this has to be refactored!!!
   slideImages(direction: string) {
     let before: number;
     let next: number;
@@ -62,5 +56,5 @@ export class SliderService {
     }else{
       this.slideImages('left')
     }
-  }
+  } */
 }

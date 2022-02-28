@@ -18,6 +18,7 @@ import { IntersectionObserverService } from '../intersection-observer.service';
 export class AboutMeComponent implements OnInit, AfterViewInit {
   pictures = ['me1.jpg'];
   currentText = 0;
+  currentImage = 0;
   @ViewChildren('aboutHeading') aboutHeading!: QueryList<any>;
   @ViewChildren('aboutSection') aboutSection!: QueryList<any>;
   @ViewChildren('img') img!: QueryList<any>;
@@ -48,31 +49,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       .forEach((s) => s.nativeElement.classList.add('tt-0'));
   }
 
-  switchContent() {
-    this.currentText++;
-    this.currentText = this.currentText % 3;
-    let before: number;
-    let next: number;
-    this.currentText === 0 ? (before = 2) : (before = this.currentText - 1);
-    this.currentText === 2 ? (next = 0) : (next = this.currentText + 1);
-
-    [this.textboxArr, this.imgArr].forEach((arr) =>
-      this.switch(arr, before, next)
-    );
-  }
-
-  switch(arr: ElementRef[], before: number, next: number) {
-    arr[this.currentText].nativeElement.style.left = '0';
-    arr[before].nativeElement.style.left = '-100%';
-    setTimeout(() => {
-      arr[before].nativeElement.style.display = 'none';
-    }, 225);
-    arr[next].nativeElement.style.left = '100%';
-    setTimeout(() => {
-      arr[next].nativeElement.style.display = 'unset';
-    }, 225);
-  }
-
   onHover() {
     this.textHover = true;
     this.linesArr.forEach((l) => {
@@ -101,5 +77,67 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       this.textboxArr[2].nativeElement.clientHeight
     );
     this.textContainer.nativeElement.style.height = `${maxHeight}px`;
+  }
+
+  slideLeft() {
+    this.currentImage--;
+    this.currentImage = this.currentImage < 0 ? 2 : this.currentImage;
+    this.slideContent('left');
+  }
+
+  slideRight() {
+    this.currentImage++;
+    this.currentImage = this.currentImage % 3;
+    this.slideContent('right');
+  }
+
+  slideContent(direction: string) {
+    let before: number;
+    let next: number;
+    this.currentImage === 0 ? (before = 2) : (before = this.currentImage - 1);
+    this.currentImage === 2 ? (next = 0) : (next = this.currentImage + 1);
+
+    [this.textboxArr, this.imgArr].forEach((arr) =>
+      this.slide(direction, arr, before, next)
+    );
+  }
+
+
+  // this has to be refactored!!!
+  slide(direction: string, arr: ElementRef[], before: number, next: number) {
+    arr[this.currentImage].nativeElement.style.left = '0';
+    if (direction === 'right') {
+      arr[next].nativeElement.style.display = 'none';
+      arr[before].nativeElement.style.left = '-100%';
+      setTimeout(() => {
+        arr[next].nativeElement.style.left = '100%';
+      }, 1);
+      setTimeout(() => {
+        arr[next].nativeElement.style.display = 'unset';
+      }, 226);
+    } else {
+      arr[before].nativeElement.style.display = 'none';
+      arr[next].nativeElement.style.left = '100%';
+      setTimeout(() => {
+        arr[before].nativeElement.style.left = '-100%';
+      }, 1);
+      setTimeout(() => {
+        arr[before].nativeElement.style.display = 'unset';
+      }, 226);
+    }
+  }
+
+  selectImage(imgNumber: number) {
+    console.log(imgNumber)
+    let currentImg = this.currentImage;
+    this.currentImage = imgNumber;
+    if (
+      currentImg - this.currentImage == -1 ||
+      (currentImg == 2 && this.currentImage == 0)
+    ) {
+      this.slideContent('right');
+    } else {
+      this.slideContent('left');
+    }
   }
 }

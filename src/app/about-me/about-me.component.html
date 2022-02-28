@@ -2,67 +2,82 @@
   <h3 #aboutHeading>about <span class="text-blue">me</span></h3>
   <div class="positioning-container">
     <div class="separator separator1" #separator></div>
-    <div class="content-container" #aboutSection>
-      <div class="img-container fade-in" (click)="switchContent()">
-        <img src="assets/img/about/me1.jpg" class="img1" #img />
-        <img src="assets/img/about/me2.jpg" class="img2" #img />
-        <img src="assets/img/about/me3_2.jpg" class="img3" #img />
+    <div class="slide-container flex">
+      <div class="slide" (click)="slideLeft()">&lsaquo;</div>
+      <div class="content-container" #aboutSection>
+        <div class="img-container fade-in" (click)="slideRight()">
+          <img src="assets/img/about/me1.jpg" class="img1" #img />
+          <img src="assets/img/about/me2.jpg" class="img2" #img />
+          <img src="assets/img/about/me3_2.jpg" class="img3" #img />
+        </div>
+        <div class="text-container" (click)="slideRight()" #textContainer>
+          <div
+            class="textbox flex text1"
+            #textbox
+            [class.invisible]="currentImage != 0"
+          >
+            <p #text>
+              <strong>"</strong>I am a passionate front end developer from
+              Germany<strong>,</strong> actually living in Colombia. I enjoy
+              programming well designed and functional web sites and
+              applications<strong>.</strong> Now<strong>,</strong> after my
+              training, I am ready to take the next step<strong>,</strong>
+              starting my carreer in this awesome business<strong>.</strong> I
+              would love to help you realizing your next project and to be a
+              part of your team<strong>."</strong>
+            </p>
+          </div>
+          <div
+            class="textbox flex text2"
+            #textbox
+            [class.invisible]="currentImage != 1"
+          >
+            <!-- <div class="textwrap"> -->
+            <p #text>
+              <strong>"</strong>Actually I am a language teacher and I myself
+              love learning languages<strong>.</strong> I studied french and
+              chemistry for becoming a teacher and worked as teacher for German
+              as a foreign language<strong>.</strong> But I wanted a career
+              change and a new challenge and finally I discovered my passion for
+              programming<strong>."</strong>
+            </p>
+          </div>
+          <div
+            class="textbox flex text3"
+            #textbox
+            [class.invisible]="currentImage != 2"
+          >
+            <!-- <div class="textwrap"> -->
+            <p #text>
+              <strong>"</strong>Sports and outdoor activities are an important
+              part of my life. I love bouldering and climbing, moutainbiking,
+              hiking and - the mountains<strong>.</strong> Ultimately I also
+              discovered surfing and the fascination of the ocean<strong
+                >."</strong
+              >
+            </p>
+          </div>
+        </div>
+        <!-- <div class="next" (click)="switchContent()" #next></div> -->
       </div>
-      <div class="text-container" (click)="switchContent()" #textContainer>
-        <div
-          class="textbox flex text1"
-          #textbox
-          [class.invisible]="currentText != 0"
-        >
-          <p #text>
-            <strong>"</strong>I am a passionate front end developer from
-            Germany<strong>,</strong> actually living in Colombia. I enjoy
-            programming well designed and functional web sites and
-            applications<strong>.</strong> Now<strong>,</strong> after my
-            training, I am ready to take the next step<strong>,</strong>
-            starting my carreer in this awesome business<strong>.</strong> I
-            would love to help you realizing your next project and to be a part
-            of your team<strong>."</strong>
-          </p>
-        </div>
-        <div
-          class="textbox flex text2"
-          #textbox
-          [class.invisible]="currentText != 1"
-        >
-          <!-- <div class="textwrap"> -->
-          <p #text>
-            <strong>"</strong>Actually I am a language teacher and I myself love
-            learning languages<strong>.</strong> I studied french and chemistry
-            for becoming a teacher and worked as teacher for German as a foreign
-            language<strong>.</strong> But I wanted a career change and a new
-            challenge and finally I discovered my passion for programming<strong
-              >."</strong
-            >
-          </p>
-        </div>
-        <div
-          class="textbox flex text3"
-          #textbox
-          [class.invisible]="currentText != 2"
-        >
-          <!-- <div class="textwrap"> -->
-          <p #text>
-            <strong>"</strong>Sports and outdoor activities are an important
-            part of my life. I love bouldering and climbing, moutainbiking,
-            hiking and - the mountains<strong>.</strong> Ultimately I also
-            discovered surfing and the fascination of the ocean<strong
-              >."</strong
-            >
-          </p>
-        </div>
-      </div>
-      <!-- <div class="next" (click)="switchContent()" #next></div> -->
+      <div class="slide flex" (click)="slideRight()">&rsaquo;</div>
     </div>
     <div class="img-points">
-      <div class="point point1" [class.point-active]="currentImage == 0" (click)="selectImage(0)"></div>
-      <div class="point point2" [class.point-active]="currentImage == 1" (click)="selectImage(1)"></div>
-      <div class="point point3" [class.point-active]="currentImage == 2" (click)="selectImage(2)"></div>
+      <div
+        class="point point1"
+        [class.point-active]="currentImage == 0"
+        (click)="selectImage(0)"
+      ></div>
+      <div
+        class="point point2"
+        [class.point-active]="currentImage == 1"
+        (click)="selectImage(1)"
+      ></div>
+      <div
+        class="point point3"
+        [class.point-active]="currentImage == 2"
+        (click)="selectImage(2)"
+      ></div>
     </div>
     <div class="separator separator2" #separator></div>
   </div>

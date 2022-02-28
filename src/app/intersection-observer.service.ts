@@ -32,6 +32,9 @@ export class IntersectionObserverService implements AfterViewInit {
             children.forEach((child) => {
               if (!child.classList.contains('portfolio-layer'))
               child.classList.add('tt-0');
+              setTimeout(() => {
+                child.classList.remove('d-none')
+              }, 700);
             });
           }
           e.target.classList.add('o-1');

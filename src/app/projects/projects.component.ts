@@ -34,11 +34,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.imgArr = this.img.toArray();
     setInterval(() => {
-      this.slider.slideImagesRight()
+      this.slideImagesRight()
     }, 4000)
   }
 
- /*  slideImagesLeft() {
+  slideImagesLeft() {
     this.currentImage--;
     this.currentImage = this.currentImage < 0 ? 2 : this.currentImage;
     this.slideImages('left');
@@ -85,7 +85,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
     }else{
       this.slideImages('left')
     }
-  } */
+  }
 
   backToPortfolio(){
     this.goBack.emit(true);
