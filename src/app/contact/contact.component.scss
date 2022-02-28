@@ -42,6 +42,11 @@
 
 label {
   margin-bottom: 15px;
+  
+  @media (min-width: 1400px) {
+    margin-bottom: 25px;
+    
+  }
 }
 
 .form-field {
@@ -52,6 +57,10 @@ label {
   margin-bottom: 25px;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
+  
+  @media (min-width: 1400px){
+    margin-bottom: 32px;
+  }
 
   &:focus {
     border-right: 0;
@@ -61,8 +70,8 @@ label {
 }
 
 .invalid{
-  outline: 1px solid rgb(212, 0, 255) !important;
-  border-right: 1px solid rgb(212, 0, 255) !important;
+  outline: 1.5px solid var(--text-colored-violet) !important;
+  border-right: 1px solid var(--text-colored-violet) !important;
 
 }
 

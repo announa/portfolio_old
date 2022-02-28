@@ -133,37 +133,9 @@ p {
  }
 }
 
-.point{
-  width: 10px;
-  height: 10px;
-  background-color: hsl(175, 47%, 40%);
-  border-radius: 50%;
-  border: .5px solid hsl(175, 80%, 76%);
+.img-points{
   position: absolute;
-  bottom: 20px;
+  bottom: clamp(10px, 1.5vw, 25px);
   left: 50%;
   transform: translateX(-50%);
-  cursor: pointer;
-  transition: background-color 350ms ease-in-out;
-  
-  &:hover{
-    background-color: hsl(175, 80%, 76%);
-
-  }
-}
-
-.point1{
-  left: calc(50% - 25px);
-}
-
-.point2{
-  left: calc(50% - 5px);
-}
-
-.point3{
-  left: calc(50% + 15px);
-}
-
-.point-active{
-  background-color: hsl(175, 80%, 76%);
 }

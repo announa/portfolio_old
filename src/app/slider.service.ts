@@ -1,44 +1,20 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
-import { Router } from '@angular/router';
-import { ProjectsService } from '../projects.service';
-import { SliderService } from '../slider.service';
+import { ElementRef, Injectable } from '@angular/core';
+import { ProjectsComponent } from './projects/projects.component';
 
-@Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
+@Injectable({
+  providedIn: 'root'
 })
-export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
-  @Input() currentProject: any;
-  @Output() goBack = new EventEmitter();
-  @ViewChildren('img') img!: QueryList<any>;
-  currentImage = 0;
-  imgArr!: ElementRef[];
+export class SliderService {
+/*   currentImage = 0;
+  imgArr: ElementRef[]; */
 
-  constructor(private router: Router, public projects: ProjectsService, private slider: SliderService) {
-  }
+/*   constructor(imgArr: ElementRef[]) {
+    this.imgArr = imgArr;
+   } */
 
-  ngOnInit(): void {
-  }
+   constructor(){}
 
-  ngAfterViewInit(): void {
-    this.imgArr = this.img.toArray();
-    setInterval(() => {
-      this.slider.slideImagesRight()
-    }, 4000)
-  }
-
- /*  slideImagesLeft() {
+  slideImagesLeft() {
     this.currentImage--;
     this.currentImage = this.currentImage < 0 ? 2 : this.currentImage;
     this.slideImages('left');
@@ -50,6 +26,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
     this.slideImages('right');
   }
 
+  // this has to be refactored!!!
   slideImages(direction: string) {
     let before: number;
     let next: number;
@@ -85,9 +62,5 @@ export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
     }else{
       this.slideImages('left')
     }
-  } */
-
-  backToPortfolio(){
-    this.goBack.emit(true);
   }
 }

@@ -1,11 +1,13 @@
-.component-container{
-  @media (max-width: 700px){
+.component-container {
+  @media (max-width: 700px) {
     padding-top: 80px;
   }
 }
 
 .positioning-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   flex: 1;
   width: 100%;
@@ -13,7 +15,8 @@
 }
 
 .content-container {
-  flex: 1;
+  /* flex: 1; */
+  width: 100%;
   display: flex;
   position: relative;
   align-items: center;
@@ -26,32 +29,31 @@
   }
 }
 
-.separator{
+.separator {
   width: 55vw;
   height: 8px;
   position: absolute;
-  background-color: rgb(50,50,50);
+  background-color: rgb(50, 50, 50);
   transition: transform 600ms ease-in-out 1.5s;
 
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     width: 65vw;
   }
 }
 
-  
-.separator1{
+.separator1 {
   top: -20px;
   left: -13vw;
   transform: translateX(200%);
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     left: -15vw;
   }
 }
-.separator2{
+.separator2 {
   bottom: -20px;
   right: -13vw;
   transform: translateX(-200%);
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     right: -15vw;
   }
 }
@@ -128,8 +130,8 @@ h3 {
   /* width: calc(74vw); */
   height: 350px;
   position: relative;
-  
-  @media (min-width: 800px){
+
+  @media (min-width: 800px) {
     flex: 1;
     width: unset;
   }
@@ -180,37 +182,9 @@ h3 {
   height: auto;
 }
 
-.img-points{
-  width: 40px;
-  height: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 10vw;
+.img-points {
 
   @media (max-width: 800px) {
-    bottom: -10px;
+    height: 30px;
   }
-}
-
-.point{
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgb(0, 132, 150);
-  border: 1px solid rgb(0, 225, 255);
-}
-
-.point1{
-  left: 0;
-}
-.point2{
-  left: 15px;
-}
-.point3{
-  left: 30px;
-}
-
-.point-active{
-  background-color: rgb(0, 225, 255);
 }

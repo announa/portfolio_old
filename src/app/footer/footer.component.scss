@@ -7,10 +7,15 @@
  line-height: 1.5rem;
  position: relative;
  color: white;
+ @media (min-width: 1400px){
+   height: 250px;
+   line-height: 2.5rem;
+   padding: 50px 15vw 30px;
+ }
   
   a,
   p {
-   font-size: 15px;
+    font-size: clamp(15px, 1.2vw, 20px);
   }
 
   &::after{
@@ -33,9 +38,6 @@
 
 .footer-right {
   align-self: flex-start;
-  a {
-    font-size: 14px;
-  }
 }
 
 .footer-section {
@@ -51,7 +53,13 @@
   img {
    width: 35px;
    height: 35px;
-    filter: invert(100%);
+   filter: invert(100%);
+   
+   @media (min-width: 1400px){
+      width: 50px;
+      height: 50px;
+
+    }
   }
 }
 

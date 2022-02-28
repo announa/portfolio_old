@@ -9,7 +9,6 @@
         <img src="assets/img/about/me3_2.jpg" class="img3" #img />
       </div>
       <div class="text-container" (click)="switchContent()" #textContainer>
-        <div class="color-layer"></div>
         <div
           class="textbox flex text1"
           #textbox
@@ -59,11 +58,11 @@
         </div>
       </div>
       <!-- <div class="next" (click)="switchContent()" #next></div> -->
-<!--       <div class="img-points">
-        <div class="point point1"></div>
-        <div class="point point2"></div>
-        <div class="point point3"></div>
-      </div> -->
+    </div>
+    <div class="img-points">
+      <div class="point point1" [class.point-active]="currentImage == 0" (click)="selectImage(0)"></div>
+      <div class="point point2" [class.point-active]="currentImage == 1" (click)="selectImage(1)"></div>
+      <div class="point point3" [class.point-active]="currentImage == 2" (click)="selectImage(2)"></div>
     </div>
     <div class="separator separator2" #separator></div>
   </div>

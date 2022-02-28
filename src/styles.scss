@@ -10,8 +10,11 @@ html {
 
 body {
   --bg-grey: #1a1a1a;
-  --text-colored: rgb(0, 225, 255);
-  --text-colored2: rgb(0, 182, 173);
+  --text-colored: rgb(0, 255, 251);
+  --text-colored2: rgb(0, 191, 188);
+  --text-colored-violet: rgb(225, 0, 255);
+  --text-colored-violet2:rgb(255, 0, 191);
+
   overflow-x: hidden;
   background-color: rgb(10, 10, 10);
 }
@@ -106,16 +109,22 @@ a {
   }
 }
 
-p {
+p, label {
   line-height: 1.5rem;
   font-size: clamp(16px, 1.5vw, 18px);
-
+  
   @media (min-width: 1400px) {
     line-height: 2.5rem;
     font-size: clamp(20px, 2vw, 30px);
   }
 }
 
+input, textarea{
+  font-size: clamp(16px, 1.3vw, 18px);
+  @media (min-width: 1400px) {
+    font-size: clamp(18px, 1.8vw, 25px);
+  }
+}
 
 .btn {
   cursor: pointer;
@@ -129,7 +138,7 @@ p {
   font-size: clamp(16px, 2.5vw, 20px);
   &:hover {
     color: var(--text-colored);
-    text-shadow: 0px 0 4px hsla(175, 100%, 39%, 0.8);
+    text-shadow: 0px 0 5px rgba(0, 255, 251, 0.8);
     background-color: rgba(10, 10, 10, 0.7);
     box-shadow: inset 0 0 6px 0.5px var(--text-colored),
       0 0 6px 0.5px var(--text-colored);
@@ -184,6 +193,34 @@ p {
 }
 
 .text-violet {
-  color: rgb(212, 0, 255);
+  color: var(--text-colored-violet);
   font-weight: 500;
+}
+
+.img-points{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: clamp(45px, 4vw, 80px);
+  height: 20px;
+  position: relative;
+}
+
+.point{
+  width: clamp(10px, 0.7vw, 20px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(0, 132, 150);
+  border: 1px solid var(--text-colored);
+  box-shadow: 0 0 2px var(--text-colored);
+  cursor: pointer;
+  /* transition: background-color 350ms ease-in-out; */
+  
+  &:hover{
+    background-color: rgb(0, 225, 255);
+  }
+}
+
+.point-active{
+  background-color: rgb(0, 225, 255);
 }

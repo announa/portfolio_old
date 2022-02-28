@@ -1,11 +1,11 @@
 <div #contact id="contact" class="component-container component-light  flex">
   <div class="clip-path clip1"></div>
-  <h3 #contactHeading class="o-0"><span class="text-violet">contact</span> me</h3>
+  <h3 #contactHeading class="o-0"><span class="text-blue">contact</span> me</h3>
   <div #contactForm class="content flex o-0">
     <p>
       If you are interested in realizing your next project with me, you are
       welcome to write me a message here or send an e-mail to
-      <span class="text-violet">aludewig@posteo.de</span>.
+      <span class="text-blue">aludewig@posteo.de</span>.
     </p>
 
     <div class="formatting-container">
@@ -19,6 +19,7 @@
               placeholder="First name"
               class="form-field"
               required
+              minlength="3"
               [(ngModel)]="contactData.firstname"
               #firstname="ngModel"
               #input
@@ -30,6 +31,7 @@
               placeholder="Last name"
               class="form-field"
               required
+              minlength="3"
               [(ngModel)]="contactData.lastname"
               #lastname="ngModel"
               #input
@@ -55,6 +57,7 @@
               placeholder="Your message"
               class="form-field"
               required
+              minlength="10"
               [(ngModel)]="contactData.message"
               #message="ngModel"
               #input
