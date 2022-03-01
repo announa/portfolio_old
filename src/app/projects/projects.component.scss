@@ -97,40 +97,15 @@ p {
 .arrow {
   position: absolute;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
-  bottom: 50%;
-  box-shadow: 1.5px 1.5px 1px var(--text-colored);
+  top: -100%;
+  left: calc(-37vw + 50%);
+  font-family: 'Astloch', sans-serif !important;
+  font-weight: 200;
+  font-size: clamp(62px, 8vw, 105px);;
+  color: var(--text-colored);
   &:hover {
-    box-shadow: 2px 2px 2px var(--text-colored);
-    filter: brightness(130%);
+    text-shadow: 0 0 3px var(--text-colored);
   }
-}
-.before {
-  left: -40px;
-  transform: rotateZ(-225deg) translateY(-50%);
-}
-
-.next {
-  right: -20px;
-  transform: rotateZ(-45deg) translateY(50%);
-}
-
-.big{
- width: 22px;
- height: 22px;
- left: 13vw;
- top: 130px;
-
- &::after{
-  content: "";
-  position: absolute;
-  width: 39px;
-  height: 2.5px;
-  box-shadow: 1.5px 1.5px 1px var(--text-colored);
-  transform: rotateZ(45deg) translate(-5px, 11px);
-
- }
 }
 
 .img-points{

@@ -13,6 +13,10 @@ nav {
   padding-top: 100px;
   transition: all 400ms ease-in-out;
 
+  @media (max-width: 400px){
+    width: 100vw;
+  }
+
   @media (min-width: 700px) {
     background: linear-gradient(rgba(35, 35, 35, 1) 65%, rgba(35, 35, 35, 0.8));
     right: unset;

@@ -1,6 +1,8 @@
 <div id="projects" class="component-container flex">
-  <div class="arrow before big" (click)="backToPortfolio()"></div>
-  <h3>{{ currentProject.title }}</h3>
+  <h3>
+    <div class="arrow" (click)="backToPortfolio()">&larr;</div>
+    {{ currentProject.title }}
+  </h3>
   <div class="project-images">
     <div class="image-container">
       <img
@@ -19,12 +21,24 @@
         class="img2"
       />
       <div class="img-points">
-        <div class="point point1" [class.point-active]="currentImage == 0" (click)="selectImage(0)"></div>
-        <div class="point point2" [class.point-active]="currentImage == 1" (click)="selectImage(1)"></div>
-        <div class="point point3" [class.point-active]="currentImage == 2" (click)="selectImage(2)"></div>
+        <div
+          class="point point1"
+          [class.point-active]="currentImage == 0"
+          (click)="selectImage(0)"
+        ></div>
+        <div
+          class="point point2"
+          [class.point-active]="currentImage == 1"
+          (click)="selectImage(1)"
+        ></div>
+        <div
+          class="point point3"
+          [class.point-active]="currentImage == 2"
+          (click)="selectImage(2)"
+        ></div>
       </div>
     </div>
-<!--     <div class="arrow before" (click)="slideImagesLeft()"></div>
+    <!--     <div class="arrow before" (click)="slideImagesLeft()"></div>
     <div class="arrow next" (click)="slideImagesRight()"></div> -->
   </div>
   <div class="content">
@@ -45,15 +59,12 @@
             Github-Repository</a
           >
           <a href="{{ currentProject.url }}" target="_blank" class="flex"
-            ><img
-              src="assets/img/icons/external-link.svg"
-              class="link-icon"
-            />
+            ><img src="assets/img/icons/external-link.svg" class="link-icon" />
             Try it online!</a
           >
         </div>
       </div>
-     <!--  <div class="project-images">
+      <!--  <div class="project-images">
         <div class="image-container">
           <img
             src="assets/img/portfolio/{{ currentProject.img[0] }}"

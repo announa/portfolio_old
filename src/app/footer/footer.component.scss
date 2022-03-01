@@ -6,6 +6,10 @@
  background-color: #232323;
  position: relative;
  color: white;
+
+ @media (max-width: 450px){
+  padding: 50px 6vw 30px;;
+}
  @media (min-width: 1400px){
    line-height: 2.5rem;
    padding: 50px 15vw 30px;
