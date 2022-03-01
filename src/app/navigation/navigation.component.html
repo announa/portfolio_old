@@ -1,31 +1,51 @@
-<nav class="pd-15 flex fade-in"  [style.right] = "navOpen || bigger700 ? '0' : '-100%'" #nav>
-  <!--   <a routerLink="/" class="logo flex">
-    <img src="assets/img/logo.png" alt="logo" />
-  </a> -->
+<nav
+  class="pd-15 flex fade-in"
+  [style.right]="navOpen || bigger700 ? '0' : '-100%'"
+  #nav
+>
   <div class="nav-links flex">
     <a (click)="toggleMenu(); navigation.forceNavigation('/', '')">home</a>
     <a
-      routerLink="/about/#aboutme" [class.link-active]="this.router.url == '/about#aboutme'"
-      (click)="toggleMenu(); navigation.forceNavigation('/about', 'aboutme'); projects.closeProject()"
+      routerLink="/about/#aboutme"
+      [class.link-active]="this.router.url == '/about#aboutme'"
+      (click)="
+        toggleMenu();
+        navigation.forceNavigation('/about', 'aboutme');
+        projects.closeProject()
+      "
       >about</a
     >
     <a
-      routerLink="/about/#portfolio" [class.link-active]="this.router.url == '/about#portfolio'"
-      (click)="toggleMenu(); navigation.forceNavigation('/about', 'portfolio'); projects.closeProject()"
+      routerLink="/about/#portfolio"
+      [class.link-active]="this.router.url == '/about#portfolio'"
+      (click)="
+        toggleMenu();
+        navigation.forceNavigation('/about', 'portfolio');
+        projects.closeProject()
+      "
       >portfolio</a
     >
     <a
-      routerLink="/about/#skills" [class.link-active]="this.router.url == '/about#skills'"
-      (click)="toggleMenu(); navigation.forceNavigation('/about', 'skills'); projects.closeProject()"
+      routerLink="/about/#skills"
+      [class.link-active]="this.router.url == '/about#skills'"
+      (click)="
+        toggleMenu();
+        navigation.forceNavigation('/about', 'skills');
+        projects.closeProject()
+      "
       >skills</a
     >
     <a
-      routerLink="/about/#contact" [class.link-active]="this.router.url == '/about#contact'"
-      (click)="toggleMenu(); navigation.forceNavigation('/about', 'contact'); projects.closeProject()"
+      routerLink="/about/#contact"
+      [class.link-active]="this.router.url == '/about#contact'"
+      (click)="
+        toggleMenu();
+        navigation.forceNavigation('/about', 'contact');
+        projects.closeProject()
+      "
       >contact</a
     >
   </div>
-  <!--     <img class="menu-icon" src="assets/img/icons/menu_icon.svg" alt="menu" /> -->
 </nav>
 <div class="menu" [class.menu--close]="navOpen" (click)="toggleMenu()">
   <div class="menu-bar bar1" [class.bar1--close]="navOpen"></div>

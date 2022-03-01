@@ -3,18 +3,27 @@
   <div class="positioning-container">
     <div class="separator separator1" #separator></div>
     <div class="slide-container flex">
-      <div class="slide" (click)="slideLeft()">&lsaquo;</div>
+      <div class="slide" (click)="slider.slideImagesLeft('aboutme')">
+        &lsaquo;
+      </div>
       <div class="content-container" #aboutSection>
-        <div class="img-container fade-in" (click)="slideRight()">
-          <img src="assets/img/about/me1.jpg" class="img1" #img />
-          <img src="assets/img/about/me2.jpg" class="img2" #img />
-          <img src="assets/img/about/me3_2.jpg" class="img3" #img />
+        <div
+          class="img-container fade-in"
+          (click)="slider.slideImagesRight('aboutme')"
+        >
+          <img src="assets/img/about/me1.jpg" class="img1" #imgAbout />
+          <img src="assets/img/about/me2.jpg" class="img2" #imgAbout />
+          <img src="assets/img/about/me3_2.jpg" class="img3" #imgAbout />
         </div>
-        <div class="text-container" (click)="slideRight()" #textContainer>
+        <div
+          class="text-container"
+          (click)="slider.slideImagesRight('aboutme')"
+          #textContainer
+        >
           <div
             class="textbox flex text1"
-            #textbox
-            [class.invisible]="currentImage != 0"
+            #textboxAbout
+            [class.invisible]="slider.currentAboutImage[0] != 0"
           >
             <p #text>
               <strong>"</strong>I am a passionate front end developer from
@@ -29,10 +38,9 @@
           </div>
           <div
             class="textbox flex text2"
-            #textbox
-            [class.invisible]="currentImage != 1"
+            #textboxAbout
+            [class.invisible]="slider.currentAboutImage[0] != 1"
           >
-            <!-- <div class="textwrap"> -->
             <p #text>
               <strong>"</strong>Actually I am a language teacher and I myself
               love learning languages<strong>.</strong> I studied french and
@@ -44,10 +52,9 @@
           </div>
           <div
             class="textbox flex text3"
-            #textbox
-            [class.invisible]="currentImage != 2"
+            #textboxAbout
+            [class.invisible]="slider.currentAboutImage[0] != 2"
           >
-            <!-- <div class="textwrap"> -->
             <p #text>
               <strong>"</strong>Sports and outdoor activities are an important
               part of my life. I love bouldering and climbing, moutainbiking,
@@ -58,30 +65,28 @@
             </p>
           </div>
         </div>
-        <!-- <div class="next" (click)="switchContent()" #next></div> -->
       </div>
-      <div class="slide flex" (click)="slideRight()">&rsaquo;</div>
+      <div class="slide flex" (click)="slider.slideImagesRight('aboutme')">
+        &rsaquo;
+      </div>
     </div>
     <div class="img-points">
       <div
         class="point point1"
-        [class.point-active]="currentImage == 0"
-        (click)="selectImage(0)"
+        [class.point-active]="slider.currentAboutImage[0] == 0"
+        (click)="slider.selectImage('aboutme', 0)"
       ></div>
       <div
         class="point point2"
-        [class.point-active]="currentImage == 1"
-        (click)="selectImage(1)"
+        [class.point-active]="slider.currentAboutImage[0] == 1"
+        (click)="slider.selectImage('aboutme', 1)"
       ></div>
       <div
         class="point point3"
-        [class.point-active]="currentImage == 2"
-        (click)="selectImage(2)"
+        [class.point-active]="slider.currentAboutImage[0] == 2"
+        (click)="slider.selectImage('aboutme', 2)"
       ></div>
     </div>
     <div class="separator separator2" #separator></div>
   </div>
-  <!-- <a class="down fade-in">
-  <img  src="assets/img/icons/chevron-down.png" alt="next section">
-</a> -->
 </div>

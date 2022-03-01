@@ -1,60 +1,107 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { ElementRef, Injectable, QueryList, ViewChildren } from '@angular/core';
 import { ProjectsComponent } from './projects/projects.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SliderService {
+  textboxAboutArr!: ElementRef[];
+  imgAboutArr!: ElementRef[];
+  imgProjectArr!: ElementRef[];
+  imgArr!: ElementRef[];
+  currentAboutImage = [0];
+  currentProjectImage = [0];
+  currentImage!: number[];
 
+  constructor() {}
 
-   constructor(){}
-
-/*   slideImagesLeft() {
-    this.currentImage--;
-    this.currentImage = this.currentImage < 0 ? 2 : this.currentImage;
-    this.slideImages('left');
+  getHTMLElements(type: string, elements: QueryList<any>) {
+    if (type == 'aboutmeImg') {
+      this.imgAboutArr = elements.toArray();
+    } else if (type == 'aboutmeText') {
+      this.textboxAboutArr = elements.toArray();
+    } else {
+      this.imgProjectArr = elements.toArray();
+    }
   }
 
-  slideImagesRight() {
-    this.currentImage++;
-    this.currentImage = this.currentImage % 3;
-    this.slideImages('right');
+  slideImagesLeft(component: string) {
+    this.currentImage =
+      component == 'aboutme'
+        ? this.currentAboutImage
+        : this.currentProjectImage;
+    this.imgArr =
+      component == 'aboutme' ? this.imgAboutArr : this.imgProjectArr;
+    this.currentImage[0]--;
+    this.currentImage[0] = this.currentImage[0] < 0 ? 2 : this.currentImage[0];
+    this.slideContent('left');
   }
 
-  slideImages(direction: string) {
+  slideImagesRight(component: string) {
+    this.currentImage =
+      component == 'aboutme'
+        ? this.currentAboutImage
+        : this.currentProjectImage;
+    this.imgArr =
+      component == 'aboutme' ? this.imgAboutArr : this.imgProjectArr;
+    this.currentImage[0]++;
+    this.currentImage[0] = this.currentImage[0] % 3;
+    this.slideContent('right');
+  }
+
+  slideContent(direction: string) {
     let before: number;
     let next: number;
-    this.currentImage === 0 ? (before = 2) : (before = this.currentImage - 1);
-    this.currentImage === 2 ? (next = 0) : (next = this.currentImage + 1);
-    this.imgArr[this.currentImage].nativeElement.style.left = '0';
+    this.currentImage[0] === 0
+      ? (before = 2)
+      : (before = this.currentImage[0] - 1);
+    this.currentImage[0] === 2 ? (next = 0) : (next = this.currentImage[0] + 1);
+    this.slide(direction, this.imgArr, before, next);
+    if (this.imgArr == this.imgAboutArr) {
+      this.slide(direction, this.textboxAboutArr, before, next);
+    }
+  }
+
+  slide(direction: string, arr: ElementRef[], before: number, next: number) {
+    arr[this.currentImage[0]].nativeElement.style.left = '0';
     if (direction === 'right') {
-      this.imgArr[next].nativeElement.style.display = 'none';
-      this.imgArr[before].nativeElement.style.left = '-100%';
+      arr[next].nativeElement.style.display = 'none';
+      arr[before].nativeElement.style.left = '-100%';
       setTimeout(() => {
-        this.imgArr[next].nativeElement.style.left = '100%';
+        arr[next].nativeElement.style.left = '100%';
       }, 1);
       setTimeout(() => {
-        this.imgArr[next].nativeElement.style.display = 'unset';
+        arr[next].nativeElement.style.display = 'unset';
       }, 226);
     } else {
-      this.imgArr[before].nativeElement.style.display = 'none';
-      this.imgArr[next].nativeElement.style.left = '100%';
+      arr[before].nativeElement.style.display = 'none';
+      arr[next].nativeElement.style.left = '100%';
       setTimeout(() => {
-        this.imgArr[before].nativeElement.style.left = '-100%';
+        arr[before].nativeElement.style.left = '-100%';
       }, 1);
       setTimeout(() => {
-        this.imgArr[before].nativeElement.style.display = 'unset';
+        arr[before].nativeElement.style.display = 'unset';
       }, 226);
     }
   }
 
-  selectImage(imgNumber: number){
-    let imgNow = this.currentImage
-    this.currentImage = imgNumber
-    if(imgNow - this.currentImage == -1 || imgNow == 2 && this.currentImage == 0){
-      this.slideImages('right')
-    }else{
-      this.slideImages('left')
+  selectImage(component: string, imgNumber: number) {
+    this.currentImage =
+      component == 'aboutme'
+        ? this.currentAboutImage
+        : this.currentProjectImage;
+    this.imgArr =
+      component == 'aboutme' ? this.imgAboutArr : this.imgProjectArr;
+
+    let imgNow = this.currentImage[0];
+    this.currentImage[0] = imgNumber;
+    if (
+      imgNow - this.currentImage[0] == -1 ||
+      (imgNow == 2 && this.currentImage[0] == 0)
+    ) {
+      this.slideContent('right');
+    } else {
+      this.slideContent('left');
     }
-  } */
+  }
 }

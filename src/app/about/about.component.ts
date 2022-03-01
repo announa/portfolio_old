@@ -5,7 +5,6 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-/* import { projects } from '../projects' */
 import { ProjectsService } from '../projects.service';
 
 @Component({

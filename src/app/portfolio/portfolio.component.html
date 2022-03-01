@@ -1,4 +1,8 @@
-<div #portfolio id="portfolio" class="component-container component-light fade-in flex">
+<div
+  #portfolio
+  id="portfolio"
+  class="component-container component-light fade-in flex"
+>
   <div class="clip-path clip1"></div>
   <h3 #portfolioHeading class="o-0">
     portf<span class="text-violet">o</span>lio
@@ -34,9 +38,6 @@
           #imgContainer
         >
           <img src="assets/img/portfolio/{{ project.img[0] }}" />
-          <!--   <div class="portfolio-layer layer--text flex">
-            <p>More about this project</p>
-          </div> -->
         </div>
         <div
           class="description"
@@ -53,9 +54,12 @@
             {{ project.description }}
           </p>
         </div>
-        <div class="portfolio-layer flex d-none"  [style.flexDirection]="
-        !bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'
-      ">
+        <div
+          class="portfolio-layer flex d-none"
+          [style.flexDirection]="
+            !bigger800 ? '' : i % 2 == 0 ? 'row' : 'row-reverse'
+          "
+        >
           <div class="layer-text flex"><p>More about this project</p></div>
         </div>
       </a>

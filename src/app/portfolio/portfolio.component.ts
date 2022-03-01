@@ -36,8 +36,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   resize() {
     this.checkWindowSize();
   }
-  /*   let scrollOffset = $event.srcElement.children[0].scrollTop;
-  console.log("window scroll: ", scrollOffset); */
 
   constructor(
     public observer: IntersectionObserverService,
