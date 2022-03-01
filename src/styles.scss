@@ -206,13 +206,13 @@ input, textarea{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: clamp(45px, 4vw, 80px);
+  width: clamp(40px, 4vw, 80px);
   height: 20px;
   position: relative;
 }
 
 .point{
-  width: clamp(10px, 0.7vw, 20px);
+  width: clamp(8px, 0.8vw, 20px);
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: rgb(0, 132, 150);

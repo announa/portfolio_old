@@ -1,5 +1,5 @@
 <app-about-me></app-about-me>
-<app-portfolio (openProject)="showProject($event)"></app-portfolio>
+<app-portfolio (openProject)="projects.showProject($event)"></app-portfolio>
 <app-skills></app-skills>
 <app-contact></app-contact>
-<app-projects *ngIf="projects.projectSelected" [currentProject]="currentProject" class="project-slider" [class.slide-in]="projects.openProject" (goBack)="projects.closeProject()"></app-projects>
+<app-projects *ngIf="projects.projectSelected" class="project-slider" [class.slide-in]="projects.openProject" (goBack)="projects.closeProject()"></app-projects>

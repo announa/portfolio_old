@@ -1,22 +1,22 @@
 <div id="projects" class="component-container flex">
+  <div class="back" (click)="backToPortfolio()" [class.slide-in]="projects.openProject">&lsaquo;</div>
   <h3>
-    <div class="arrow" (click)="backToPortfolio()">&larr;</div>
-    {{ currentProject.title }}
+    {{ projects.currentProject.title }}
   </h3>
   <div class="project-images">
     <div class="image-container">
       <img
-        src="assets/img/portfolio/{{ currentProject.img[0] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[0] }}"
         #img
         class="img0"
       />
       <img
-        src="assets/img/portfolio/{{ currentProject.img[1] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
         #img
         class="img1"
       />
       <img
-        src="assets/img/portfolio/{{ currentProject.img[2] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
         #img
         class="img2"
       />
@@ -43,22 +43,22 @@
   </div>
   <div class="content">
     <div class="description">
-      <p>{{ currentProject.description }}</p>
-      <p>{{ currentProject.description_long }}</p>
+      <p>{{ projects.currentProject.description }}</p>
+      <p>{{ projects.currentProject.description_long }}</p>
     </div>
     <div class="content__bottom flex">
       <div class="bottom__text">
         <div>
           <h4>Technologies</h4>
-          <p *ngFor="let t of currentProject.technologies">{{ t }}</p>
+          <p *ngFor="let t of projects.currentProject.technologies">{{ t }}</p>
         </div>
         <div class="links">
           <h4>Have a look</h4>
-          <a href="{{ currentProject.github }}" target="_blank" class="flex"
+          <a href="{{ projects.currentProject.github }}" target="_blank" class="flex"
             ><img src="assets/img/icons/github.svg" class="link-icon" />
             Github-Repository</a
           >
-          <a href="{{ currentProject.url }}" target="_blank" class="flex"
+          <a href="{{ projects.currentProject.url }}" target="_blank" class="flex"
             ><img src="assets/img/icons/external-link.svg" class="link-icon" />
             Try it online!</a
           >

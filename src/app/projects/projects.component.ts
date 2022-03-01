@@ -19,7 +19,7 @@ import { SliderService } from '../slider.service';
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
-  @Input() currentProject: any;
+  @Input() scrollposition: any;
   @Output() goBack = new EventEmitter();
   @ViewChildren('img') img!: QueryList<any>;
   currentImage = 0;

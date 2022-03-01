@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectsService {
-
   projectSelected = false;
   openProject = false;
+  currentProject: any;
+  scrollposition: number = 0;
   projects = [
     {
       title: 'Bitcoin App',
@@ -55,11 +56,28 @@ export class ProjectsService {
 
   constructor() {}
 
-  closeProject(){
+  showProject(event: string) {
+    this.currentProject = this.projects.find((p) => p.link.includes(event));
+    this.projectSelected = true;
+    setTimeout(() => {
+      this.openProject = true;
+    }, 1);
+    this.scrollposition = window.scrollY;
+    setTimeout(() => {
+      document.body.style.height = '100vh';
+      document.body.style.overflow = 'hidden';
+    }, 500);
+  }
+
+  closeProject() {
     this.openProject = false;
     setTimeout(() => {
       this.projectSelected = false;
     }, 500);
-    document.body.style.overflowY = ''
+    document.body.style.height = '';
+    document.body.style.overflowY = '';
+    if (this.scrollposition) {
+      window.scrollTo(0, this.scrollposition);
+    }
   }
 }
