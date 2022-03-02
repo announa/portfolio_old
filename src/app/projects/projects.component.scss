@@ -1,7 +1,8 @@
 .component-container {
+  justify-content: flex-start;
   padding-bottom: 100px;
 
-  @media (max-width: 700px){
+  @media (max-width: 700px) {
     padding-top: 100px;
   }
 }
@@ -12,41 +13,48 @@
 
 h3 {
   position: relative;
-  margin: 30px 0 50px;
-  @media (max-width: 700px){
-    margin-top: 0;
+  margin: 50px 0 60px;
+  @media (max-width: 700px) {
+    margin-top: 30px;
+  }
+
+  @media (min-width: 1400px) {
+    margin-bottom: 80px;
   }
 }
 
 .content {
   width: 100%;
-  margin-top: 80px;
+  margin-top: clamp(80px, 30vw, 100px);
 }
 
 .content__bottom {
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
 }
 
+.content__bottom,
+.links {
+  margin-top: clamp(40px, 2vw, 60px);
+}
+
 p {
-  line-height: 1.5rem;
+  line-height: clamp(1.5rem, 1.8vw, 2.5rem);
 }
 p:first-child {
-  margin-bottom: 20px;
+  margin-bottom: clamp(30px, 10vw, 50px);
 }
 
 h4 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: clamp(16px, 1.5vw, 32px);
+  margin-bottom: clamp(10px, 5vw, 30px);
 }
 
 .links {
-  margin-top: 40px;
   a {
-    font-size: 16px;
+    font-size: clamp(14px, 1.3vw, 22px);
     display: flex;
     margin-bottom: 5px;
     justify-content: flex-start;
@@ -95,7 +103,7 @@ h4 {
     height: 100%;
     position: relative;
     overflow: hidden;
-    box-shadow: 3px 3px 8px rgba(10, 10, 10, .5);
+    box-shadow: 3px 3px 8px rgba(10, 10, 10, 0.5);
   }
 
   .img0 {
@@ -152,11 +160,11 @@ h4 {
 .img-points {
   height: unset;
   position: absolute;
-  bottom: -25px;
+  bottom: clamp(-55px, -2vw, -25px);
   left: 50%;
   transform: translateX(-50%);
 }
 
-.point{
-  box-shadow: 3px 3px 8px rgba(10, 10, 10, .5);
+.point {
+  box-shadow: 3px 3px 8px rgba(10, 10, 10, 0.5);
 }
