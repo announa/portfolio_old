@@ -104,7 +104,7 @@ h3 {
 }
 
 .separator {
-  width: 87vw;
+  width: calc(100% + 13vw);
   height: 5px;
   position: absolute;
   left: -13vw;
@@ -116,13 +116,18 @@ h3 {
     max-width: calc((100vw - 400px) / 2 + 400px);
     left: calc(-1 * (100vw - 400px) / 2);
   }
-
+  
   @media (max-width: 540px) {
+    width: calc(100% + 13vw);
     left: -13vw;
+  }
+  @media (max-width: 450px) {
+    width: 100vw;
+    left: unset;
   }
 
   @media (min-width: 1400px) {
-    width: 85vw;
+    width: calc(100% + 15vw);
     left: -15vw;
   }
 }
@@ -135,6 +140,11 @@ h3 {
   }
   @media (max-width: 540px) {
     right: -13vw;
+  }
+
+  @media (max-width: 450px) {
+    width: 100vw;
+    right: unset;
   }
 
   @media (min-width: 1400px) {
