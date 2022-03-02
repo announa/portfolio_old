@@ -53,7 +53,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       this.project,
       this.portfolioHeading,
       this.text,
-      this.separator
+      this.separator,
     ];
     this.observer.createIntersectionObserver(observeItems);
   }

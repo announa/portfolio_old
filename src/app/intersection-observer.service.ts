@@ -1,10 +1,16 @@
-import { AfterViewInit, ElementRef, Injectable } from '@angular/core';
+import {
+  AfterViewInit,
+  ElementRef,
+  Injectable,
+  QueryList,
+} from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IntersectionObserverService implements AfterViewInit {
   observer!: IntersectionObserver;
+  elements!: QueryList<any>;
 
   constructor() {}
 
@@ -17,23 +23,25 @@ export class IntersectionObserverService implements AfterViewInit {
       threshold: 0.4,
     };
 
-    if(observeItems.id == 'contactform'){
-      options.threshold = 0.1
+    if (observeItems.id == 'contactform') {
+      options.threshold = 0.1;
     }
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          console.log(e.target);
-          if (e.target.classList.contains('separator')) {
-            e.target.classList.add('tt-0');
-          }
           if (
             e.target.classList.contains('project') ||
             e.target.classList.contains('skill-container')
           ) {
-            this.setChildren(e.target)
+            this.setElementFamily(e.target);
           }
+          if(e.target.classList.contains('project')){
+            setTimeout(() => {
+              e.target.classList.add('img-layer--hover')
+            }, 1000);
+          }
+
           e.target.classList.add('o-1');
           this.observer.unobserve(e.target);
         }
@@ -45,16 +53,16 @@ export class IntersectionObserverService implements AfterViewInit {
     });
   }
 
-  setChildren(target: any){
-    console.log(target)
+  setElementFamily(target: any) {
+    target.previousSibling.classList.add('tt-0');
+
     let children = Array.from(target.children);
-    console.log(children)
     children.forEach((child: any) => {
-      if (!child.classList.contains('portfolio-layer'))
       child.classList.add('tt-0');
-      setTimeout(() => {
-        child.classList.remove('d-none')
-      }, 700);
     });
+      setTimeout(() => {
+        target.firstChild.lastChild.classList.remove('o-0');
+        target.lastChild.lastChild.classList.remove('o-0');
+      }, 600);
   }
 }
