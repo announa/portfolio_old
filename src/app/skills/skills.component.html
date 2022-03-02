@@ -2,7 +2,10 @@
 <div id="skills" class="component-container fade-in flex">
  <h3 #skillsHeading class="o-0">my <span class="text-blue">skills</span></h3>
   <div class="skill-container o-0" #skillContainer (click)="shuffleSkills()" [class.skill-container-1]="shuffle == 1">
-    <div *ngFor="let skill of skills; let i = index" class="skill flex" id="skill{{i}}" #skill [class.skill{{i}}-1]="shuffle == 1">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+    <div *ngFor="let skill of skills; let i = index" class="skill flex" id="skill{{i}}" #skill [ngClass]="setShuffleClass(i)">
       <p>{{ skill }}</p>
     </div>
   </div>
