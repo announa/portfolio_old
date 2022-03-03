@@ -14,7 +14,7 @@ body {
   --text-colored: rgb(0, 255, 251);
   --text-colored2: rgb(0, 191, 188);
   --text-colored-violet: rgb(225, 0, 255);
-  --text-colored-violet2:rgb(255, 0, 191);
+  --text-colored-violet2: rgb(255, 0, 191);
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
@@ -29,13 +29,12 @@ body {
   padding: 125px 13vw 150px;
   background-color: rgb(10, 10, 10);
 
-  @media (max-width: 450px){
+  @media (max-width: 450px) {
     padding: 125px 6vw 150px;
   }
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     padding: 200px 15vw 240px;
   }
-
 }
 
 .component-light {
@@ -76,7 +75,7 @@ body {
 h1 {
   font-size: clamp(32px, 3vw, 72px);
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: clamp(20px, 2vw, 40px);
 }
 
 h2 {
@@ -109,16 +108,18 @@ a {
   text-decoration: none;
 }
 
-p, label {
+p,
+label {
   line-height: clamp(1.5rem, 2vw, 2.5rem);
-  font-size: clamp(14px, 1.3vw, 22px);
-  
+  font-size: clamp(14px, 1.3vw, 26px);
+
   @media (min-width: 1400px) {
     line-height: 2.5rem;
   }
 }
 
-input, textarea{
+input,
+textarea {
   font-size: clamp(14px, 1vw, 18px);
   @media (min-width: 1400px) {
     font-size: clamp(18px, 1.8vw, 25px);
@@ -133,8 +134,8 @@ input, textarea{
   font-weight: 400;
   position: relative;
   opacity: 0;
-  padding: 20px;
-  font-size: clamp(16px, 2.5vw, 20px);
+  padding: clamp(20px, 2vw, 40px);
+  font-size: clamp(16px, 2vw, 38px);
   &:hover {
     color: var(--text-colored);
     text-shadow: 0px 0 5px rgba(0, 255, 251, 0.8);
@@ -174,7 +175,7 @@ input, textarea{
   opacity: 1 !important;
 }
 
-.tt-0{
+.tt-0 {
   transform: translate(0, 0) !important;
 }
 
@@ -196,7 +197,7 @@ input, textarea{
   font-weight: 500;
 }
 
-.img-points{
+.img-points {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -205,18 +206,18 @@ input, textarea{
   position: relative;
 }
 
-.point{
+.point {
   width: clamp(8px, 0.8vw, 20px);
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: rgb(0, 132, 150);
   cursor: pointer;
-  
-  &:hover{
+
+  &:hover {
     background-color: rgb(0, 225, 255);
   }
 }
 
-.point-active{
+.point-active {
   background-color: rgb(0, 225, 255);
 }

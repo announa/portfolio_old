@@ -12,12 +12,13 @@
         src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
         #imgProject
         class="img0"
+        [style.objectPosition]="projects.currentProject.title == 'El Pollo Loco'? '50% 60%' : '50% 30%'"
       />
       <img
         src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
         #imgProject
         class="img1"
-        [style.objectPosition]="projects.currentProject.title == 'El Pollo Loco'? 'bottom' : projects.currentProject.title == 'Ring of Fire'? 'top' : 'center'"
+        [style.objectPosition]="projects.currentProject.title == 'El Pollo Loco'? 'bottom' : 'top'"
       />
       <img
         src="assets/img/portfolio/{{ projects.currentProject.img[3] }}"
