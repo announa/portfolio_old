@@ -17,7 +17,7 @@ export class ProjectsService {
         'This app calculates the currency exchange for the current exchange rate between Bitcoin and US Dollar. It also shows the historic exchange rate over a chosen period, represented in a table or a chart.',
       github: 'https://github.com/announa/bitcoin-app',
       url: 'https://annaludewig.net/projects/bitcoin-app/index.html',
-      img: ['bitcoin_0.png', 'bitcoin_1.png', 'bitcoin_2.png'],
+      img: ['bitcoin.png', 'bitcoin_0.png', 'bitcoin_1.png', 'bitcoin_2.png'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
     },
     {
@@ -27,7 +27,7 @@ export class ProjectsService {
       description_long: 'This is a funny little game written in JavaScript.',
       github: 'https://github.com/announa/el_pollo_loco',
       url: 'https://annaludewig.net/projects/el_pollo_loco/index.html',
-      img: ['pollo_loco_0.png', 'pollo_loco_1.png', 'pollo_loco_2.png'],
+      img: ['pollo_loco.png', 'pollo_loco_0.png', 'pollo_loco_1.png', 'pollo_loco_2.png'],
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
@@ -38,7 +38,7 @@ export class ProjectsService {
         'In this Pokémon gallery you can find all the Pokémon or search them by name or their index. It uses the Pokeapi.',
       github: 'https://github.com/announa/pokedex',
       url: 'https://annaludewig.net/projects/pokedex/index.html',
-      img: ['pokedex_0.png', 'pokedex_1.png', 'pokedex_2.png'],
+      img: ['pokedex.png', 'pokedex_0.png', 'pokedex_1.png', 'pokedex_2.png'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
     },
     {
@@ -49,7 +49,7 @@ export class ProjectsService {
         'A card game which can be played with multiple persons online. This game is built with TypeScript and Angular.',
       github: 'https://github.com/announa/ring_of_fire',
       url: 'https://ring-of-fire-7eef3.web.app/',
-      img: ['ring_of_fire_0.png', 'ring_of_fire_1.png', 'ring_of_fire_2.png'],
+      img: ['ring_of_fire.png', 'ring_of_fire_0.png', 'ring_of_fire_1.png', 'ring_of_fire_2.png'],
       technologies: ['HTML', 'CSS', 'TypeScript', 'Angular'],
     },
   ];

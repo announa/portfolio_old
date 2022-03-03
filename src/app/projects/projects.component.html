@@ -9,18 +9,18 @@
     </div>
     <div class="image-container">
       <img
-        src="assets/img/portfolio/{{ projects.currentProject.img[0] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
         #imgProject
         class="img0"
       />
       <img
-        src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
         #imgProject
         class="img1"
         [style.objectPosition]="projects.currentProject.title == 'El Pollo Loco'? 'bottom' : projects.currentProject.title == 'Ring of Fire'? 'top' : 'center'"
       />
       <img
-        src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
+        src="assets/img/portfolio/{{ projects.currentProject.img[3] }}"
         #imgProject
         class="img2"
         [style.objectPosition]="projects.currentProject.title == 'El Pollo Loco' || projects.currentProject.title == 'Pokedex' ? 'center' : 'top'"

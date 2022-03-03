@@ -32,9 +32,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.slider.getHTMLElements('projects', this.imgProject)
-    setInterval(() => {
-      this.slider.slideImagesRight('projects')
-    }, 4000)
   }
 
   backToPortfolio(){

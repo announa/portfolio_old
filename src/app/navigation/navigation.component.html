@@ -4,7 +4,14 @@
   #nav
 >
   <div class="nav-links flex">
-    <a (click)="toggleMenu(); navigation.forceNavigation('/', '')">home</a>
+    <a
+      (click)="
+        toggleMenu();
+        navigation.forceNavigation('/', '');
+        projects.closeProject()
+      "
+      >home</a
+    >
     <a
       routerLink="/about/#aboutme"
       [class.link-active]="this.router.url == '/about#aboutme'"
