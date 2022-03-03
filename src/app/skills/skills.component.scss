@@ -1,6 +1,12 @@
+h3{
+  @media (max-width: 1400px) {
+    margin-bottom: 50px;
+  }
+}
+
 .skill-container {
   max-height: 500px;
-  height: calc(100vh - 220px);
+  height: calc(100vh - 240px);
   aspect-ratio: 1;
   transition: all 500ms ease-in-out;
   cursor: pointer;
@@ -11,7 +17,7 @@
   }
 
   @media (min-width: 1400px) {
-    height: calc(100vh - 300px);
+    height: calc(100vh - 380px);
     max-height: 700px;
   }
   @media (min-width: 1800px) {
@@ -35,7 +41,7 @@
       font-size: clamp(12px, 3vw, 18px);
     }
     @media (min-width: 1400px) {
-      font-size: clamp(12px, 1.5vw, 28px);
+      font-size: clamp(12px, 2.4vh, 28px);
     }
   }
 }
