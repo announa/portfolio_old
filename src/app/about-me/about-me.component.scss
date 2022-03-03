@@ -12,6 +12,7 @@
   flex: 1;
   width: 100%;
   position: relative;
+  flex: 0;
 }
 
 .slide-container {
@@ -165,6 +166,7 @@ h3 {
 }
 
 .img-points {
+  margin-bottom: 1vw;
   @media (max-width: 800px) {
     height: 30px;
   }
@@ -172,7 +174,7 @@ h3 {
 
 .slide {
   font-family: "Astloch", sans-serif;
-  font-size: clamp(62px, 8vw, 105px);
+  font-size: clamp(62px, 6vw, 105px);
   color: var(--text-colored);
   cursor: pointer;
   padding-bottom: 0.25em;
