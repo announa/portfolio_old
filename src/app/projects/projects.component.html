@@ -1,9 +1,12 @@
 <div id="projects" class="component-container component-light flex">
-  <div class="back" (click)="backToPortfolio()" [class.slide-in]="projects.openProject">&lsaquo;</div>
+  <div class="back flex" (click)="backToPortfolio()" [class.slide-in]="projects.openProject"><span class="astloch flex">&lsaquo;</span> Back to Portfolio</div>
   <h3>
     {{ projects.currentProject.title }}
   </h3>
   <div class="project-images">
+    <div class="slide" (click)="slider.slideImagesLeft('projects')">
+      &lsaquo;
+    </div>
     <div class="image-container">
       <img
         src="assets/img/portfolio/{{ projects.currentProject.img[0] }}"
@@ -39,6 +42,9 @@
         [class.point-active]="slider.currentProjectImage[0] == 2"
         (click)="slider.selectImage('projects', 2)"
       ></div>
+    </div>
+    <div class="slide flex" (click)="slider.slideImagesRight('projects')">
+      &rsaquo;
     </div>
   </div>
   <div class="content">

@@ -85,7 +85,7 @@ h4 {
   gap: 5px;
   position: relative;
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     aspect-ratio: 2.5;
     width: 100vw;
   }
@@ -97,6 +97,36 @@ h4 {
     object-fit: cover;
     transition: all 350ms ease-in-out;
   }
+
+
+.slide {
+  font-family: "Astloch", sans-serif;
+  font-size: clamp(48px, 7vw, 105px);
+  color: var(--text-colored);
+  cursor: pointer;
+  padding-bottom: 0.25em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  &:first-child{
+    left: clamp(-60px, -5vw, -30px);
+    
+    @media (max-width: 800px){
+      left: clamp(30px, 5vw, 50px);
+    }
+  }
+  &:last-child{
+    right: clamp(-60px, -5vw, -30px);
+    @media (max-width: 800px){
+      right: clamp(20px, 5vw, 50px);
+  }}
+
+  &:hover {
+    text-shadow: 0px 0 5px rgba(0, 255, 251, 0.8);
+  }
+}
 
   .image-container {
     width: 100%;
@@ -121,27 +151,35 @@ h4 {
 }
 
 .back {
+  white-space: nowrap;
   position: fixed;
   cursor: pointer;
-  top: 120px;
+  top: 90px;
   left: 100%;
-  font-family: "Astloch", sans-serif;
+  font-size: clamp(16px, 1.4vw, 22px);
   font-weight: 200;
-  font-size: clamp(62px, 6vw, 84px);
   color: var(--text-colored);
   z-index: 5;
   transform: translate(30px 100px);
   opacity: 0;
   transition: left 650ms ease-in-out, opacity 500ms ease-in-out 150ms;
+  
+  span{
+    padding-bottom: 0.24em;
+    margin-right: clamp(20px, 2.5vw, 60px);
+    font-size: clamp(62px, 8vw, 105px);
+    font-family: "Astloch", sans-serif;
+  }
 
   @media (max-width: 700px) {
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     height: 70px;
     width: 100vw;
     padding-left: 30px;
-    background: linear-gradient(rgba(10, 10, 10, 1) 60%, rgba(10, 10, 10, 0));
+    background: linear-gradient(#232323 65%, rgba(35, 35, 35, 0.8));
   }
 
   &:hover {
