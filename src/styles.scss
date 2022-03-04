@@ -149,7 +149,7 @@ textarea {
   font-weight: 400;
   position: relative;
   opacity: 0;
-  padding: clamp(20px, 2vw, 40px);
+  padding: clamp(15px, 1.6vw, 40px);
   font-size: clamp(16px, 1.6vw, 38px);
   &:hover {
     color: var(--text-colored);

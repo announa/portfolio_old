@@ -1,6 +1,7 @@
 .component-container {
+  /*   height: 100vh; */
   justify-content: flex-start;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 
   @media (max-width: 700px) {
     padding-top: 100px;
@@ -12,20 +13,30 @@
 }
 
 h3 {
+  font-weight: 500;
+  text-align: center;
+  font-size: clamp(18px, 1.8vw, 32px);
+  margin-bottom: 40px;
+
+  @media (min-width: 1800px) {
+    margin-bottom: 60px;
+  }
+
   position: relative;
-  margin: 50px 0 60px;
   @media (max-width: 700px) {
     margin-top: 30px;
   }
 
-  @media (min-width: 1400px) {
-    margin-bottom: 80px;
+   @media (min-width: 2000px) {
+     margin-top: 50px;
+    margin-bottom: 100px;
   }
 }
 
 .content {
   width: 100%;
-  margin-top: clamp(80px, 30vw, 100px);
+  position: relative;
+  /*   margin-top: clamp(80px, 30vw, 100px); */
 }
 
 .content__bottom {
@@ -37,19 +48,26 @@ h3 {
 
 .content__bottom,
 .links {
-  margin-top: clamp(40px, 2vw, 60px);
+  margin-top: clamp(35px, 1.8vw, 60px);
 }
 
 p {
-  line-height: clamp(1.5rem, 1.8vw, 2.5rem);
+  line-height: clamp(1.5rem, 2vw, 2.5rem);
+  font-size: clamp(14px, 1.3vw, 26px);
+/* 
+  @media (min-width: 1400px) {
+    line-height: 2.5rem;
+  } */
 }
+/*   line-height: clamp(1.5rem, 1.8vw, 2.5rem);
+} */
 p:first-child {
-  margin-bottom: clamp(30px, 10vw, 50px);
+  margin-bottom: clamp(25px, 2vw, 50px);
 }
 
 h4 {
   font-size: clamp(16px, 1.5vw, 32px);
-  margin-bottom: clamp(10px, 5vw, 30px);
+  margin-bottom: clamp(20px, 1.5vw, 30px);
 }
 
 .links {
@@ -79,13 +97,30 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 100%;
-  aspect-ratio: 2.5;
+  width: 45%;
+  min-width: 400px;
+  aspect-ratio: 1.8;
   gap: 5px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom:  clamp(25px, 2vw, 55px);
 
   @media (max-width: 800px) {
+    width: 100%;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    min-width: unset;
+  }
+
+  @media (max-width: 450px){
     width: 100vw;
+    transform: translateX(-6vw);
+  }
+
+  @media (min-width: 2100px) {
+    top: 0;
+    bottom: unset;
   }
 
   img {
@@ -96,35 +131,35 @@ h4 {
     transition: all 350ms ease-in-out;
   }
 
+  .slide {
+    font-family: "Astloch", sans-serif;
+    font-size: clamp(48px, 7vw, 105px);
+    color: var(--text-colored);
+    cursor: pointer;
+    padding-bottom: 0.25em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
 
-.slide {
-  font-family: "Astloch", sans-serif;
-  font-size: clamp(48px, 7vw, 105px);
-  color: var(--text-colored);
-  cursor: pointer;
-  padding-bottom: 0.25em;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
+    &:first-child {
+      left: clamp(-60px, -5vw, -30px);
 
-  &:first-child{
-    left: clamp(-60px, -5vw, -30px);
-    
-    @media (max-width: 800px){
-      left: clamp(30px, 5vw, 50px);
+      @media (max-width: 450px) {
+        left: clamp(10px, 5vw, 30px);
+      }
+    }
+    &:last-child {
+      right: clamp(-60px, -5vw, -30px);
+      @media (max-width: 450px) {
+        right: clamp(10px, 5vw, 30px);
+      }
+    }
+
+    &:hover {
+      text-shadow: 0px 0 5px rgba(0, 255, 251, 0.8);
     }
   }
-  &:last-child{
-    right: clamp(-60px, -5vw, -30px);
-    @media (max-width: 800px){
-      right: clamp(20px, 5vw, 50px);
-  }}
-
-  &:hover {
-    text-shadow: 0px 0 5px rgba(0, 255, 251, 0.8);
-  }
-}
 
   .image-container {
     width: 100%;
@@ -132,9 +167,9 @@ h4 {
     position: relative;
     overflow: hidden;
     box-shadow: 3px 3px 8px rgba(10, 10, 10, 0.5);
-    
-    @media (min-width: 800px) {
-      border-radius: 20px;
+
+    @media (min-width: 450px) {
+      border-radius: 15px;
     }
   }
 
@@ -157,27 +192,34 @@ h4 {
   white-space: nowrap;
   position: fixed;
   cursor: pointer;
-  width: 100vw;
   height: clamp(50px, 5vw, 130px);
-  bottom: 0;
-  padding-left: 4vw;
-  font-size: clamp(16px, 1.4vw, 28px);
-  font-weight: 300;
+  top: 110px;
+  left: 13vw;
+  font-size: clamp(16px, 1.6vw, 28px);
+  font-weight: 500;
   color: var(--text-colored);
   background: linear-gradient(to top, #373737 45%, rgba(55, 55, 55, 0.3));
   z-index: 5;
   transform: translateX(-5%);
   opacity: 0;
   transition: left 650ms ease-in-out, opacity 500ms ease-in-out 150ms;
+
+  @media (min-width:1400px) {
+    top: 180px;    
+  }
+  @media (min-width:2000px) {
+    top: 230px;    
+  }
   
-  span{
+  span {
     padding-bottom: 0.24em;
-    margin-right: clamp(20px, 2.5vw, 60px);
-    font-size: clamp(62px, 6vw, 105px);
+    margin-right: clamp(10px, 1.5vw, 40px);
+    font-size: clamp(52px, 4vw, 105px);
     font-family: "Astloch", sans-serif;
   }
 
   @media (max-width: 700px) {
+    width: 100%;
     top: 0;
     display: flex;
     align-items: center;
@@ -193,7 +235,7 @@ h4 {
 }
 
 .slide-in {
-  left: 5vw;
+  left: 3vw;
   opacity: 1;
   @media (max-width: 700px) {
     left: 0;
@@ -210,4 +252,45 @@ h4 {
 
 .point {
   box-shadow: 3px 3px 8px rgba(10, 10, 10, 0.5);
+}
+
+/* .content-container{
+  height: 100%;
+  gap: clamp(50px, 1.2vw, 100px);
+}
+
+.content-left{
+  flex-direction: column;
+  flex: 1;
+}
+
+.content-right{
+  height: 100%;
+  flex-direction: column;
+}
+
+.img-container{
+  height: 33.33%;
+  
+  img{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+}
+
+.img0 {
+  object-position: 50% 30%;
+}
+.img1 {
+  object-position: 0 0;
+}
+.img2 {
+  object-position: top;
+} */
+
+.description-long{
+  @media (min-width: 2100px) {
+    max-width: 45%;
+  }
 }
