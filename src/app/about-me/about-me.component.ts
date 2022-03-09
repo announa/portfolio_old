@@ -78,4 +78,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     );
     this.textContainer.nativeElement.style.height = `${maxHeight}px`;
   }
+
+  showTouchevent(){
+    console.log('touch')
+    alert('touch event')
+  }
 }

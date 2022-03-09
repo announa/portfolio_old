@@ -3,7 +3,7 @@
   <div class="positioning-container">
     <div class="separator separator1" #separator></div>
     <div class="slide-container flex">
-      <div class="slide" (click)="slider.slideImagesLeft('aboutme')">
+      <div class="slide" (click)="slider.slideImagesLeft('aboutme')" (touchstart)="showTouchevent()">
         &lsaquo;
       </div>
       <div class="content-container" #aboutSection>
