@@ -39,8 +39,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.slider.getHTMLElements('aboutmeImg', this.imgAbout)
-    this.slider.getHTMLElements('aboutmeText', this.textboxAbout)
+    this.slider.getHTMLElements('aboutmeImg', this.imgAbout);
+    this.slider.getHTMLElements('aboutmeText', this.textboxAbout);
     this.textboxAboutArr = this.textboxAbout.toArray();
     this.linesArr = this.lines.toArray();
     this.setTextContanerHeight();
@@ -77,10 +77,5 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       this.textboxAboutArr[2].nativeElement.clientHeight
     );
     this.textContainer.nativeElement.style.height = `${maxHeight}px`;
-  }
-
-  showTouchevent(){
-    console.log('touch')
-    alert('touch event')
   }
 }

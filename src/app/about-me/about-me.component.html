@@ -3,13 +3,12 @@
   <div class="positioning-container">
     <div class="separator separator1" #separator></div>
     <div class="slide-container flex">
-      <div class="slide" (click)="slider.slideImagesLeft('aboutme')" (touchstart)="showTouchevent()">
+      <div class="slide" (click)="slider.slideImagesLeft('aboutme')">
         &lsaquo;
       </div>
-      <div class="content-container" #aboutSection>
+      <div class="content-container" #aboutSection (click)="slider.clickSlide('aboutme')" (touchstart)="slider.swipeStart($event)" (touchmove)="slider.swipe($event, 'aboutme')">
         <div
           class="img-container fade-in"
-          (click)="slider.slideImagesRight('aboutme')"
         >
           <img src="assets/img/about/me1.jpg" class="img1" #imgAbout />
           <img src="assets/img/about/me2.jpg" class="img2" #imgAbout />
@@ -17,7 +16,6 @@
         </div>
         <div
           class="text-container"
-          (click)="slider.slideImagesRight('aboutme')"
           #textContainer
         >
           <div
@@ -28,11 +26,11 @@
             <p #text>
               <strong>"</strong>I am a passionate front end developer from
               Germany<strong>,</strong> actually living in Colombia. I enjoy
-              programming well designed and functional web sites and
+              programming well-designed and functional websites and
               applications<strong>.</strong> Now<strong>,</strong> after my
               training, I am ready to take the next step<strong>,</strong>
-              starting my carreer in this awesome business<strong>.</strong> I
-              would love to help you realizing your next project and to be a
+              starting my career in this awesome business<strong>.</strong> I
+              would love to help you realize your next project and to be a
               part of your team<strong>."</strong>
             </p>
           </div>
@@ -43,10 +41,10 @@
           >
             <p #text>
               <strong>"</strong>Actually I am a language teacher and I myself
-              love learning languages<strong>.</strong> I studied french and
-              chemistry for becoming a teacher and worked as teacher for German
+              love learning languages<strong>.</strong> I studied French and
+              chemistry for becoming a teacher and worked as a teacher for German
               as a foreign language<strong>.</strong> But I wanted a career
-              change and a new challenge and finally I discovered my passion for
+              change and a new challenge and finally, I discovered my passion for
               programming<strong>."</strong>
             </p>
           </div>
@@ -57,7 +55,7 @@
           >
             <p #text>
               <strong>"</strong>Sports and outdoor activities are an important
-              part of my life. I love bouldering and climbing, moutainbiking,
+              part of my life. I love bouldering and climbing, moutain biking,
               hiking and - the mountains<strong>.</strong> Ultimately I also
               discovered surfing and the fascination of the ocean<strong
                 >."</strong

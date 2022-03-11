@@ -16,7 +16,7 @@
       <div class="slide flex" (click)="slider.slideImagesLeft('projects')">
         &lsaquo;
       </div>
-      <div class="image-container">
+      <div class="image-container" (click)="slider.clickSlide('projects')" (touchstart)="slider.swipeStart($event)" (touchmove)="slider.swipe($event, 'projects')">
         <img
           src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
           #imgProject

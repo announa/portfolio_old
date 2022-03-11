@@ -24,7 +24,6 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { FooterComponent } from './footer/footer.component';
 import { ScrollAnimationComponent } from './scroll-animation/scroll-animation.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +47,7 @@ import { ScrollAnimationComponent } from './scroll-animation/scroll-animation.co
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [NavigationService],
   bootstrap: [AppComponent]
@@ -57,6 +56,9 @@ export class AppModule {
   
   constructor(router: Router, viewportScroller: ViewportScroller) {
     viewportScroller.setOffset([0, 0]);
+    if(window.innerWidth < 700){
+      viewportScroller.setOffset([0, -50]);
+    }
     router.events
       .pipe(filter((e: any) => e instanceof Scroll))
       .subscribe((e: Scroll) => {

@@ -12,6 +12,9 @@ export class SliderService {
   currentAboutImage = [0];
   currentProjectImage = [0];
   currentImage!: number[];
+  swiping: boolean = false;
+  lastTouchX!: number;
+  touchTimer!: number;
 
   constructor() {}
 
@@ -22,6 +25,37 @@ export class SliderService {
       this.textboxAboutArr = elements.toArray();
     } else {
       this.imgProjectArr = elements.toArray();
+    }
+  }
+
+  clickSlide(component: string) {
+    if (navigator.maxTouchPoints === 0) {
+      this.slideImagesRight(component);
+    }
+  }
+  
+  swipeStart(event: any) {
+    if (navigator.maxTouchPoints > 0) {
+      this.swiping = true;
+      this.touchTimer = Date.now();
+      this.lastTouchX = event.touches[0].clientX;
+      event.preventDefault();
+    }
+  }
+  
+  swipe(event: any, component: string) {
+    if (navigator.maxTouchPoints > 0 && this.swiping) {
+      event.preventDefault();
+      if (this.touchTimer - Date.now() < -5) {
+        if (event.touches[0].clientX - this.lastTouchX < -20) {
+          this.slideImagesRight(component);
+        }
+        if (event.touches[0].clientX - this.lastTouchX > 20) {
+          this.slideImagesLeft(component);
+        }
+        this.swiping = false;
+      }
+      this.swiping = false;
     }
   }
 
