@@ -39,7 +39,7 @@
           <img
             src="assets/img/portfolio/{{ project.img[0] }}"
             [style.objectPosition]="
-              project.title == 'Pokedex' ? 'bottom' : 'center'
+              project.title == 'Pokedex' ? 'bottom' : project.title == 'Network - Background Animation' ? '50% 30%' : 'center'
             "
           />
           <div class="portfolio-layer img-layer" #portfolioLayer></div>

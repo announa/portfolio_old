@@ -12,67 +12,67 @@
     {{ projects.currentProject.title }} - {{ projects.currentProject.description}}
   </h3>
   <div class="content">
-    <div class="project-images">
-      <div class="slide flex" (click)="slider.slideImagesLeft('projects')">
-        &lsaquo;
-      </div>
-      <div class="image-container" (click)="slider.clickSlide('projects')" (touchstart)="slider.swipeStart($event)" (touchmove)="slider.swipe($event, 'projects')">
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
-          #imgProject
-          class="img0"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco'
-              ? '50% 60%'
-              : '50% 30%'
-          "
-        />
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
-          #imgProject
-          class="img1"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco' ? 'bottom' : 'top'
-          "
-        />
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[3] }}"
-          #imgProject
-          class="img2"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco' ||
-            projects.currentProject.title == 'Pokedex'
-              ? 'center'
-              : 'top'
-          "
-        />
-      </div>
-      <div class="img-points">
-        <div
-          class="point point1"
-          [class.point-active]="slider.currentProjectImage[0] == 0"
-          (click)="slider.selectImage('projects', 0)"
-        ></div>
-        <div
-          class="point point2"
-          [class.point-active]="slider.currentProjectImage[0] == 1"
-          (click)="slider.selectImage('projects', 1)"
-        ></div>
-        <div
-          class="point point3"
-          [class.point-active]="slider.currentProjectImage[0] == 2"
-          (click)="slider.selectImage('projects', 2)"
-        ></div>
-      </div>
-      <div class="slide flex" (click)="slider.slideImagesRight('projects')">
-        &rsaquo;
-      </div>
-    </div>
     <div class="description">
       <!-- <p>{{ projects.currentProject.description }}</p> -->
       <p class="description-long">{{ projects.currentProject.description_long }}</p>
     </div>
     <div class="content__bottom flex">
+      <div class="project-images">
+        <div class="slide flex" (click)="slider.slideImagesLeft('projects')">
+          &lsaquo;
+        </div>
+        <div class="image-container" (click)="slider.clickSlide('projects')" (touchstart)="slider.swipeStart($event)" (touchmove)="slider.swipe($event, 'projects')">
+          <img
+            src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
+            #imgProject
+            class="img0"
+            [style.objectPosition]="
+              projects.currentProject.title == 'El Pollo Loco'
+                ? '50% 60%'
+                : '50% 30%'
+            "
+          />
+          <img
+            src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
+            #imgProject
+            class="img1"
+            [style.objectPosition]="
+              projects.currentProject.title == 'El Pollo Loco' ? 'bottom' : 'top'
+            "
+          />
+          <img
+            src="assets/img/portfolio/{{ projects.currentProject.img[3] }}"
+            #imgProject
+            class="img2"
+            [style.objectPosition]="
+              projects.currentProject.title == 'El Pollo Loco' ||
+              projects.currentProject.title == 'Pokedex'
+                ? 'center'
+                : 'top'
+            "
+          />
+        </div>
+        <div class="img-points">
+          <div
+            class="point point1"
+            [class.point-active]="slider.currentProjectImage[0] == 0"
+            (click)="slider.selectImage('projects', 0)"
+          ></div>
+          <div
+            class="point point2"
+            [class.point-active]="slider.currentProjectImage[0] == 1"
+            (click)="slider.selectImage('projects', 1)"
+          ></div>
+          <div
+            class="point point3"
+            [class.point-active]="slider.currentProjectImage[0] == 2"
+            (click)="slider.selectImage('projects', 2)"
+          ></div>
+        </div>
+        <div class="slide flex" (click)="slider.slideImagesRight('projects')">
+          &rsaquo;
+        </div>
+      </div>
       <div class="bottom__text">
         <div>
           <h4>Technologies</h4>
@@ -82,61 +82,26 @@
         </div>
         <div class="links">
           <h4>Have a look</h4>
-          <a
-            href="{{ projects.currentProject.github }}"
+          <a *ngFor="let ref of projects.currentProject.github; let i = index"
+            href="{{ projects.currentProject.github[i] }}"
             target="_blank"
             class="flex"
-            ><img src="assets/img/icons/github.svg" class="link-icon" />
-            Github-Repository</a
-          >
-          <a
+            [style.fontSize]="projects.currentProject.github.length > 1? 'clamp(14px, 1vw, 22px)' : ''"
+            [style.lineHeight]="projects.currentProject.github.length > 1? 'clamp(1.2rem, 1.5vw, 2.3rem);' : ''"
+            ><img src="assets/img/icons/github.svg" class="link-icon" [style.width.px]="projects.currentProject.github.length > 1? '25' : ''"/>
+            {{projects.currentProject.github.length > 1 && i === 0 ? "Github-Repository - JS-Version" : projects.currentProject.github.length > 1 && i === 1 ? "Github-Repository - Angular-Version" : "Github-Repository"}}</a
+            >
+            <a
             href="{{ projects.currentProject.url }}"
             target="_blank"
             class="flex"
-            ><img src="assets/img/icons/external-link.svg" class="link-icon" />
+            [style.fontSize]="projects.currentProject.github.length > 1? 'clamp(14px, 1vw, 22px)' : ''"
+            [style.lineHeight]="projects.currentProject.github.length > 1? 'clamp(1.2rem, 1.5vw, 2.3rem);' : ''"
+            ><img src="assets/img/icons/external-link.svg" class="link-icon" [style.width.px]="projects.currentProject.github.length > 1? '25' : ''"/>
             Try it online!</a
           >
         </div>
       </div>
     </div>
-    <!--       </div>
-    </div> -->
-    <!--     <div class="content-right flex">
-      <div class="img-container">
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[1] }}"
-          #imgProject
-          class="img0"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco'
-              ? '50% 60%'
-              : '50% 30%'
-          "
-        />
-      </div>
-      <div class="img-container">
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[2] }}"
-          #imgProject
-          class="img1"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco' ? 'bottom' : 'top'
-          "
-        />
-      </div>
-      <div class="img-container">
-        <img
-          src="assets/img/portfolio/{{ projects.currentProject.img[3] }}"
-          #imgProject
-          class="img2"
-          [style.objectPosition]="
-            projects.currentProject.title == 'El Pollo Loco' ||
-            projects.currentProject.title == 'Pokedex'
-              ? 'center'
-              : 'top'
-          "
-        />
-      </div>
-    </div> -->
   </div>
 </div>

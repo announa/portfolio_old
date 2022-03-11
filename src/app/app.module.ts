@@ -50,19 +50,17 @@ import { ScrollAnimationComponent } from './scroll-animation/scroll-animation.co
     FormsModule,
   ],
   providers: [NavigationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { 
-  
+export class AppModule {
   constructor(router: Router, viewportScroller: ViewportScroller) {
     viewportScroller.setOffset([0, 0]);
-    if(window.innerWidth < 700){
+    /*     if(window.innerWidth < 700){
       viewportScroller.setOffset([0, -50]);
-    }
+    } */
     router.events
       .pipe(filter((e: any) => e instanceof Scroll))
       .subscribe((e: Scroll) => {
-        
         //a good solve but it still does not scroll to anchor element after second click on the same anchor
         //one fix should be to set routing config option onSameUrlNavigation: 'reload',
         if (e.anchor) {
@@ -70,6 +68,11 @@ export class AppModule {
           /* setTimeout is the core line to solve the solution */
           setTimeout(() => {
             viewportScroller.scrollToAnchor(e.anchor as string);
+/*             setTimeout(() => {
+              if (window.innerWidth < 700 && e.anchor != 'aboutme') {
+                window.scrollTo(0, window.scrollY + 60);
+              }
+            }, 350); */
           });
         } else if (e.position) {
           // backward navigation

@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -164,7 +163,7 @@ export class StartAnimationComponent implements OnInit, AfterViewInit {
     let gradient = this.ctx.createLinearGradient(l.x1, l.y1, l.x2, l.y2);
     gradient.addColorStop(0, `hsla(280, 90%, 70%, ${alpha}`);
     gradient.addColorStop(0.5, `hsla(217, 80%, 40%, ${alpha}`);
-    gradient.addColorStop(1, `hsla(165, 100%,20%, ${alpha})`);
+    gradient.addColorStop(1, `hsla(180, 100%,20%, ${alpha})`);
     return gradient;
   }
 

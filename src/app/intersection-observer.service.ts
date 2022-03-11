@@ -36,9 +36,9 @@ export class IntersectionObserverService implements AfterViewInit {
           ) {
             this.setElementFamily(e.target);
           }
-          if(e.target.classList.contains('project')){
+          if (e.target.classList.contains('project')) {
             setTimeout(() => {
-              e.target.classList.add('img-layer--hover')
+              e.target.classList.add('img-layer--hover');
             }, 1000);
           }
 
@@ -60,9 +60,11 @@ export class IntersectionObserverService implements AfterViewInit {
     children.forEach((child: any) => {
       child.classList.add('tt-0');
     });
+    if (target.firstChild.lastChild && target.lastChild.lastChild) {
       setTimeout(() => {
         target.firstChild.lastChild.classList.remove('o-0');
         target.lastChild.lastChild.classList.remove('o-0');
       }, 600);
+    }
   }
 }
