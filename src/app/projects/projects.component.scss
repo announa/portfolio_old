@@ -1,5 +1,4 @@
 .component-container {
-  /*   height: 100vh; */
   justify-content: flex-start;
   padding-bottom: 50px;
 
@@ -209,7 +208,7 @@ h4 {
   cursor: pointer;
   height: clamp(50px, 5vw, 130px);
   top: 110px;
-  left: 13vw;
+  left: 100%;
   font-size: clamp(16px, 1.6vw, 28px);
   font-weight: 500;
   color: var(--text-colored);
@@ -269,46 +268,8 @@ h4 {
   box-shadow: 3px 3px 8px rgba(10, 10, 10, 0.5);
 }
 
-/* .content-container{
-  height: 100%;
-  gap: clamp(50px, 1.2vw, 100px);
-}
-
-.content-left{
-  flex-direction: column;
-  flex: 1;
-}
-
-.content-right{
-  height: 100%;
-  flex-direction: column;
-}
-
-.img-container{
-  height: 33.33%;
-  
-  img{
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-  }
-}
-
-.img0 {
-  object-position: 50% 30%;
-}
-.img1 {
-  object-position: 0 0;
-}
-.img2 {
-  object-position: top;
-} */
-
 .description-long {
   @media (max-width: 800px) {
     text-align: center;
   }
-/*   @media (min-width: 2100px) {
-    max-width: 45%;
-  } */
 }
