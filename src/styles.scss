@@ -23,11 +23,12 @@ body {
 
 .component-container {
   color: white;
-  min-height: 100vh;
+  min-height: calc(100vh + 100px);
   width: 100%;
   flex-direction: column;
   padding: 125px 13vw 150px;
   background-color: rgb(10, 10, 10);
+  position: relative;
 
   @media (max-width: 450px) {
     padding: 125px 6vw 150px;

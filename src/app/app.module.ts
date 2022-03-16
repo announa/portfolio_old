@@ -55,7 +55,7 @@ import { ScrollAnimationComponent } from './scroll-animation/scroll-animation.co
 export class AppModule {
   constructor(router: Router, viewportScroller: ViewportScroller) {
     viewportScroller.setOffset([0, 0]);
-    /*     if(window.innerWidth < 700){
+  /*       if(window.innerWidth < 700){
       viewportScroller.setOffset([0, -50]);
     } */
     router.events
@@ -68,13 +68,9 @@ export class AppModule {
           /* setTimeout is the core line to solve the solution */
           setTimeout(() => {
             viewportScroller.scrollToAnchor(e.anchor as string);
-/*             setTimeout(() => {
-              if (window.innerWidth < 700 && e.anchor != 'aboutme') {
-                window.scrollTo(0, window.scrollY + 60);
-              }
-            }, 350); */
           });
         } else if (e.position) {
+          console.log(e)
           // backward navigation
           viewportScroller.scrollToPosition(e.position);
         } else {

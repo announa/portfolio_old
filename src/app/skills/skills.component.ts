@@ -43,7 +43,7 @@ export class SkillsComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.skillArr = this.domSkills.toArray();
-    const observeItems = [this.skillsHeading, this.skillContainer];
+    const observeItems = [this.skillsHeading];
     this.observer.createIntersectionObserver(observeItems);
   }
 

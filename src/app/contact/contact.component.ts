@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    const observeItems = [this.contactHeading, this.contactForm];
+    const observeItems = [this.contactHeading];
     this.observer.createIntersectionObserver(observeItems);
   }
 

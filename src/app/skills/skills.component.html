@@ -1,6 +1,6 @@
 
 <div id="skills" class="component-container fade-in flex">
- <h3 #skillsHeading class="o-0">my <span class="text-blue">skills</span></h3>
+ <h3 #skillsHeading class="heading o-0">my <span class="text-blue">skills</span></h3>
   <div class="skill-container o-0" #skillContainer (click)="shuffleSkills()" [class.skill-container-1]="shuffle == 1">
     <div class="line line1"></div>
     <div class="line line2"></div>
@@ -9,4 +9,5 @@
       <p>{{ skill }}</p>
     </div>
   </div>
+  <div class="clip-path"></div>
 </div>

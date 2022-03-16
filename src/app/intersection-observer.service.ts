@@ -28,18 +28,24 @@ export class IntersectionObserverService implements AfterViewInit {
     }
 
     this.observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
+      entries.forEach((e: any) => {
         if (e.isIntersecting) {
           if (
-            e.target.classList.contains('project') ||
-            e.target.classList.contains('skill-container')
+            e.target.classList.contains('project')
           ) {
             this.setElementFamily(e.target);
-          }
-          if (e.target.classList.contains('project')) {
             setTimeout(() => {
               e.target.classList.add('img-layer--hover');
             }, 1000);
+          }
+          
+          if(e.target.classList.contains('heading') && e.target.nextSibling){
+            setTimeout(() => {
+              if(e.target.nextSibling.classList.contains('skill-container')){
+                this.setElementFamily(e.target.nextSibling);
+              }
+              e.target.nextSibling.classList.add('tt-0', 'o-1');
+            }, 500);
           }
 
           e.target.classList.add('o-1');
