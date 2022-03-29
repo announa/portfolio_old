@@ -67,6 +67,9 @@ h3 {
   }
 
   @media (min-width: 1400px) {
+    max-height: 260px;
+  }
+  @media (min-width: 2200px) {
     max-height: 300px;
   }
 
