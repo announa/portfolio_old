@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, ViewChild } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -24,10 +24,16 @@ export class ProjectsService {
       title: 'El Pollo Loco',
       link: 'el_pollo_loco',
       description: 'A jump and run game',
-      description_long: 'This is a funny little game written in JavaScript. It was my first project I realized using object orientated programming.',
+      description_long:
+        'This is a funny little game written in JavaScript. It was my first project I realized using object orientated programming.',
       github: ['https://github.com/announa/el_pollo_loco'],
       url: 'https://annaludewig.net/projects/el_pollo_loco/index.html',
-      img: ['pollo_loco.jpg', 'pollo_loco_0.png', 'pollo_loco_1.png', 'pollo_loco_2.png'],
+      img: [
+        'pollo_loco.jpg',
+        'pollo_loco_0.png',
+        'pollo_loco_1.png',
+        'pollo_loco_2.png',
+      ],
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
@@ -49,7 +55,12 @@ export class ProjectsService {
         'A card game which can be played with multiple persons online. The backend was realized using firebase. This game was my first bigger project I built with TypeScript and Angular.',
       github: ['https://github.com/announa/ring_of_fire'],
       url: 'https://ring-of-fire-7eef3.web.app/',
-      img: ['ring_of_fire.jpg', 'ring_of_fire_0.png', 'ring_of_fire_1.png', 'ring_of_fire_2.png'],
+      img: [
+        'ring_of_fire.jpg',
+        'ring_of_fire_0.png',
+        'ring_of_fire_1.png',
+        'ring_of_fire_2.png',
+      ],
       technologies: ['HTML', 'CSS', 'TypeScript', 'Angular'],
     },
     {
@@ -58,12 +69,17 @@ export class ProjectsService {
       description: 'A background animation with mouse interaction',
       description_long:
         'This is an unobstrusive background animation with mouse interaction. I inicially wrote it in JavaScript, but for this website I adapted it to angular.',
-      github: ['https://github.com/announa/background-animation---network', 'https://github.com/announa/background-animation---network__angular'],
+      github: [
+        'https://github.com/announa/background-animation---network',
+        'https://github.com/announa/background-animation---network__angular',
+      ],
       url: 'https://annaludewig.net/projects/network-animation/index.html',
       img: ['bg-anim.jpg', 'bg-anim_0.png', 'bg-anim_1.png', 'bg-anim_2.png'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'Angular', 'TypeScript'],
     },
   ];
+
+  aboutme!: ElementRef;
 
   constructor() {}
 
@@ -74,9 +90,16 @@ export class ProjectsService {
       this.openProject = true;
     }, 1);
     this.scrollposition = window.scrollY;
+    this.fixBody();
+  }
+
+  fixBody() {
     setTimeout(() => {
+      this.aboutme.nativeElement.style.marginTop =
+        (-this.scrollposition).toString() + 'px';
       document.body.style.height = '100vh';
       document.body.style.overflow = 'hidden';
+      window.scrollTo(0, this.scrollposition);
     }, 500);
   }
 
@@ -85,10 +108,17 @@ export class ProjectsService {
     setTimeout(() => {
       this.projectSelected = false;
     }, 500);
-    document.body.style.height = '';
+    this.removefixedBody();
+  }
+
+  removefixedBody() {
     document.body.style.overflowY = '';
+    document.body.style.height = '';
+    this.aboutme.nativeElement.style.marginTop = '';
     if (this.scrollposition) {
+      document.documentElement.style.scrollBehavior = 'auto';
       window.scrollTo(0, this.scrollposition);
+      document.documentElement.style.scrollBehavior = '';
     }
   }
 }

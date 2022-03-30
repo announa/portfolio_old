@@ -9,6 +9,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { IntersectionObserverService } from '../intersection-observer.service';
+import { ProjectsService } from '../projects.service';
 import { SliderService } from '../slider.service';
 
 @Component({
@@ -19,6 +20,7 @@ import { SliderService } from '../slider.service';
 export class AboutMeComponent implements OnInit, AfterViewInit {
   pictures = ['me1.jpg'];
   currentAboutImage = 0;
+  @ViewChild('aboutme') aboutme!: ElementRef
   @ViewChildren('aboutHeading') aboutHeading!: QueryList<any>;
   @ViewChildren('aboutSection') aboutSection!: QueryList<any>;
   @ViewChildren('imgAbout') imgAbout!: QueryList<any>;
@@ -34,11 +36,12 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   linesArr!: ElementRef[];
   textHover = false;
 
-  constructor(public slider: SliderService) {}
+  constructor(public slider: SliderService, private projectService: ProjectsService) {}
 
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
+    this.projectService.aboutme = this.aboutme;
     this.slider.getHTMLElements('aboutmeImg', this.imgAbout);
     this.slider.getHTMLElements('aboutmeText', this.textboxAbout);
     this.textboxAboutArr = this.textboxAbout.toArray();

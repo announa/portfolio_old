@@ -10,47 +10,70 @@
         navigation.forceNavigation('/', '');
         projects.closeProject()
       "
-      >home</a
-    >
+      (mouseover)="hoverOn($event)"
+      (mouseleave)="hoverOff($event)"
+      >home
+      <div class="hover-line transition-left" #hoverLine></div
+    ></a>
     <a
       routerLink="/about/#aboutme"
       [class.link-active]="this.router.url == '/about#aboutme'"
       (click)="
         toggleMenu();
+        resetHoverLine($event);
         navigation.forceNavigation('/about', 'aboutme');
         projects.closeProject()
       "
-      >about</a
+      (mouseover)="hoverOn($event)"
+      (mouseleave)="hoverOff($event)"
+      >about
+      <div class="hover-line transition-left" #hoverLine></div>
+      </a
     >
     <a
       routerLink="/about/#portfolio"
       [class.link-active]="this.router.url == '/about#portfolio'"
       (click)="
         toggleMenu();
+        resetHoverLine($event);
         navigation.forceNavigation('/about', 'portfolio');
         projects.closeProject()
       "
-      >portfolio</a
+      (mouseover)="hoverOn($event)"
+      (mouseleave)="hoverOff($event)"
+      >portfolio
+      <div class="hover-line transition-left" #hoverLine></div>
+      </a
     >
     <a
       routerLink="/about/#skills"
       [class.link-active]="this.router.url == '/about#skills'"
       (click)="
         toggleMenu();
+        resetHoverLine($event);
         navigation.forceNavigation('/about', 'skills');
         projects.closeProject()
       "
-      >skills</a
+      (mouseover)="hoverOn($event)"
+      (mouseleave)="hoverOff($event)"
+      >skills
+      <div class="hover-line transition-left" #hoverLine></div>
+      </a
     >
     <a
       routerLink="/about/#contact"
       [class.link-active]="this.router.url == '/about#contact'"
       (click)="
         toggleMenu();
+        resetHoverLine($event);
         navigation.forceNavigation('/about', 'contact');
         projects.closeProject()
       "
-      >contact</a
+      (mouseover)="hoverOn($event)"
+      (mouseleave)="hoverOff($event)"
+      >contact
+      <div class="hover-line transition-left" #hoverLine></div>
+      </a
     >
   </div>
 </nav>

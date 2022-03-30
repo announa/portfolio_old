@@ -27,7 +27,7 @@ nav {
     align-items: center;
   }
 
-  @media (min-width: 1800px){
+  @media (min-width: 2200px){
     height: 100px;
   }
 
@@ -42,21 +42,35 @@ nav {
   gap: clamp(20px, 3vw, 50px);
   width: 100%;
 
+
   a {
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    padding: 5px 0;
 
-    &:hover {
-      color: rgb(162, 162, 162);
+    .hover-line{
+      position: absolute;
+      bottom: 0;
+      left: -110%;
+      width: 100%;
+      height: 2px;
+      background:  linear-gradient(to right, rgba(var(--text-colored-violet), 1), rgba(var(--text-colored-violet), .7)  40%);
+      border-radius: 2px;
     }
-
+    
     @media (max-width: 700px) {
       margin-top: 20px;
     }
   }
-
+  
   @media (max-width: 700px) {
     flex-direction: column;
   }
+}
+
+.transition-left{
+  transition: left 200ms ease-in-out;
 }
 
 .nav-dark {
@@ -66,8 +80,8 @@ nav {
 }
 
 .link-active {
-  color: var(--text-colored-violet);
-  text-shadow: 0 0 4px var(--text-colored-violet);
+  color: rgb(var(--text-colored-violet));
+  text-shadow: 0 0 4px rgb(var(--text-colored-violet));
 
   &:hover {
     color: rgb(255, 91, 241) !important;
@@ -111,7 +125,7 @@ nav {
   }
 
   &:hover .menu-bar {
-    background-color: var(--text-colored-violet);
+    background-color: rgb(var(--text-colored-violet));
   }
 
   &:hover .bar1,

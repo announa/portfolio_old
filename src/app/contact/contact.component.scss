@@ -30,8 +30,8 @@
 label {
   margin-bottom: 10px;
   
-  @media (min-width: 1400px) {
-    margin-bottom: 25px;
+  @media (min-width: 2200px) {
+    margin-bottom: 20px;
   }
 }
 
@@ -57,18 +57,18 @@ label {
 
 .input-hint{
   font-size: 14px;
-  color: var(--text-colored-violet);
+  color: rgb(var(--text-colored-violet));
   margin-top: -10px;
   margin-bottom: 25px;
 }
 
 .invalid{
-  outline: 1.5px solid var(--text-colored-violet) !important;
-  border-right: 1px solid var(--text-colored-violet) !important;
+  outline: 1.5px solid rgb(var(--text-colored-violet)) !important;
+  border-right: 1px solid rgb(var(--text-colored-violet)) !important;
 
   &:focus{
-    outline: 2px solid var(--text-colored-violet);
-    box-shadow: 0 0 3px var(--text-colored-violet), inset 0 0 3px var(--text-colored-violet);
+    outline: 2px solid rgb(var(--text-colored-violet));
+    box-shadow: 0 0 3px rgb(var(--text-colored-violet)), inset 0 0 3px rgb(var(--text-colored-violet));
   }
 }
 

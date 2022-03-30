@@ -1,9 +1,7 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   HostListener,
-  Input,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -16,10 +14,12 @@ import { ProjectsService } from '../projects.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit, AfterViewInit {
+export class NavigationComponent implements OnInit {
   hideElement = true;
   navOpen = false;
   bigger700;
+  hoverTimer!: number;
+  lastHoverTarget!: ElementRef;
   @ViewChild('nav') nav!: ElementRef;
   @HostListener('window:resize', ['$event'])
   resize() {
@@ -39,7 +39,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
       this.hideElement = false;
     }, 1);
   }
-  ngAfterViewInit() {}
 
   toggleMenu() {
     this.navOpen = !this.navOpen;
@@ -53,5 +52,39 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     } else {
       this.bigger700 = false;
     }
+  }
+
+  hoverOn(event: any) {
+    if (!event.target.classList.contains('link-active'))
+      if (
+        event.target != this.lastHoverTarget ||
+        (event.target == this.lastHoverTarget &&
+          Date.now() - this.hoverTimer > 210)
+      ) {
+        event.target.lastChild.style.left = '0%';
+        event.target.lastChild.classList.add('transition-left');
+      }
+  }
+  hoverOff(event: any) {
+    if (!event.target.classList.contains('link-active')) {
+      this.hoverTimer = Date.now();
+      this.lastHoverTarget = event.target;
+      event.target.lastChild.style.left = '110%';
+
+      setTimeout(() => {
+        event.target.lastChild.classList.remove('transition-left');
+        event.target.lastChild.style.left = '';
+        setTimeout(() => {
+          event.target.lastChild.classList.add('transition-left');
+        }, 10);
+      }, 210);
+    }
+  }
+  resetHoverLine(event: any) {
+    event.target.lastChild.classList.remove('transition-left');
+    event.target.lastChild.style.left = '';
+    setTimeout(() => {
+      event.target.lastChild.classList.add('transition-left');
+    }, 10);
   }
 }
