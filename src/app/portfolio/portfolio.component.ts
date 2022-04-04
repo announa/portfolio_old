@@ -46,6 +46,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log('portfolio loaded')
   }
   
   ngAfterViewInit() {

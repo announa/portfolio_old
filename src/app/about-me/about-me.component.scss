@@ -16,7 +16,7 @@
   position: relative;
   flex: 0;
   
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     padding: 30px 0 40px;
   }
 }
@@ -34,7 +34,7 @@
   align-items: center;
   padding: 3% 0;
   gap: clamp(20px, 3.5vw, 100px);
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     flex-direction: column;
     align-items: center;
     gap: 0;
@@ -48,7 +48,7 @@
   background-color: rgb(50, 50, 50);
   transition: transform 600ms ease-in-out 1.5s;
 
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     width: 65vw;
   }
 }
@@ -87,10 +87,6 @@ h3 {
   margin: 20px 0;
   border-radius: 50%;
 
-  @media (min-width: 800px) {
-    /* margin-bottom: 0; */
-  }
-
   img {
     width: 30vh;
     max-width: 500px;
@@ -98,7 +94,6 @@ h3 {
     object-fit: cover;
     filter: saturate(70%) brightness(80%);
     position: absolute;
-    cursor: pointer;
     transition: left 350ms ease-in-out;
   }
 }
@@ -117,11 +112,14 @@ h3 {
 
 .text-container {
   overflow: hidden;
-  cursor: pointer;
   width: 100%;
   position: relative;
-
-  @media (min-width: 800px) {
+  
+  @media (max-width: 700px) {
+    cursor: pointer;
+  }
+  
+  @media (min-width: 1000px) {
     flex: 1;
     width: unset;
     margin-top: 20px;
@@ -139,7 +137,7 @@ h3 {
   top: 0;
   transition: left 350ms ease-in-out;
 
-  @media (min-width: 800px) {
+  @media (min-width: 1000px) {
     top: 50%;
     transform: translateY(-50%);
   }
@@ -147,12 +145,12 @@ h3 {
   p {
     text-align: center;
     font-weight: 400;
-    line-height: 1.75rem;
+    /* line-height: 1.75rem; */
     letter-spacing: 0.5px;
 
-    @media (min-width: 1400px) {
+/*     @media (min-width: 1400px) {
       line-height: 2.5rem;
-    }
+    } */
   }
 }
 
@@ -164,7 +162,6 @@ h3 {
 }
 .text3 {
   left: -100%;
-  display: none;
 }
 
 .down {
@@ -174,7 +171,7 @@ h3 {
 
 .img-points {
   margin-bottom: 1vw;
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     margin-top: 10px;
     height: 30px;
   }

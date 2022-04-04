@@ -52,6 +52,63 @@ body {
   /* color: rgb(10, 10, 10); */
 }
 
+h1 {
+  font-size: clamp(32px, 2.5vw, 52px);
+  font-weight: 500;
+  margin-bottom: clamp(20px, 2vw, 40px);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: clamp(22px, 2vw, 38px);
+}
+
+h3 {
+  font-weight: 500;
+  text-align: center;
+  font-size: clamp(24px, 3vw, 40px);
+  margin-bottom: 60px;
+
+  @media (min-width: 1800px) {
+    margin-bottom: 100px;
+  }
+  @media (min-width: 2200px) {
+    font-size: clamp(40px, 2vw, 62px);
+  }
+}
+
+h4 {
+  font-size: clamp(16px, 1.6vw, 32px);
+}
+
+a {
+  font-size: clamp(18px, 1.4vw, 24px);
+  color: white;
+  text-decoration: none;
+
+  @media (min-width: 2200px) {
+    font-size: clamp(18px, 1.4vw, 26px);
+  }
+}
+
+p,
+label,
+li {
+  line-height: 1.75rem;
+  font-size: clamp(14px, 1.2vw, 16px);
+  
+  @media (min-width: 1400px) {
+    line-height: clamp(1.75rem, 2vw, 2.2rem);
+    font-size: clamp(16px, 1.1vw, 20px);
+    
+  }
+
+  @media (min-width: 2200px) {
+    line-height: clamp(2.2rem, 1.8vw, 2.8rem);
+    font-size: clamp(20px, 1vw, 28px);
+  }
+}
+
 .bg-white {
   background-color: rgb(238, 238, 238);
 
@@ -97,57 +154,6 @@ body {
     &:hover {
       color: #555;
     }
-  }
-}
-
-h1 {
-  font-size: clamp(32px, 2.5vw, 52px);
-  font-weight: 500;
-  margin-bottom: clamp(20px, 2vw, 40px);
-}
-
-h2 {
-  font-weight: 500;
-  font-size: clamp(22px, 2vw, 38px);
-}
-
-h3 {
-  font-weight: 500;
-  text-align: center;
-  font-size: clamp(24px, 3vw, 42px);
-  margin-bottom: 60px;
-
-  @media (min-width: 1800px) {
-    margin-bottom: 100px;
-  }
-  @media (min-width: 2200px) {
-    font-size: clamp(24px, 3vw, 48px);
-  }
-}
-
-h4 {
-  font-size: clamp(16px, 1.6vw, 32px);
-}
-
-a {
-  font-size: clamp(18px, 1.4vw, 24px);
-  color: white;
-  text-decoration: none;
-
-  @media (min-width: 2200px) {
-    font-size: clamp(18px, 1.4vw, 26px);
-  }
-}
-
-p,
-label,
-li {
-  line-height: clamp(1.5rem, 2vw, 2.2rem);
-  font-size: clamp(14px, 1.3vw, 20px);
-
-  @media (min-width: 2200px) {
-    line-height: clamp(1.5rem, 2vw, 2.5rem);
-    font-size: clamp(14px, 1.3vw, 24px);
   }
 }
 

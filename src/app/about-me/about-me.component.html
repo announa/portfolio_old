@@ -6,10 +6,8 @@
       <div class="slide" (click)="slider.slideImagesLeft('aboutme')">
         &lsaquo;
       </div>
-      <div class="content-container" #aboutSection (click)="slider.clickSlide('aboutme')" (touchstart)="slider.swipeStart($event)" (touchmove)="slider.swipe($event, 'aboutme')">
-        <div
-          class="img-container fade-in"
-        >
+      <div class="content-container" #aboutSection>
+        <div class="img-container fade-in">
           <img src="assets/img/about/me1.jpg" class="img1" #imgAbout />
           <img src="assets/img/about/me2.jpg" class="img2" #imgAbout />
           <img src="assets/img/about/me3_2.jpg" class="img3" #imgAbout />
@@ -17,7 +15,10 @@
         <div
           class="text-container"
           #textContainer
+          (touchstart)="slider.swipeStart($event)"
+          (touchmove)="slider.swipe($event, 'aboutme')"
         >
+          <!-- (click)="slider.clickSlide('aboutme')" -->
           <div
             class="textbox flex text1"
             #textboxAbout
@@ -30,8 +31,8 @@
               applications<strong>.</strong> Now<strong>,</strong> after my
               training, I am ready to take the next step<strong>,</strong>
               starting my career in this awesome business<strong>.</strong> I
-              would love to help you realize your next project and to be a
-              part of your team<strong>."</strong>
+              would love to help you realize your next project and to be a part
+              of your team<strong>."</strong>
             </p>
           </div>
           <div
@@ -41,11 +42,11 @@
           >
             <p #text>
               <strong>"</strong>Actually I am a language teacher and I myself
-              love learning languages<strong>.</strong> I studied French and
-              chemistry for becoming a teacher and worked as a teacher for German
-              as a foreign language<strong>.</strong> But I wanted a career
-              change and a new challenge and finally, I discovered my passion for
-              programming<strong>."</strong>
+              love learning languages<strong>.</strong> After my studies of
+              chemistry and french for becoming a teacher, I worked as a
+              language teacher for several years<strong>.</strong> But I wanted
+              a career change and a new challenge and finally, I discovered my
+              passion for programming<strong>."</strong>
             </p>
           </div>
           <div

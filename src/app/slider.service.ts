@@ -35,22 +35,24 @@ export class SliderService {
   }
   
   swipeStart(event: any) {
+    console.log('swipe start')
     if (navigator.maxTouchPoints > 0) {
       this.swiping = true;
       this.touchTimer = Date.now();
       this.lastTouchX = event.touches[0].clientX;
-      event.preventDefault();
+      /* event.preventDefault(); */
     }
   }
   
   swipe(event: any, component: string) {
     if (navigator.maxTouchPoints > 0 && this.swiping) {
-      event.preventDefault();
-      if (this.touchTimer - Date.now() < -5) {
-        if (event.touches[0].clientX - this.lastTouchX < -20) {
+      if (this.touchTimer - Date.now() < -1) {
+        if (event.touches[0].clientX - this.lastTouchX < -5) {
+          event.preventDefault();
           this.slideImagesRight(component);
         }
-        if (event.touches[0].clientX - this.lastTouchX > 20) {
+        if (event.touches[0].clientX - this.lastTouchX > 5) {
+          event.preventDefault();
           this.slideImagesLeft(component);
         }
         this.swiping = false;

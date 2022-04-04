@@ -38,7 +38,9 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
 
   constructor(public slider: SliderService, private projectService: ProjectsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('about me loaded')
+  }
 
   ngAfterViewInit(): void {
     this.projectService.aboutme = this.aboutme;
