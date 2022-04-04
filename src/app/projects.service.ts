@@ -30,9 +30,9 @@ export class ProjectsService {
       url: 'https://annaludewig.net/projects/el_pollo_loco/index.html',
       img: [
         'pollo_loco.jpg',
-        'pollo_loco_0.png',
-        'pollo_loco_1.png',
-        'pollo_loco_2.png',
+        'pollo_loco_0.jpg',
+        'pollo_loco_1.jpg',
+        'pollo_loco_2.jpg',
       ],
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
@@ -44,7 +44,7 @@ export class ProjectsService {
         'In this Pokémon gallery you can look up all the Pokémon or search them by name or their index. It uses the Pokeapi.',
       github: ['https://github.com/announa/pokedex'],
       url: 'https://annaludewig.net/projects/pokedex/index.html',
-      img: ['pokedex.jpg', 'pokedex_0.png', 'pokedex_1.png', 'pokedex_2.png'],
+      img: ['pokedex.jpg', 'pokedex_0.jpg', 'pokedex_1.jpg', 'pokedex_2.jpg'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
     },
     {
@@ -57,9 +57,9 @@ export class ProjectsService {
       url: 'https://ring-of-fire-7eef3.web.app/',
       img: [
         'ring_of_fire.jpg',
-        'ring_of_fire_0.png',
-        'ring_of_fire_1.png',
-        'ring_of_fire_2.png',
+        'ring_of_fire_0.jpg',
+        'ring_of_fire_1.jpg',
+        'ring_of_fire_2.jpg',
       ],
       technologies: ['HTML', 'CSS', 'TypeScript', 'Angular'],
     },
@@ -74,7 +74,7 @@ export class ProjectsService {
         'https://github.com/announa/background-animation---network__angular',
       ],
       url: 'https://annaludewig.net/projects/network-animation/index.html',
-      img: ['bg-anim.jpg', 'bg-anim_0.png', 'bg-anim_1.png', 'bg-anim_2.png'],
+      img: ['bg-anim.jpg', 'bg-anim_0.jpg', 'bg-anim_1.jpg', 'bg-anim_2.jpg'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'Angular', 'TypeScript'],
     },
   ];
