@@ -82,7 +82,7 @@ label {
   color: var(--text-colored);
   border: 1px solid var(--text-colored);
   background-color: unset;
-  font-size: 1rem;
+  font-size: clamp(13px, calc(13px + 0.8vw), 18px);
   font-weight: 400;
   transition: all 50ms ease-in-out;
   position: relative;

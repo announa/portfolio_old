@@ -35,7 +35,7 @@ h3{
   position: absolute;
 
   p {
-    font-size: clamp(12px, 2.5vh, 18px);
+    font-size: clamp(12px, calc(12px + 1vh), 18px);
 
     @media (max-width: 500px) {
       font-size: clamp(12px, 3vw, 18px);

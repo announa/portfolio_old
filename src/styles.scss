@@ -1,7 +1,11 @@
+@import "./fonts.scss";
+
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;
+  
+  font-weight: 300;
 }
 
 html {
@@ -54,19 +58,19 @@ body {
 
 h1 {
   font-size: clamp(32px, 2.5vw, 52px);
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: clamp(20px, 2vw, 40px);
 }
 
 h2 {
-  font-weight: 500;
+  font-weight: 400;
   font-size: clamp(22px, 2vw, 38px);
 }
 
 h3 {
-  font-weight: 500;
+  font-weight: 300;
   text-align: center;
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(24px, calc(24px + 3vw), 40px);
   margin-bottom: 60px;
 
   @media (min-width: 1800px) {
@@ -78,11 +82,11 @@ h3 {
 }
 
 h4 {
-  font-size: clamp(16px, 1.6vw, 32px);
+  font-size: clamp(18px, calc(18px + 0.8vw), 32px);
 }
 
 a {
-  font-size: clamp(18px, 1.4vw, 24px);
+  font-size: clamp(18px, calc(18px + 1.4vw), 24px);
   color: white;
   text-decoration: none;
 
@@ -95,16 +99,16 @@ p,
 label,
 li {
   line-height: 1.75rem;
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(16px, calc(16px + 1vw), 20px);
   
   @media (min-width: 1400px) {
     line-height: clamp(1.75rem, 2vw, 2.2rem);
-    font-size: clamp(16px, 1.1vw, 20px);
+    font-size: clamp(16px, calc(16px + 1.2vw), 20px);
     
   }
 
   @media (min-width: 2200px) {
-    line-height: clamp(2.2rem, 1.8vw, 2.8rem);
+    line-height: clamp(2.2rem, calc(2.2rem + 1.2vw), 2.8rem);
     font-size: clamp(20px, 1vw, 28px);
   }
 }
@@ -159,7 +163,7 @@ li {
 
 input,
 textarea {
-  font-size: clamp(14px, 1vw, 18px);
+  font-size: clamp(14px, calc(14px + 0.8vw), 18px);
   @media (min-width: 2200px) {
     font-size: clamp(18px, 1.4vw, 25px);
   }
@@ -224,16 +228,13 @@ textarea {
 
 .text-blue {
   color: var(--text-colored);
-  font-weight: 500;
 }
 .text-blue2 {
   color: var(--text-colored);
-  font-weight: 500;
 }
 
 .text-violet {
   color: rgb(var(--text-colored-violet));
-  font-weight: 500;
 }
 
 .img-points {

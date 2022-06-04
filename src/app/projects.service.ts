@@ -47,7 +47,7 @@ export class ProjectsService {
       img: ['pokedex.jpg', 'pokedex_0.jpg', 'pokedex_1.jpg', 'pokedex_2.jpg'],
       technologies: ['HTML', 'CSS', 'JavaScript', 'API'],
     },
-    {
+/*     {
       title: 'Ring of Fire',
       link: 'ring_of_fire',
       description: 'A multiplayer online card game',
@@ -60,6 +60,22 @@ export class ProjectsService {
         'ring_of_fire_0.jpg',
         'ring_of_fire_1.jpg',
         'ring_of_fire_2.jpg',
+      ],
+      technologies: ['HTML', 'CSS', 'TypeScript', 'Angular'],
+    }, */
+    {
+      title: 'Kanban',
+      link: 'kanban',
+      description: 'A kanban board',
+      description_long:
+        'Kanban is a process management tool that helps you organizing your tasks and workflow. This was my biggenst project so far. It is written in TypeScript using Angular as Framework und Firebase for the backend.',
+      github: ['https://github.com/announa/kanban-board'],
+      url: 'https://www.annaludewig.net/projects/kanban/index.html',
+      img: [
+        'kanban.jpg',
+        'kanban_0.jpg',
+        'kanban_1.jpg',
+        'kanban_2.jpg',
       ],
       technologies: ['HTML', 'CSS', 'TypeScript', 'Angular'],
     },
